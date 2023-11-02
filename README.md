@@ -1,2 +1,2 @@
 # sme_e-commerce-website
-UM SME group project
+UM SME group project (Sui)
