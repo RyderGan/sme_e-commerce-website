@@ -111,7 +111,7 @@ $getposts = mysql_query("SELECT * FROM products WHERE id ='$pid'") or die(mysql_
 							<ul style="float: left;">
 								<li style="float: left; padding: 0px 25px 25px 25px;">
 									<div class="home-prodlist-img"><a href="view_product.php?pid='.$id.'">
-										<img src="../image/product/'.$item.'/'.$picture.'" class="home-prodlist-imgi">
+										<img src="../image/product/'.$item.'/'.$picture.'" class="category-img">
 										</a>
 										<div style="text-align: center; padding: 0 0 6px 0;"> <span style="font-size: 15px;">'.$pName.'</span><br> Price: '.$price.' Tk</div>
 									</div>
