@@ -56,19 +56,19 @@ if (isset($_POST['addcart'])) {
 </head>
 <body>
 	<?php include ( "../inc/mainheader.inc.php" ); ?>
-	<div class="categolis">
+	<div class="categoryHeaders">
 		<table>
 			<tr>
 				<th>
-					<a href="NoodlesCanned.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Noodles&Canned</a>
+					<a href="NoodlesCanned.php" >Noodles&Canned</a>
 				</th>
-				<th><a href="Seasonings.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Seasonings</a></th>
-				<th><a href="Drinks.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Drinkss</a></th>
-				<th><a href="Snacks.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Snacks</a></th>
-				<th><a href="Sweets.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Sweets</a></th>
-				<th><a href="Soap&Detergent.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Soap&Detergent</a></th>
-				<th><a href="Shampoo.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Shampoo</a></th>
-				<th><a href="Hygene.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Hygiene</a></th>
+				<th><a href="Seasonings.php" >Seasonings</a></th>
+				<th><a href="Drinks.php" >Drinkss</a></th>
+				<th><a href="Snacks.php" >Snacks</a></th>
+				<th><a href="Sweets.php" >Sweets</a></th>
+				<th><a href="Soap&Detergent.php" >Soap&Detergent</a></th>
+				<th><a href="Shampoo.php" >Shampoo</a></th>
+				<th><a href="Hygene.php" >Hygiene</a></th>
 			</tr>
 		</table>
 	</div>
@@ -82,7 +82,7 @@ if (isset($_POST['addcart'])) {
 				</div>
 				</div>
 				<div style="float: right;width: 40%;color: #067165;background-color: #ddd;padding: 10px;">
-					<div style="">
+					<div >
 						<h3 style="font-size: 25px; font-weight: bold; ">'.$pName.'</h3><hr>
 						<h3 style="padding: 20px 0 0 0; font-size: 20px;">Price: '.$price.'Php</h3><hr>
 						<h3 style="padding: 20px 0 0 0; font-size: 22px; ">Pieces:'.$piece.'</h3>

@@ -22,23 +22,21 @@ else {
 </head>
 <body>
 	<?php include ( "../inc/mainheader.inc.php" ); ?>
-	<div class="categolis">
+	<div class="categoryHeaders">
 		<table>
 			<tr>
-				<th>
-					<a href="NoodlesCanned.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;;border-radius: 12px;">Noodles&Canned</a>
-				</th>
-				<th><a href="Seasonings.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #24bfae;border-radius: 12px;">Seasonings</a></th>
-				<th><a href="Drinks.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;;border-radius: 12px;">Drinks</a></th>
-				<th><a href="Snacks.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;;border-radius: 12px;">Snacks</a></th>
-				<th><a href="Sweets.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;;border-radius: 12px;">Sweets</a></th>
-				<th><a href="Soap&Detergent.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;;border-radius: 12px;">Soap&Detergent</a></th>
-				<th><a href="Shampoo.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;;border-radius: 12px;">Shampoo</a></th>
-				<th><a href="Hygene.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;;border-radius: 12px;">Hygiene</a></th>
+				<th><a href="NoodlesCanned.php" >Cans</a></th>
+				<th><a href="Snacks.php" class="selectedItem">Snacks</a></th>
+				<th><a href="Sweets.php" >Sweets</a></th>
+				<th><a href="Drinks.php" >Drinks</a></th>
+				<th><a href="Seasonings.php" class="selectedItem">Condiments</a></th>
+				<th><a href="Hygene.php" >Hygene</a></th>
+				<th><a href="Shampoo.php" >Shampoo</a></th>
+				<th><a href="Soap&Detergent.php" >Soap</a></th>
 			</tr>
 		</table>
 	</div>
-	<div style="padding: 15px 0px; font-size: 15px; margin: 0 auto; display: table; width: 98%;">
+	<div class="categoryList">
 		<div>
 		<?php 
 			$getposts = mysqli_query($con, "SELECT * FROM products WHERE available >='1' AND item ='seasoning'  ORDER BY id DESC LIMIT 10") or die(mysqlI_error($con));
@@ -57,7 +55,9 @@ else {
 									<div class="home-prodlist-img"><a href="view_product.php?pid='.$id.'">
 										<img src="../image/product/seasoning/'.$picture.'" class="category-img">
 										</a>
-										<div style="text-align: center; padding: 0 0 6px 0;"> <span style="font-size: 15px;">'.$pName.'</span><br> Price: '.$price.' Php</div>
+										<div class="itemDescription"> 
+											<span style="font-size: 15px;">'.$pName.'</span><br> Price: '.$price.' Php
+										</div>	
 									</div>
 									
 								</li>

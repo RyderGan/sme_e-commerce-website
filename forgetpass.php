@@ -8,32 +8,32 @@
 </head>
 <body class="home-welcome-text" style="background-image: url(image/homebackgrndimg3.png);">
 	<div>
-		<div class="homepageheader">
+		<div class="homepageheader" style="position: relative;">
 			<div class="signinButton loginButton">
 				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-					<a style="text-decoration: none;" href="signin.php">SIGN IN</a>
+					<a style="text-decoration: none;" href="signin.php">Sign Up</a>
 				</div>
-				<div class="uiloginbutton signinButton loginButton" style="">
-					<a style="text-decoration: none;" href="login.php">LOG IN</a>
+				<div class="uiloginbutton signinButton loginButton" >
+					<a style="text-decoration: none;" href="login.php">Log In</a>
 				</div>
 			</div>
 			<div style="float: left; margin: 5px 0px 0px 23px;">
 				<a href="index.php">
-					<img style=" height: 75px; width: 130px;" src="image/cart.png">
+					<img class="icon" src="image/icon.png">
 				</a>
 			</div>
 			<div class="">
 				<div id="srcheader">
 					<form id="newsearch" method="get" action="http://www.google.com">
-					        <input type="text" class="srctextinput" name="q" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="search" class="srcbutton" >
+					        <input type="text" class="srctextinput" name="q" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="Search" class="srcbutton" >
 					</form>
 				<div class="srcclear"></div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="holecontainer" style="float: right; margin-right: 36%; padding-top: 110px;">
-		<div class="container">
+	<div  style="float: right; margin-right: 36%; padding-top: 110px;">
+		<div >
 			<div>
 				<div>
 					<div class="signupform_content">

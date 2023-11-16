@@ -100,45 +100,45 @@ $npass1 = $_POST['npass1'];
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body style="background-image: url(image/homebackgrndimg1.jpg);">
-	<div class="homepageheader">
+	<div class="homepageheader" style="position: relative;">
 			<div class="signinButton loginButton">
 				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
 					<?php 
 						if ($user!="") {
-							echo '<a style="text-decoration: none; color: #fff;" href="logout.php">LOG OUT</a>';
+							echo '<a style="text-decoration: none; color: #fff;" href="logout.php">Log Out</a>';
 						}
 						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="signin.php">SIGN IN</a>';
+							echo '<a style="text-decoration: none; color: #fff;" href="signin.php">Sign Up</a>';
 						}
 					 ?>
 					
 				</div>
-				<div class="uiloginbutton signinButton loginButton" style="">
+				<div class="uiloginbutton signinButton loginButton" >
 					<?php 
 						if ($user!="") {
 							echo '<a style="text-decoration: none; color: #fff;" href="profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
 						}
 						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="login.php">LOG IN</a>';
+							echo '<a style="text-decoration: none; color: #fff;" href="login.php">Log In</a>';
 						}
 					 ?>
 				</div>
 			</div>
 			<div style="float: left; margin: 5px 0px 0px 23px;">
 				<a href="index.php">
-					<img style=" height: 75px; width: 130px;" src="image/cart.png">
+					<img class="icon" src="image/icon.png">
 				</a>
 			</div>
 			<div class="">
 				<div id="srcheader">
 					<form id="newsearch" method="get" action="http://www.google.com">
-					        <input type="text" class="srctextinput" name="q" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="search" class="srcbutton" >
+					        <input type="text" class="srctextinput" name="q" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="Search" class="srcbutton" >
 					</form>
 				<div class="srcclear"></div>
 				</div>
 			</div>
 		</div>
-		<div class="categolis">
+		<div class="categoryHeaders">
 			<table>
 				<tr>
 					<th><?php echo '<a href="mycart.php?uid='.$user.'" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #fff;border-radius: 12px;">My Cart</a>'; ?></th>
@@ -148,7 +148,7 @@ $npass1 = $_POST['npass1'];
 					<th>
 						<?php echo '<a href="my_delivery.php?uid='.$user.'" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #fff;border-radius: 12px;">MyDeliveryHistory</a>'; ?>
 					</th>
-					<th><?php echo '<a href="settings.php?uid='.$user.'" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Settings</a>'; ?></th>
+					<th><?php echo '<a href="settings.php?uid='.$user.'" >Settings</a>'; ?></th>
 					
 
 				</tr>
@@ -158,8 +158,8 @@ $npass1 = $_POST['npass1'];
 		<div style="width: 900px; margin: 0 auto;">
 		
 			<ul>
-				<li style="">
-					<div class="holecontainer" style=" padding-top: 20px; padding: 0 20%">
+				<li >
+					<div  style=" padding-top: 20px; padding: 0 20%">
 						<form action="" method="POST" class="registration">
 							<div class="container signupform_content ">
 								<div style="font-size: 20px;color: #fff;margin: 0 0 5px 0;">
