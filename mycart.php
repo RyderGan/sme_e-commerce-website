@@ -221,7 +221,7 @@ $del = $_POST['Delivery'];
 									<th><?php echo '<a href="delete_cart.php?sid='.$pId.'" style="text-decoration: none;padding: 0px 5px;font-size: 25px;color: white;border: 1px solid;margin: 10px;">-</a>' ?><?php echo $quantity; ?><?php echo '<a href="delete_cart.php?aid='.$pId.'" style="text-decoration: none;padding: 0px 5px;font-size: 25px;color: white;border: 1px solid;margin: 10px;">+</a>' ?></th>
 									<th><?php echo $description; ?></th>
 									<th><?php echo '<div class="home-prodlist-img"><a href="OurProducts/view_product.php?pid='.$pId.'">
-													<img src="image/product/'.$item.'/'.$picture.'" class="home-prodlist-imgi" style="height: 75px; width: 75px;">
+													<img src="image/product/'.$item.'/'.$picture.'" class="category-img" style="height: 75px; width: 75px;">
 													</a>
 												</div>' ?></th>
 									<th><?php echo '<div class="home-prodlist-img"><a href="delete_cart.php?cid='.$pId.'" style="text-decoration: none;">X</a>

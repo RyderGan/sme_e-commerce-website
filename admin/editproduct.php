@@ -297,10 +297,10 @@ $search_value = "";
 							<li style="float: left; padding: 0px 25px 25px 25px;">
 								<div class="home-prodlist-img prodlist-img">';
 								if (file_exists('../image/product/'.$item.'/'.$picture.'')){
-									echo '<img src="../image/product/'.$item.'/'.$picture.'" class="home-prodlist-imgi">';
+									echo '<img src="../image/product/'.$item.'/'.$picture.'" class="category-img">';
 								}else {
 									echo '
-									<div class="home-prodlist-imgi" style="text-align: center; padding: 0 0 6px 0;">No Image Found!</div>';
+									<div class="category-img" style="text-align: center; padding: 0 0 6px 0;">No Image Found!</div>';
 								} echo '
 									
 								</div>
