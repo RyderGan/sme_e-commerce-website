@@ -84,7 +84,7 @@ if (isset($_POST['signup'])) {
 
 		//success message
 		$success_message = '
-						<div class="signupform_content"><h2><font face="bookman">Registration successfull!</font></h2>
+						<div class="signupform_content"><h2><font face="bookman">Registration successful!</font></h2>
 						<div class="signupform_text" style="font-size: 18px; text-align: center;">
 						<font face="bookman">
 							Email: ' . $u_email . '<br>
@@ -102,7 +102,7 @@ if (isset($_POST['signup'])) {
 <html>
 
 <head>
-	<title>Welcome to ebuybd online shop</title>
+	<title>Sign Up</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
@@ -140,54 +140,9 @@ if (isset($_POST['signup'])) {
 				<div>
 					<div>
 						<div class="signupform_content">
-							<h2>Sign Up Form!</h2>
+							<h2>Sign Up Form</h2>
 							<div class="signupform_text"></div>
 							<div>
-								<!-- <form action="" method="POST" class="registration">
-									<div class="signup_form">
-										<div>
-											<td>
-												<input name="first_name" id="first_name" placeholder="First Name" class="first_name signupbox" type="text" size="30">
-											</td>
-										</div>
-										<div>
-											<td>
-												<input name="last_name" id="last_name" placeholder="Last Name" class="last_name signupbox" type="text" size="30">
-											</td>
-										</div>
-										<div>
-											<td>
-												<input name="email" placeholder="Enter Your Email" class="email signupbox" type="email" size="30">
-											</td>
-										</div>
-										<div>
-											<td>
-												<input name="mobile" placeholder="Enter Your Mobile" class="email signupbox" type="text" size="30">
-											</td>
-										</div>
-										<div>
-											<td>
-												<input name="signupaddress" placeholder="Write Your Full Address" class="email signupbox" type="text" size="30">
-											</td>
-										</div>
-										<div>
-											<td>
-												<input name="password" id="password-1" placeholder="Enter New Password" class="password signupbox " type="password" size="30">
-											</td>
-										</div>
-										<div>
-											<input name="signup" class="uisignupbutton signupbutton" type="submit">
-										</div>
-										<div class="signup_error_msg">
-
-											<?php
-											if (isset($error_message)) {
-												echo $error_message;
-											}
-											?>
-										</div>
-									</div>
-								</form> -->
 								<form action="" method="POST" class="registration">
 									<div class="signup_form">
 										<div>
