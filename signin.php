@@ -127,7 +127,7 @@ if (isset($_POST['signup'])) {
 				echo $success_message;
 			} else {
 				echo '
-					<div  style="float: right; margin-right: 36%;">
+					<div style="float: right; margin-right: 30%; padding-top: 110px;">
 						<div class="signupform_content">
 							<h2>Sign Up Form</h2>
 							<form action="" method="POST" class="registration">
@@ -167,12 +167,11 @@ if (isset($_POST['signup'])) {
 									</div>
 									<div class="signup_error_msg">';
 
-				if (isset($error_message)) {
-					echo $error_message;
-				}
+									if (isset($error_message)) {
+										echo $error_message;
+									}
 
-
-				echo '</div>
+				echo '				</div>
 								</div>
 							</form>
 						</div>
