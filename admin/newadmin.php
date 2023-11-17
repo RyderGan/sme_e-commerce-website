@@ -129,12 +129,12 @@ $search_value = "";
 		<link rel="stylesheet" type="text/css" href="../css/style.css">
 	</head>
 	<body class="home-welcome-text" style="background-image: url(../image/homebackgrndimg2.png);">
-		<div class="homepageheader">
+		<div class="homepageheader" style="position: relative;">
 			<div class="signinButton loginButton">
 				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
 					<?php 
 						if ($user!="") {
-							echo '<a style="text-decoration: none; color: #fff;" href="logout.php">LOG OUT</a>';
+							echo '<a style="text-decoration: none; color: #fff;" href="logout.php">Log Out</a>';
 						}
 					 ?>
 					
@@ -145,7 +145,7 @@ $search_value = "";
 							echo '<a style="text-decoration: none; color: #fff;" href="update_admin.php">Hi '.$uname_db.'</br><span style="color: #de2a74">'.$utype_db.'</span></a>';
 						}
 						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="login.php">LOG IN</a>';
+							echo '<a style="text-decoration: none; color: #fff;" href="login.php">Log In</a>';
 						}
 					 ?>
 				</div>
@@ -158,24 +158,24 @@ $search_value = "";
 			<div id="srcheader">
 				<form id="newsearch" method="get" action="search.php">
 				        <?php 
-				        	echo '<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="'.$search_value.'"><input type="submit" value="search" class="srcbutton" >';
+				        	echo '<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="'.$search_value.'"><input type="submit" value="Search" class="srcbutton" >';
 				         ?>
 				</form>
 			<div class="srcclear"></div>
 			</div>
 		</div>
-		<div class="categolis">
+		<div class="categoryHeaders">
 			<table>
 				<tr>
 					<th>
 						<a href="index.php" style="text-decoration: none;color:#040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Home</a>
 					</th>
-					<th><a href="addproduct.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Add Product</a></th>
-					<th><a href="orders.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Orders</a></th>
+					<th><a href="addproduct.php" >Add Product</a></th>
+					<th><a href="orders.php" >Orders</a></th>
 					<th><a href="DeliveryRecords.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color:#e6b7b8;border-radius: 12px;">DeliveryRecords</a></th>
 					<?php 
 						if($utype_db == 'admin'){
-							echo '<th><a href="report.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Reports</a></th>
+							echo '<th><a href="report.php" >Reports</a></th>
 								<th><a href="newadmin.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #24bfae;;border-radius: 12px;">New Admin</a></th>';
 						}
 					?>
@@ -187,8 +187,8 @@ $search_value = "";
 			if(isset($success_message)) {echo $success_message;}
 			else {
 				echo '
-					<div class="holecontainer" style="float: right; margin-right: 36%; padding-top: 20px;">
-						<div class="container">
+					<div  style="float: right; margin-right: 36%; padding-top: 20px;">
+						<div >
 							<div>
 								<div>
 									<div class="signupform_content">

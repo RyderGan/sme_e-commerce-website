@@ -32,106 +32,105 @@ $search_value = trim($_GET['keywords']);
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Noodles&Canned</title>
+	<title>Search</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<div class="homepageheader">
+	<div class="homepageheader" style="position: relative;">
 		<div class="signinButton loginButton">
 			<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
 				<?php 
 					if ($user!="") {
-						echo '<a style="text-decoration: none; color: #fff;" href="logout.php">LOG OUT</a>';
+						echo '<a style="text-decoration: none; color: #fff;" href="logout.php">Log Out</a>';
 					}
 					else {
-						echo '<a style="text-decoration: none; color: #fff;" href="signin.php">SIGN IN</a>';
+						echo '<a style="text-decoration: none; color: #fff;" href="signin.php">Sign Up</a>';
 					}
 				 ?>
 				
 			</div>
-			<div class="uiloginbutton signinButton loginButton" style="">
+			<div class="uiloginbutton signinButton loginButton">
 				<?php 
 					if ($user!="") {
 						echo '<a style="text-decoration: none; color: #fff;" href="profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
 					}
 					else {
-						echo '<a style="text-decoration: none; color: #fff;" href="login.php">LOG IN</a>';
+						echo '<a style="text-decoration: none; color: #fff;" href="login.php">Log In</a>';
 					}
 				 ?>
 			</div>
 		</div>
 		<div style="float: left; margin: 5px 0px 0px 23px;">
 			<a href="index.php">
-				<img style=" height: 75px; width: 130px;" src="image/cart.png">
+				<img class="icon" src="image/icon.png">
 			</a>
 		</div>
 		<div id="srcheader">
-				<form id="newsearch" method="get" action="search.php">
+				<form id="newsearch" method="get" action="search.php" style="margin-top: 7px;">
 				        <?php 
-				        	echo '<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="'.$search_value.'"><input type="submit" value="search" class="srcbutton" >';
+				        	echo '<input type="text" class="srctextinput" name="keywords" 
+						size="21" maxlength="120"  placeholder="Search Here..." 
+						value="'.$search_value.'">
+						<input type="submit" value="Search" class="srcbutton" >';
 				         ?>
 				</form>
 			<div class="srcclear"></div>
 		</div>
 	</div>
-	<div class="categolis">
+	<div class="categoryHeaders">
 		<table>
 			<tr>
-				<th>
-					<a href="OurProducts/NoodlesCanned.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Noodles&Canned</a>
-				</th>
-				<th><a href="OurProducts/Seasonings.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Seasonings</a></th>
-				<th><a href="OurProducts/Drinks.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Drinks</a></th>
-				<th><a href="OurProducts/Snacks.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Snacks</a></th>
-				<th><a href="OurProducts/Sweets.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Sweets</a></th>
-				<th><a href="OurProducts/Soap&Detergent.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Soap&Detergent</a></th>
-				<th><a href="OurProducts/Shampoo.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Shampoo</a></th>
-				<th><a href="OurProducts/Hygene.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Hygene</a></th>
+				<th><a href="OurProducts/NoodlesCanned.php" >Cans</a></th>
+				<th><a href="OurProducts/Snacks.php" >Snacks</a></th>
+				<th><a href="OurProducts/Sweets.php" >Sweets</a></th>
+				<th><a href="OurProducts/Drinks.php" >Drinks</a></th>
+				<th><a href="OurProducts/Seasonings.php" >Condiments</a></th>
+				<th><a href="OurProducts/Hygene.php" >Hygene</a></th>
+				<th><a href="OurProducts/Shampoo.php" >Shampoo</a></th>
+				<th><a href="OurProducts/Soap&Detergent.php" >Soap</a></th>
 			</tr>
 		</table>
 	</div>
-	<div style="padding: 30px 120px; font-size: 25px; margin: 0 auto; display: table; width: 98%;">
-		<div>
+	<div class="categoryList">
 		<?php 
 			if (isset($_GET['keywords']) && $_GET['keywords'] != ""){
 				$search_value = trim($_GET['keywords']);
 				$getposts = mysqli_query($con, "SELECT * FROM products WHERE pName like '%$search_value%'  ORDER BY id DESC") or die(mysqlI_error($con));
 					if ( $total = mysqli_num_rows($getposts)) {
 					echo '<ul id="recs">';
-					echo '<div style="text-align: center;"> '.$total.' Products Found... </div><br>';
-					while ($row = mysqli_fetch_assoc($getposts)) {
-						$id = $row['id'];
-						$pName = $row['pName'];
-						$price = $row['price'];
-						$description = $row['description'];
-						$picture = $row['picture'];
-						$item = $row['item'];
-						
-						echo '
-							<ul style="float: left;">
-								<li style="float: left; padding: 0px 25px 25px 25px;">
-									<div class="home-prodlist-img"><a href="women/view_product.php?pid='.$id.'">
-										<img src="image/product/'.$item.'/'.$picture.'" class="category-img">
-										</a>
-										<div style="text-align: center; padding: 0 0 6px 0;"> <span style="font-size: 15px;">'.$pName.'</span><br> Price: '.$price.' Php</div>
-									</div>
-									
-								</li>
-							</ul>
-						';
+					echo '<div class="searchNumber"> '.$total.' Products Found</div><br>';
+						while ($row = mysqli_fetch_assoc($getposts)) {
+							$id = $row['id'];
+							$pName = $row['pName'];
+							$price = $row['price'];
+							$description = $row['description'];
+							$picture = $row['picture'];
+							$item = $row['item'];
+							
+							echo '
+								<ul style="float: left;">
+									<li style="float: left; padding: 0px 25px 25px 25px;">
+										<div class="home-prodlist-img"><a href="women/view_product.php?pid='.$id.'">
+											<img src="image/product/'.$item.'/'.$picture.'" class="category-img">
+											</a>
+											<div class="itemDescription"> 
+												<span style="font-size: 15px;">'.$pName.'</span><br> Price: '.$price.' Php
+											</div>
+										</div>
+									</li>
+								</ul>
+							';
 
 						}
-				}else {
-				echo "Nothing Found!";
-			}
+					}
+					else {
+						echo "Nothing Found!";
+					}
 			}else {
-				echo "Input Someting...";
+				echo "Input Someting";
 			}
-			
 		?>
-			
-		</div>
 	</div>
 </body>
 </html>

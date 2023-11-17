@@ -35,13 +35,13 @@ else {
 					 ?>
 					
 				</div>
-				<div class="uiloginbutton signinButton loginButton" style="">
+				<div class="uiloginbutton signinButton loginButton" >
 					<?php 
 						if ($user!="") {
 							echo '<a style="text-decoration: none; color: #fff;" href="profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
 						}
 						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="login.php">LOG IN</a>';
+							echo '<a style="text-decoration: none; color: #fff;" href="login.php">Log In</a>';
 						}
 					 ?>
 				</div>
@@ -51,14 +51,13 @@ else {
 					<img class="icon" src="image/icon.png">
 				</a>
 			</div>
-			<div class="">
-				<div id="srcheader">
-					<form id="newsearch" method="get" action="search.php">
-					        <input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here...">
-						<input type="submit" value="Search" class="srcbutton" >
-					</form>
+			<div id="srcheader">
+				<form id="newsearch" method="get" action="search.php">
+					<input type="text" class="srctextinput" name="keywords" 
+					size="21" maxlength="120"  placeholder="Search Here...">
+					<input type="submit" value="Search" class="srcbutton" >
+				</form>
 				<div class="srcclear"></div>
-				</div>
 			</div>
 		</div>
 		<img class="background" src="image/background.png" alt="Background">
@@ -90,6 +89,18 @@ else {
 				</ul>
 				<ul style="float: left;">
 					<li style="padding: 25px;">
+						<a href="OurProducts/Drinks.php">
+							<img src="./image/products/drinks/drinks.png" class="category-img"></a>
+					</li>
+				</ul>
+				<ul style="float: left;">
+					<li style="padding: 25px;">
+						<a href="OurProducts/Seasonings.php">
+							<img src="./image/products/condiments/condiments.png" class="category-img"></a>
+					</li>
+				</ul>
+				<ul style="float: left;">
+					<li style="padding: 25px;">
 						<a href="OurProducts/Hygene.php">
 							<img src="./image/products/hygiene/hygiene.png" class="category-img">
 						</a>
@@ -107,19 +118,6 @@ else {
 							<img src="./image/products/soap/soap.png" class="category-img"></a>
 					</li>
 				</ul>
-				<ul style="float: left;">
-					<li style="padding: 25px;">
-						<a href="OurProducts/Drinks.php">
-							<img src="./image/products/drinks/drinks.png" class="category-img"></a>
-					</li>
-				</ul>
-				<ul style="float: left;">
-					<li style="padding: 25px;">
-						<a href="OurProducts/Seasonings.php">
-							<img src="./image/products/hygiene/hygiene.png" class="category-img"></a>
-					</li>
-				</ul>
-				
 			</div>
 
 		</div>

@@ -31,7 +31,7 @@ $output = '
 			<title>Welcome to ebuybd online shop</title>
 			<link rel="stylesheet" type="text/css" href="../css/style.css">
 		</head>
-		<body style="">
+		<body >
 		<div style="width:400px; margin: 2% 17%;">
 		<h2 style="text-align: center; padding: 10px;">Sales Report</h2>
 			<table class="rightsidemenu">

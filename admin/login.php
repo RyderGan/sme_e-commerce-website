@@ -48,10 +48,10 @@ $search_value = "";
 		<link rel="stylesheet" type="text/css" href="../css/style.css">
 	</head>
 	<body class="home-welcome-text" style="background-image: url(../image/homebackgrndimg1.jpg);">
-		<div class="homepageheader">
+		<div class="homepageheader" style="position: relative;">
 			<div class="signinButton loginButton">
 				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-					<a style="text-decoration: none;" href="login.php">LOG IN</a>
+					<a style="text-decoration: none;" href="login.php">Log In</a>
 				</div>
 			</div>
 			<div style="float: left; margin: 5px 0px 0px 23px;">
@@ -62,14 +62,14 @@ $search_value = "";
 			<div id="srcheader">
 				<form id="newsearch" method="get" action="search.php">
 				        <?php 
-				        	echo '<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="'.$search_value.'"><input type="submit" value="search" class="srcbutton" >';
+				        	echo '<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="'.$search_value.'"><input type="submit" value="Search" class="srcbutton" >';
 				         ?>
 				</form>
 			<div class="srcclear"></div>
 			</div>
 		</div>
-		<div class="holecontainer" style="float: right; margin-right: 36%; padding-top: 110px;">
-			<div class="container">
+		<div  style="float: right; margin-right: 36%; padding-top: 110px;">
+			<div >
 				<div>
 					<div>
 						<div class="signupform_content">
