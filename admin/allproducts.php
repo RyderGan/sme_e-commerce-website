@@ -53,7 +53,7 @@ $search_value = "";
 				</a>
 			</div>
 			<div class="">
-				<div id="srcheader">
+				<div >
 					<form id="newsearch" method="get" action="http://www.google.com">
 					        <input type="text" class="srctextinput" name="q" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="Search" class="srcbutton" >
 					</form>

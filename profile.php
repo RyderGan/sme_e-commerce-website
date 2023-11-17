@@ -33,7 +33,7 @@ $search_value = "";
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Profile</title>
+	<title>My Orders</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -67,7 +67,7 @@ $search_value = "";
 					<img class="icon" src="image/icon.png">
 				</a>
 			</div>
-			<div id="srcheader">
+			<div >
 				<form id="newsearch" method="get" action="search.php" style="margin-top: 7px;">
 				        <?php 
 				        	echo '<input type="text" class="srctextinput" name="keywords" 
@@ -76,7 +76,6 @@ $search_value = "";
 						class="srcbutton" >';
 				         ?>
 				</form>
-			<div class="srcclear"></div>
 			</div>
 		</div>
 		<div class="categoryHeaders">
@@ -89,7 +88,7 @@ $search_value = "";
 						<?php echo '<a href="profile.php?uid='.$user.'" class="selectedItem">My Orders</a>'; ?>
 					</th>
 					<th>
-						<?php echo '<a href="my_delivery.php?uid='.$user.'" >MyDeliveryHistory</a>'; ?>
+						<?php echo '<a href="my_delivery.php?uid='.$user.'" >My Delivery History</a>'; ?>
 					</th>
 					<th>
 						<?php echo '<a href="settings.php?uid='.$user.'" >Settings</a>'; ?>
@@ -97,70 +96,66 @@ $search_value = "";
 				</tr>
 			</table>
 		</div>
-	<div style="margin-top: 20px;">
-		<div style="width: 900px; margin: 0 auto;">
-		
-			<ul>
-				
-				<li style=" background-color: #fff;">
-					<div>
-						<div>
-							<table class="rightsidemenu">
-								<tr style="font-weight: bold;" colspan="10" bgcolor="#3A5487">
-									<th>Product Name</th>
-									<th>Price</th>
-									<th>Total Product</th>
-									<th>Order Date</th>
-									<th>Delevery Date</th>
-									<th>Delevery Place</th>
-									<th>Delevery Status</th>
-									<th>View</th>
-								</tr>
-								<tr>
-									<?php include ( "inc/connect.inc.php");
-									$query = "SELECT * FROM orders WHERE uid='$user' ORDER BY id DESC";
-									$run = mysqli_query($con, $query);
-									while ($row=mysqli_fetch_assoc($run)) {
-										$pid = $row['pid'];
-										$quantity = $row['quantity'];
-										$oplace = $row['oplace'];
-										$mobile = $row['mobile'];
-										$odate = $row['odate'];
-										$ddate = $row['ddate'];
-										$dstatus = $row['dstatus'];
-										
-										//get product info
-										$query1 = "SELECT * FROM products WHERE id='$pid'";
-										$run1 = mysqli_query($con, $query1);
-										$row1=mysqli_fetch_assoc($run1);
-										$pId = $row1['id'];
-										$pName = substr($row1['pName'], 0,50);
-										$price = $row1['price'];
-										$picture = $row1['picture'];
-										$item = $row1['item'];
-										$category = $row1['category'];
-									 ?>
-									<th><?php echo $pName; ?></th>
-									<th><?php echo $price; ?></th>
-									<th><?php echo $quantity; ?></th>
-									<th><?php echo $odate; ?></th>
-									<th><?php echo $ddate; ?></th>
-									<th><?php echo $oplace; ?></th>
-									<th><?php echo $dstatus; ?></th>
-									<th><?php echo '<div class="home-prodlist-img"><a href="OurProducts/view_product.php?pid='.$pId.'">
-													<img src="image/product/'.$item.'/'.$picture.'" class="category-img" style="height: 75px; width: 75px;">
-													</a>
-												</div>' ?></th>
-								</tr>
-								<?php } ?>
-							</table>
-						</div>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
 
 	
+	<div style="width: 1250px; margin: 0 auto;">
+		<ul>
+			<li>
+				<table class="rightsidemenu">
+					<tr bgcolor="#f5f5f5">
+						<th>Product Name</th>
+						<th>Price</th>
+						<th>Total Product</th>
+						<th>Order Date</th>
+						<th>Delevery Date</th>
+						<th>Delevery Place</th>
+						<th>Delevery Status</th>
+						<th>View</th>
+					</tr>
+					<tr>
+						<?php include ( "inc/connect.inc.php");
+						$query = "SELECT * FROM orders WHERE uid='$user' ORDER BY id DESC";
+						$run = mysqli_query($con, $query);
+						while ($row=mysqli_fetch_assoc($run)) {
+							$pid = $row['pid'];
+							$quantity = $row['quantity'];
+							$oplace = $row['oplace'];
+							$mobile = $row['mobile'];
+							$odate = $row['odate'];
+							$ddate = $row['ddate'];
+							$dstatus = $row['dstatus'];
+							
+							//get product info
+							$query1 = "SELECT * FROM products WHERE id='$pid'";
+							$run1 = mysqli_query($con, $query1);
+							$row1=mysqli_fetch_assoc($run1);
+							$pId = $row1['id'];
+							$pName = substr($row1['pName'], 0,50);
+							$price = $row1['price'];
+							$picture = $row1['picture'];
+							$item = $row1['item'];
+							$category = $row1['category'];
+							?>
+						<th><?php echo $pName; ?></th>
+						<th><?php echo $price; ?></th>
+						<th><?php echo $quantity; ?></th>
+						<th><?php echo $odate; ?></th>
+						<th><?php echo $ddate; ?></th>
+						<th><?php echo $oplace; ?></th>
+						<th><?php echo $dstatus; ?></th>
+						<th><?php echo '
+								<div class="home-prodlist-img">
+									<a href="OurProducts/view_product.php?pid='.$pId.'">
+										<img src="image/product/'.$item.'/'.$picture.'" class="category-img" style="height: 100px; width: 100px;">
+									</a>
+								</div>' ?>
+						</th>
+					</tr>
+					<?php } ?>
+				</table>
+			</li>
+		</ul>
+	</div>
+
 </body>
 </html>

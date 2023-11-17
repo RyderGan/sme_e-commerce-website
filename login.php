@@ -93,38 +93,40 @@ if (isset($_POST['activate'])) {
 <!doctype html>
 <html>
 
-<head>
-	<title>Welcome to ebuybd online shop</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
+	<head>
+		<title>Login</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
 
 <body class="home-welcome-text" style="background-color: #F5F5F5">
 	<div class="homepageheader">
+
 		<div class="signinButton loginButton">
 			<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
 				<a style="text-decoration: none; color: #fff;" href="signin.php">Sign Up</a>
 			</div>
 		</div>
+
 		<div style="float: left; margin: 5px 0px 0px 23px;">
 			<a href="index.php">
 				<img class="icon" src="image/icon.png">
 			</a>
 		</div>
-	</div>
-	<div style="float: right; margin-right: 36%; padding-top: 110px;">
-		<div class="loginform_content">
-			<?php
-			if (isset($activacc)) {
-				echo '<h2>Activation Form</h2>';
-			} else {
-				echo '<h2>Login Form</h2>';
-			}
-			?>
-			<div>
-				<form action="" method="POST" class="registration">
-					<div class="signup_form">
-						<?php
-						if (isset($activacc)) {
+
+		<div class="loginContainer">
+			<div class="loginform_content">
+				<?php
+					if (isset($activacc)) {
+						echo '<h2>Activation</h2>';
+					}else {
+						echo '<h2>Login</h2>';
+					}
+				?>
+				<div>
+					<form action="" method="POST">
+						<div>
+							<?php
+								if (isset($activacc)) {
 
 							echo '
 										<div class="signup_error_msg">
@@ -179,10 +181,8 @@ if (isset($_POST['activate'])) {
 				</form>
 
 			</div>
-			</form>
 		</div>
-	</div>
-	</div>
+
 	</div>
 </body>
 

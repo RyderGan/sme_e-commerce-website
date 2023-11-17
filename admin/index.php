@@ -55,7 +55,7 @@ $search_value = "";
 				</a>
 			</div>
 			<div class="">
-				<div id="srcheader">
+				<div >
 					<form id="newsearch" method="get" action="search.php">
 					        <input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="Search" class="srcbutton" >
 					</form>

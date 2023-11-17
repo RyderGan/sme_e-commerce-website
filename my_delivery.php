@@ -33,11 +33,11 @@ $search_value = "";
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Noodles&Canned</title>
+	<title>My Delivery History</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body style="background-image: url(image/homebackgrndimg1.jpg);">
+<body>
 	<div class="homepageheader" style="position: relative;">
 			<div class="signinButton loginButton">
 				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
@@ -67,80 +67,76 @@ $search_value = "";
 					<img class="icon" src="image/icon.png">
 				</a>
 			</div>
-			<div id="srcheader">
-				<form id="newsearch" method="get" action="search.php">
+			<div >
+				<form id="newsearch" method="get" action="search.php" style="margin-top: 7px;">
 				        <?php 
-				        	echo '<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="'.$search_value.'"><input type="submit" value="Search" class="srcbutton" >';
+				        	echo '<input type="text" class="srctextinput" name="keywords" 
+						size="21" maxlength="120"  placeholder="Search Here..." 
+						value="'.$search_value.'"><input type="submit" value="Search" 
+						class="srcbutton" >';
 				         ?>
 				</form>
-			<div class="srcclear"></div>
 			</div>
 		</div>
 		<div class="categoryHeaders">
 			<table>
 				<tr>
-					<th><?php echo '<a href="mycart.php?uid='.$user.'" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #fff;border-radius: 12px;">My Cart</a>'; ?></th>
 					<th>
-						<?php echo '<a href="profile.php?uid='.$user.'" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #fff;border-radius: 12px;">My Orders</a>'; ?>
+						<?php echo '<a href="mycart.php?uid='.$user.'" style="margin-left: 305px;">My Cart</a>'; ?>
 					</th>
 					<th>
-						<?php echo '<a href="my_delivery.php?uid='.$user.'" >MyDeliveryHistory</a>'; ?>
+						<?php echo '<a href="profile.php?uid='.$user.'">My Orders</a>'; ?>
 					</th>
-					<th><?php echo '<a href="settings.php?uid='.$user.'" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #fff;border-radius: 12px;">Settings</a>'; ?></th>
-					
-
+					<th>
+						<?php echo '<a href="my_delivery.php?uid='.$user.'" class="selectedItem">My Delivery History</a>'; ?>
+					</th>
+					<th>
+						<?php echo '<a href="settings.php?uid='.$user.'" >Settings</a>'; ?>
+					</th>
 				</tr>
 			</table>
 		</div>
-	<div style="margin-top: 20px;">
-		<div style="width: 900px; margin: 0 auto;">
-		
-			<ul>
-				
-				<li style=" background-color: #fff;">
-					<div>
-						<div>
-							<table class="rightsidemenu">
-								<tr style="font-weight: bold;" colspan="10" bgcolor="#3A5487">
-									<th>Product Name</th>
-									<th>Delevery Date</th>
-								</tr>
-								<tr>
-									<?php include ( "inc/connect.inc.php");
-									$query = "SELECT * FROM orders WHERE uid='$user' ORDER BY id DESC";
-									$run = mysqli_query($con, $query);
-									while ($row=mysqli_fetch_assoc($run)) {
-										$pid = $row['pid'];
-										$quantity = $row['quantity'];
-										$oplace = $row['oplace'];
-										$mobile = $row['mobile'];
-										$odate = $row['odate'];
-										$ddate = $row['ddate'];
-										$dstatus = $row['dstatus'];
-										
-										//get product info
-										$query1 = "SELECT * FROM products WHERE id='$pid'";
-										$run1 = mysqli_query($con, $query1);
-										$row1=mysqli_fetch_assoc($run1);
-										$pId = $row1['id'];
-										$pName = substr($row1['pName'], 0,50);
-										$price = $row1['price'];
-										$picture = $row1['picture'];
-										$item = $row1['item'];
-										$category = $row1['category'];
-									 ?>
-									<th><?php echo $pName; ?></th>
-									<th><?php echo $ddate; ?></th>
-								</tr>
-								<?php } ?>
-							</table>
-						</div>
-					</div>
-				</li>
-			</ul>
-		</div>
+
+	<div style="width: 1250px; margin: 0 auto;">
+		<ul>
+			<li>
+				<table class="rightsidemenu">
+					<tr bgcolor="#f5f5f5">
+						<th>Product Name</th>
+						<th>Delevery Date</th>
+					</tr>
+					<tr>
+						<?php include ( "inc/connect.inc.php");
+						$query = "SELECT * FROM orders WHERE uid='$user' ORDER BY id DESC";
+						$run = mysqli_query($con, $query);
+						while ($row=mysqli_fetch_assoc($run)) {
+							$pid = $row['pid'];
+							$quantity = $row['quantity'];
+							$oplace = $row['oplace'];
+							$mobile = $row['mobile'];
+							$odate = $row['odate'];
+							$ddate = $row['ddate'];
+							$dstatus = $row['dstatus'];
+							
+							//get product info
+							$query1 = "SELECT * FROM products WHERE id='$pid'";
+							$run1 = mysqli_query($con, $query1);
+							$row1=mysqli_fetch_assoc($run1);
+							$pId = $row1['id'];
+							$pName = substr($row1['pName'], 0,50);
+							$price = $row1['price'];
+							$picture = $row1['picture'];
+							$item = $row1['item'];
+							$category = $row1['category'];
+							?>
+						<th><?php echo $pName; ?></th>
+						<th><?php echo $ddate; ?></th>
+					</tr>
+					<?php } ?>
+				</table>
+			</li>
+		</ul>
 	</div>
 
-	
 </body>
 </html>

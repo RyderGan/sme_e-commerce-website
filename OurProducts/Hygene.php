@@ -26,7 +26,7 @@ else {
 		<table>
 			<tr>
 				<th><a href="NoodlesCanned.php" >Cans</a></th>
-				<th><a href="Snacks.php" class="selectedItem">Snacks</a></th>
+				<th><a href="Snacks.php" >Snacks</a></th>
 				<th><a href="Sweets.php" >Sweets</a></th>
 				<th><a href="Drinks.php" >Drinks</a></th>
 				<th><a href="Seasonings.php" >Condiments</a></th>

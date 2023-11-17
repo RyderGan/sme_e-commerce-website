@@ -50,7 +50,7 @@ $search_value = "";
 	<div class="homepageheader">
 		<div class="signinButton loginButton">
 			<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-				<a style="text-decoration: none;" href="login.php">LOG IN</a>
+				<a style="text-decoration: none;" href="login.php">Log In</a>
 			</div>
 		</div>
 		<div style="float: left; margin: 5px 0px 0px 23px;">
@@ -58,7 +58,7 @@ $search_value = "";
 				<img style=" height: 75px; width: 130px;" src="../image/cart.png">
 			</a>
 		</div>
-		<div id="srcheader">
+		<div >
 			<form id="newsearch" method="get" action="search.php">
 				<?php
 				echo '<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="' . $search_value . '"><input type="submit" value="search" class="srcbutton" >';

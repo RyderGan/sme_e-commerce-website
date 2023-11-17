@@ -94,106 +94,107 @@ if (isset($_POST['changesettings'])) {
 <html>
 
 <head>
-	<title>Noodles&Canned</title>
+	<title>Settings</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body style="background-image: url(image/homebackgrndimg1.jpg);">
-	<div class="homepageheader">
+<body >
+	<div class="homepageheader" style="position: relative;">
 		<div class="signinButton loginButton">
 			<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
 				<?php
 				if ($user != "") {
-					echo '<a style="text-decoration: none; color: #fff;" href="logout.php">LOG OUT</a>';
+					echo '<a style="text-decoration: none; color: #fff;" href="logout.php">Log Out</a>';
 				} else {
-					echo '<a style="text-decoration: none; color: #fff;" href="signin.php">SIGN IN</a>';
+					echo '<a style="text-decoration: none; color: #fff;" href="signin.php">Sign Up</a>';
 				}
 				?>
 
 			</div>
-			<div class="uiloginbutton signinButton loginButton" style="">
+			<div class="uiloginbutton signinButton loginButton" >
 				<?php
 				if ($user != "") {
 					echo '<a style="text-decoration: none; color: #fff;" href="profile.php?uid=' . $user . '">Hi ' . $uname_db . '</a>';
 				} else {
-					echo '<a style="text-decoration: none; color: #fff;" href="login.php">LOG IN</a>';
+					echo '<a style="text-decoration: none; color: #fff;" href="login.php">Log In</a>';
 				}
 				?>
 			</div>
 		</div>
 		<div style="float: left; margin: 5px 0px 0px 23px;">
-			<a href="index.php">
-				<img style=" height: 75px; width: 130px;" src="image/cart.png">
-			</a>
+				<a href="index.php">
+					<img class="icon" src="image/icon.png">
+				</a>
 		</div>
-		<div class="">
-			<div id="srcheader">
-				<form id="newsearch" method="get" action="http://www.google.com">
-					<input type="text" class="srctextinput" name="q" size="21" maxlength="120" placeholder="Search Here..."><input type="submit" value="search" class="srcbutton">
-				</form>
-				<div class="srcclear"></div>
-			</div>
+		<div >
+			<form id="newsearch" method="get" action="search.php" style="margin-top: 7px;">
+				<input type="text" class="srctextinput" name="q" size="21" maxlength="120" placeholder="Search Here...">
+				<input type="submit" value="search" class="srcbutton">
+			</form>
 		</div>
 	</div>
-	<div class="categolis">
+	<div class="categoryHeaders">
 		<table>
 			<tr>
-				<th><?php echo '<a href="mycart.php?uid=' . $user . '" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #fff;border-radius: 12px;">My Cart</a>'; ?></th>
 				<th>
-					<?php echo '<a href="profile.php?uid=' . $user . '" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #fff;border-radius: 12px;">My Orders</a>'; ?>
+					<?php echo '<a href="mycart.php?uid='.$user.'" style="margin-left: 305px;">My Cart</a>'; ?>
 				</th>
 				<th>
-					<?php echo '<a href="my_delivery.php?uid=' . $user . '" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #fff;border-radius: 12px;">MyDeliveryHistory</a>'; ?>
+					<?php echo '<a href="profile.php?uid='.$user.'" >My Orders</a>'; ?>
 				</th>
-				<th><?php echo '<a href="settings.php?uid=' . $user . '" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Settings</a>'; ?></th>
-
-
+				<th>
+					<?php echo '<a href="my_delivery.php?uid='.$user.'" >My Delivery History</a>'; ?>
+				</th>
+				<th>
+					<?php echo '<a href="settings.php?uid='.$user.'" class="selectedItem">Settings</a>'; ?>
+				</th>
 			</tr>
 		</table>
 	</div>
-	<div style="margin-top: 20px;">
-		<div style="width: 900px; margin: 0 auto;">
 
-			<ul>
-				<li >
-					<div  style=" padding-top: 20px; padding: 0 20%">
-						<form action="" method="POST" class="registration">
-							<div class="container signupform_content ">
-								<div style="font-size: 20px;color: #fff;margin: 0 0 5px 0;">
-									<tr>Change Password:</tr></br>
-								</div>
-								<div>
-									<tr><input class="email signupbox" type="password" name="opass" placeholder="Old Password"></tr></br>
-								</div>
-								<div>
-									<tr><input class="email signupbox" type="password" name="npass" placeholder="New Password"></tr></br>
-								</div>
-								<div>
-									<tr><input class="email signupbox" type="password" name="npass1" placeholder="Repeat Password"></tr></br></br></br></br></br>
-								</div>
-								<div style="font-size: 20px;color: #fff;margin: 0 0 5px 0;">
-									<tr>Change Email:<br></tr>
-								</div>
-								<div>
-									<tr><?php echo '<input class="email signupbox" required type="email" name="email" placeholder="New Email" value="' . $uemail_db . '">'; ?></tr></br>
-								</div>
-								<div>
-									<tr><input class="uisignupbutton signupbutton" type="submit" name="changesettings" value="Update Settings"></tr></br>
-								</div>
-								<div>
-									<?php if (isset($success_message)) {
-										echo $success_message;
-									} ?>
-								</div>
+	<div style="width: 1250px; margin: 0 auto;">
+		<ul>
+			<li>
+				<div class="settingContainer">
+					<form action="" method="POST">
+						<div class="signupform_content ">
+							<div class="settingsHeader">
+								<tr>Change Password</tr></br>
 							</div>
-						</form>
-					</div>
-				</li>
-			</ul>
-		</div>
+							<div>
+								<tr><input class="email signupbox" type="password" name="opass" placeholder="Old Password"></tr>
+							</div>
+							<div>
+								<tr><input class="email signupbox" type="password" name="npass" placeholder="New Password"></tr>
+							</div>
+							<div>
+								<tr><input class="email signupbox" type="password" name="npass1" placeholder="Repeat Password"></tr>
+							</div>
+							<div class="settingsHeader">
+								<tr>Change Email<br></tr>
+							</div>
+							<div>
+								<tr><?php echo '<input class="email signupbox" required type="email" 
+								name="email" placeholder="New Email" value="' . $uemail_db . '">'; ?>
+								</tr>
+							</div>
+							<div>
+								<tr><input class="uisignupbutton signupbutton" type="submit" name="changesettings" 
+								value="Update Settings">
+								</tr>
+							</div>
+							<div>
+								<?php if (isset($success_message)) {
+									echo $success_message;
+								} ?>
+							</div>
+						</div>
+					</form>
+				</div>
+			</li>
+		</ul>
 	</div>
-
 
 </body>
 

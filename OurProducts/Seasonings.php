@@ -16,7 +16,7 @@ else {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Seasonings</title>
+	<title>Condiments</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -26,7 +26,7 @@ else {
 		<table>
 			<tr>
 				<th><a href="NoodlesCanned.php" >Cans</a></th>
-				<th><a href="Snacks.php" class="selectedItem">Snacks</a></th>
+				<th><a href="Snacks.php" >Snacks</a></th>
 				<th><a href="Sweets.php" >Sweets</a></th>
 				<th><a href="Drinks.php" >Drinks</a></th>
 				<th><a href="Seasonings.php" class="selectedItem">Condiments</a></th>
