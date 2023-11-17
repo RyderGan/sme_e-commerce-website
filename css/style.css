@@ -598,3 +598,8 @@ body{
 .settingsleftcontent ul li a:hover {
   color: #fff;
 }
+
+.error_msg {
+  color: red;
+}
+
