@@ -1,4 +1,4 @@
-<?php 
+<?php
 include("inc/connect.inc.php");
 
 ob_start();
@@ -42,11 +42,11 @@ $search_value = "";
 //order
 
 if (isset($_POST['order'])) {
-	//declere veriable
+	// declare variables
 	$mbl = $_POST['mobile'];
 	$addr = $_POST['address'];
 	$del = $_POST['Delivery'];
-	//triming name
+
 	try {
 		if (empty($_POST['mobile'])) {
 			throw new Exception('Mobile can not be empty');
@@ -58,51 +58,60 @@ if (isset($_POST['order'])) {
 			throw new Exception('Type of Delivery can not be empty');
 		}
 
-
 		// Check if email already exists
 
 		// order date
-		$d = date("Y-m-d"); //Year - Month - Day
+		$d = date("Y-m-d"); // Year - Month - Day
 
-		//delivery date
+		// delivery date
 		$dd = date("Y-m-d", strtotime($d . "+2 weeks"));
 
-		// send email
-		$msg = "Your Order successfully Placed on $d";
-		//if (@mail($uemail_db,"eBuyBD Product Order",$msg, "From:eBuyBD <no-reply@ebuybd.xyz>")) {
-
+		// Check product availability and update quantities
 		$result = mysqli_query($con, "SELECT * FROM cart WHERE uid='$user'");
 		$t = mysqli_num_rows($result);
+
 		if ($t <= 0) {
 			throw new Exception('No product in cart. Add product first.');
 		}
+
 		while ($get_p = mysqli_fetch_assoc($result)) {
 			$num = $get_p['quantity'];
 			$pid = $get_p['pid'];
 
+			// Check product availability
+			$productResult = mysqli_query($con, "SELECT available FROM products WHERE id='$pid'");
+			$productData = mysqli_fetch_assoc($productResult);
+			$availableQuantity = $productData['available'];
+
+			if ($num > $availableQuantity) {
+				throw new Exception('Not enough stock available for product ID ' . $pid . ', Available quantity ' . $availableQuantity);
+			}
+
+			// Update product availability
+			$newAvailableQuantity = $availableQuantity - $num;
+			mysqli_query($con, "UPDATE products SET available=$newAvailableQuantity WHERE id='$pid'");
+
+			// Insert order details
 			mysqli_query($con, "INSERT INTO orders (uid,pid,quantity,oplace,mobile,odate,ddate,delivery) VALUES ('$user','$pid',$num,'$_POST[address]','$_POST[mobile]','$d','$dd','$del')");
 		}
 
 		if (mysqli_query($con, "DELETE FROM cart WHERE uid='$user'")) {
-
-			//success message
-
+			// success message
 			$success_message = '
-						<div class="signupform_content">
-						<h2><font face="bookman"></font></h2>
+                <div class="signupform_content">
+                <h2><font face="bookman"></font></h2>
 
-						<div class="signupform_text" style="font-size: 18px; text-align: center;">
-						<font face="bookman">
+                <div class="signupform_text" style="font-size: 18px; text-align: center;">
+                <font face="bookman">
 
-						</font></div></div>
-						';
+                </font></div></div>
+            ';
 		}
-		//}
-
 	} catch (Exception $e) {
 		$error_message = $e->getMessage();
 	}
 }
+
 
 ?>
 
@@ -185,7 +194,7 @@ if (isset($_POST['order'])) {
 									<th>Remove</th>
 								</tr>
 								<tr>
-									<?php include("inc/connect.inc.php");
+									<?php
 									$query = "SELECT * FROM cart WHERE uid='$user' ORDER BY id DESC";
 									$run = mysqli_query($con, $query);
 									$total = 0;
@@ -207,13 +216,13 @@ if (isset($_POST['order'])) {
 
 										$total += ($quantity * $price);
 										$_SESSION['total'] = $total;
-									 ?>
-									<th><?php echo $pName; ?></th>
-									<th><?php echo $price; ?></th>
-									<th><?php echo '<a href="delete_cart.php?sid='.$pId.'" style="text-decoration: none;padding: 0px 5px;font-size: 25px;color: white;border: 1px solid;margin: 10px;">-</a>' ?><?php echo $quantity; ?><?php echo '<a href="delete_cart.php?aid='.$pId.'" style="text-decoration: none;padding: 0px 5px;font-size: 25px;color: white;border: 1px solid;margin: 10px;">+</a>' ?></th>
-									<th><?php echo $description; ?></th>
-									<th><?php echo '<div class="home-prodlist-img"><a href="OurProducts/view_product.php?pid='.$pId.'">
-													<img src="image/product/'.$item.'/'.$picture.'" class="category-img" style="height: 75px; width: 75px;">
+									?>
+										<th><?php echo $pName; ?></th>
+										<th><?php echo $price; ?></th>
+										<th><?php echo '<a href="delete_cart.php?sid=' . $pId . '" style="text-decoration: none;padding: 0px 5px;font-size: 25px;color: white;border: 1px solid;margin: 10px;">-</a>' ?><?php echo $quantity; ?><?php echo '<a href="delete_cart.php?aid=' . $pId . '" style="text-decoration: none;padding: 0px 5px;font-size: 25px;color: white;border: 1px solid;margin: 10px;">+</a>' ?></th>
+										<th><?php echo $description; ?></th>
+										<th><?php echo '<div class="home-prodlist-img"><a href="OurProducts/view_product.php?pid=' . $pId . '">
+													<img src="image/product/' . $item . '/' . $picture . '" class="category-img" style="height: 75px; width: 75px;">
 													</a>
 												</div>' ?></th>
 										<th><?php echo '<div class="home-prodlist-img"><a href="delete_cart.php?cid=' . $pId . '" style="text-decoration: none;">X</a>
@@ -357,4 +366,5 @@ if (isset($_POST['order'])) {
 
 
 </body>
+
 </html>
