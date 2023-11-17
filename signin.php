@@ -52,9 +52,9 @@ if (isset($_POST['signup'])) {
 		if (strlen($_POST['last_name']) < 3 && strlen($_POST['last_name']) > 19) {
 			throw new Exception('Last name must be 2-20 characters!');
 		}
+
+
 		// Check if email already exists
-		$e_check = mysqli_query($con, "SELECT email FROM `user` WHERE email='$u_email'");
-		$email_check = mysqli_num_rows($e_check);
 		if ($email_check > 0) {
 			throw new Exception('Email already taken. Please check that you have created an account before.');
 		}
@@ -78,68 +78,54 @@ if (isset($_POST['signup'])) {
 						Signup email: " . $_POST['email'] . "
 						
 						";
-						//if (@mail($_POST['email'],"eBuyBD Activation Code",$msg, "From:eBuyBD <no-reply@ebuybd.xyz>")) {
-							
-						$result = mysqli_query($con, "INSERT INTO user (firstName,lastName,email,mobile,address,password,confirmCode) VALUES ('$_POST[first_name]','$_POST[last_name]','$_POST[email]','$_POST[mobile]','$_POST[signupaddress]','$_POST[password]','$confirmCode')");
-						
-						//success message
-						$success_message = '
+		//if (@mail($_POST['email'],"eBuyBD Activation Code",$msg, "From:eBuyBD <no-reply@ebuybd.xyz>")) {
+
+		$result = mysqli_query($con, "INSERT INTO user (firstName,lastName,email,mobile,address,password,confirmCode) VALUES ('$_POST[first_name]','$_POST[last_name]','$_POST[email]','$_POST[mobile]','$_POST[signupaddress]','$_POST[password]','$confirmCode')");
+
+		//success message
+		$success_message = '
 						<div class="signupform_content">
 							<h2>Registration Successfull</h2>
 							<div style="font-size: 18px; text-align: center;">
 								<p class="activation-header">Activation code sent to your email</p>
 								<p class="activation-field">Email</p>
-								<p class="activation-value">'.$u_email.'</p>
+								<p class="activation-value">' . $u_email . '</p>
 								<p class="activation-field">Your activation code</p>
-								<p class="activation-value">'.$confirmCode.'</p>
+								<p class="activation-value">' . $confirmCode . '</p>
 							</div>
 						</div>';
-					}else {
-						throw new Exception('Make strong password!');
-					}
-				}else {
-					throw new Exception('Email already taken!');
-				}
-			}else {
-				throw new Exception('Username already taken!');
-			}
-			}else {
-			throw new Exception('Lastname must be 2-20 characters!');
-		}
-		}else {
-			throw new Exception('Firstname must be 2-20 characters!');
-		}
-
-	}
-	catch(Exception $e) {
+	} catch (Exception $e) {
 		$error_message = $e->getMessage();
 	}
 }
+
+
 ?>
 
 
 <!doctype html>
 <html>
-	<head>
-		<title>Welcome to ebuybd online shop</title>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-	</head>
-	<body class="home-welcome-text" style="background-color: #F5F5F5">
-		<div class="homepageheader" style="position: inherit;">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-					<a style="text-decoration: none; ; color: #fff;" href="login.php">Log In</a>
-				</div>
+
+<head>
+	<title>Sign Up</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body class="home-welcome-text" style="background-color: #F5F5F5">
+	<div class="homepageheader" style="position: inherit;">
+		<div class="signinButton loginButton">
+			<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
+				<a style="text-decoration: none; ; color: #fff;" href="login.php">Log In</a>
 			</div>
 			<div style="float: left; margin: 5px 0px 0px 23px;">
 				<a href="index.php">
 					<img class="icon" src="image/icon.png">
 				</a>
 			</div>
-		</div>
-		<?php 
-			if(isset($success_message)) {echo $success_message;}
-			else {
+			<?php
+			if (isset($success_message)) {
+				echo $success_message;
+			} else {
 				echo '
 					<div  style="float: right; margin-right: 36%;">
 						<div class="signupform_content">
@@ -148,55 +134,56 @@ if (isset($_POST['signup'])) {
 								<div class="signup_form">
 									<div>
 										<td >
-											<input name="first_name" id="first_name" placeholder="First Name" required="required" class="first_name signupbox" type="text" size="30" value="'.$u_fname.'" >
+											<input name="first_name" id="first_name" placeholder="First Name" required="required" class="first_name signupbox" type="text" size="30" value="' . $u_fname . '" >
 										</td>
 									</div>
 									<div>
 										<td >
-											<input name="last_name" id="last_name" placeholder="Last Name" required="required" class="last_name signupbox" type="text" size="30" value="'.$u_lname.'" >
+											<input name="last_name" id="last_name" placeholder="Last Name" required="required" class="last_name signupbox" type="text" size="30" value="' . $u_lname . '" >
 										</td>
 									</div>
 									<div>
 										<td>
-											<input name="email" placeholder="Enter Your Email" required="required" class="email signupbox" type="email" size="30" value="'.$u_email.'">
+											<input name="email" placeholder="Enter Your Email" required="required" class="email signupbox" type="email" size="30" value="' . $u_email . '">
 										</td>										
 									</div>
 									<div>
 										<td>
-											<input name="mobile" placeholder="Enter Your Mobile" required="required" class="email signupbox" type="text" size="30" value="'.$u_mobile.'">
+											<input name="mobile" placeholder="Enter Your Mobile" required="required" class="email signupbox" type="text" size="30" value="' . $u_mobile . '">
 										</td>
 									</div>
 									<div>
 										<td>
-											<input name="signupaddress" placeholder="Write Your Full Address" required="required" class="email signupbox" type="text" size="30" value="'.$u_address.'">
+											<input name="signupaddress" placeholder="Write Your Full Address" required="required" class="email signupbox" type="text" size="30" value="' . $u_address . '">
 										</td>
 									</div>
 									<div>
 										<td>
-											<input name="password" id="password-1" required="required"  placeholder="Enter New Password" class="password signupbox " type="password" size="30" value="'.$u_pass.'">
+											<input name="password" id="password-1" required="required"  placeholder="Enter New Password" class="password signupbox " type="password" size="30" value="' . $u_pass . '">
 										</td>
 									</div>
 									<div>
 										<input name="signup" class="uisignupbutton signupbutton" type="submit" value="Sign Me Up!">
 									</div>
 									<div class="signup_error_msg">';
-										
-											if (isset($error_message)) {echo $error_message;}
-											
-										
-									echo'</div>
+
+				if (isset($error_message)) {
+					echo $error_message;
+				}
+
+
+				echo '</div>
 								</div>
 							</form>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-	<?php
-	}
-	?>
-</body>
+				';
+			}
 
+			?>
+		</div>
+	</div>
+</body>
 <script>
 	function validateForm() {
 		// Get form elements
