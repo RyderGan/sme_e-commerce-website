@@ -244,7 +244,7 @@ if (isset($_POST['order'])) {
 
 			</ul>
 		</div>
-		<div class="holecontainer" style="float: right;width: 35%;">
+		<div  style="float: right;width: 35%;">
 			<div class="container signupform_content ">
 				<div>
 					<div>

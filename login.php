@@ -174,7 +174,7 @@ if (isset($_POST['activate'])) {
 											</td>
 										</div>
 										<div>
-											<input name="login" class="uisignupbutton signupbutton" type="submit" value="Log In">
+											<input name="activate" class="uisignupbutton signupbutton" type="submit" value="Active Account">
 										</div>
 										';
 									}
@@ -196,7 +196,7 @@ if (isset($_POST['activate'])) {
 							</form>
 
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>

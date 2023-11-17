@@ -156,8 +156,8 @@ if (isset($_POST['changesettings'])) {
 		<div style="width: 900px; margin: 0 auto;">
 
 			<ul>
-				<li style="">
-					<div class="holecontainer" style=" padding-top: 20px; padding: 0 20%">
+				<li >
+					<div  style=" padding-top: 20px; padding: 0 20%">
 						<form action="" method="POST" class="registration">
 							<div class="container signupform_content ">
 								<div style="font-size: 20px;color: #fff;margin: 0 0 5px 0;">

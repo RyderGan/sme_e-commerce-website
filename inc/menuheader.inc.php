@@ -1,4 +1,4 @@
-<div class="categolis">
+<div class="categoryHeaders">
 		<table>
 			<tr>
 				<th>
