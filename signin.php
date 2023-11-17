@@ -29,10 +29,10 @@ if (isset($_POST['signup'])) {
 	try {
 		// form validations
 		if (empty($_POST['first_name'])) {
-			throw new Exception('Fullname can not be empty');
+			throw new Exception('Full Name can not be empty');
 		}
 		if (empty($_POST['last_name'])) {
-			throw new Exception('Lastname can not be empty');
+			throw new Exception('Last Name can not be empty');
 		}
 		if (empty($_POST['email'])) {
 			throw new Exception('Email can not be empty');
