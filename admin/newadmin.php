@@ -79,15 +79,15 @@ $_POST['last_name'] = trim($_POST['last_name']);
 						// send email
 						$msg = "
 						Assalamu Alaikum...
-						
+
 						Your activation code: ".$confirmCode."
 						Signup email: ".$_POST['email']."
-						
+
 						";
 						//if (@mail($_POST['email'],"eBuyBD Activation Code",$msg, "From:eBuyBD <no-reply@ebuybd.xyz>")) {
-							
+
 						$result = mysqli_query($con, "INSERT INTO admin (firstName,lastName,email,mobile,address,password,type,confirmCode) VALUES ('$_POST[first_name]','$_POST[last_name]','$_POST[email]','$_POST[mobile]','$_POST[signupaddress]','$_POST[password]','$_POST[admintype]','$confirmCode')");
-						
+
 						//success message
 						$success_message = '
 						<div class="signupform_content"><h2><font face="bookman">Admin Registration Successfull!</font></h2>

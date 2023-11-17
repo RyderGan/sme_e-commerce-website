@@ -83,15 +83,15 @@ $_POST['last_name'] = trim($_POST['last_name']);
 					$_POST['password'] = md5($_POST['password']);
 					$confirmCode   = substr( rand() * 900000 + 100000, 0, 6 );
 					// send email
-					
+
 					//if (@mail($_POST['email'],"eBuyBD Activation Code",$msg, "From:eBuyBD <no-reply@ebuybd.xyz>")) {
 					if($utype_db == 'admin'){
 						$result = mysqli_query($con, "UPDATE admin SET firstName='$_POST[first_name]', lastName='$_POST[last_name]', email='$u_email', mobile='$u_mobile', address='$u_address', password='$_POST[password]', type='$u_admin_type' WHERE id='$user'");
 					}else{
 						$result = mysqli_query($con, "UPDATE admin SET firstName='$_POST[first_name]', lastName='$_POST[last_name]', email='$u_email', mobile='$u_mobile', address='$u_address', password='$_POST[password]' WHERE id='$user'");
 					}
-					
-					
+
+
 					//success message
 					$success_message = '
 					<div class="signupform_content"><h2><font face="bookman">Admin Update Successfull!</font></h2>

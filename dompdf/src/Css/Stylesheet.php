@@ -90,7 +90,7 @@ class Stylesheet
      *
      * @var Style[]
      */
-    private $_styles;
+    private $_styles = array();
 
     /**
      * Base protocol of the document being parsed
@@ -121,14 +121,14 @@ class Stylesheet
      *
      * @var array<Style>
      */
-    private $_page_styles;
+    private $_page_styles = array("base" => null);
 
     /**
      * List of loaded files, used to prevent recursion
      *
      * @var array
      */
-    private $_loaded_files;
+    private $_loaded_files = array();
 
     /**
      * Current stylesheet origin
@@ -169,10 +169,7 @@ class Stylesheet
     {
         $this->_dompdf = $dompdf;
         $this->setFontMetrics($dompdf->getFontMetrics());
-        $this->_styles = array();
-        $this->_loaded_files = array();
         list($this->_protocol, $this->_base_host, $this->_base_path) = Helpers::explode_url($_SERVER["SCRIPT_FILENAME"]);
-        $this->_page_styles = array("base" => null);
     }
 
     /**

@@ -29,7 +29,7 @@ class FrameListIterator implements Iterator
     /**
      * @var int
      */
-    protected $_num;
+    protected $_num = 0;
 
     /**
      * @param Frame $frame
@@ -38,7 +38,6 @@ class FrameListIterator implements Iterator
     {
         $this->_parent = $frame;
         $this->_cur = $frame->get_first_child();
-        $this->_num = 0;
     }
 
     /**
