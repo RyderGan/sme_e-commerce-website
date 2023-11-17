@@ -27,7 +27,7 @@ else {
 				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
 					<?php 
 						if ($user!="") {
-							echo '<a style="text-decoration: none; color: #fff;" href="logout.php">LOG OUT</a>';
+							echo '<a style="text-decoration: none; color: #fff;" href="logout.php">Log Out</a>';
 						}
 						else {
 							echo '<a style="color: #fff; text-decoration: none;" href="signin.php">SIGN UP</a>';
@@ -48,92 +48,80 @@ else {
 			</div>
 			<div style="float: left; margin: 5px 0px 0px 23px;">
 				<a href="index.php">
-					<img style=" height: 75px; width: 130px;" src="image/cart.png">
+					<img class="icon" src="image/icon.png">
 				</a>
 			</div>
 			<div class="">
 				<div id="srcheader">
 					<form id="newsearch" method="get" action="search.php">
-					        <input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="search" class="srcbutton" >
+					        <input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here...">
+						<input type="submit" value="Search" class="srcbutton" >
 					</form>
 				<div class="srcclear"></div>
 				</div>
 			</div>
 		</div>
-		<div class="home-welcome">
-			<div class="home-welcome-text" style="background-image: url(image/background.jpg); height: 380px; ">
-				<div style="padding-top: 180px;">
-					<div style=" background-color: #dadbe6;">
-						<h1 style="margin: 0px;">Welcome To nita's online grocery</h1>
-						<h2>Most Convenient Store in 7th ave. Caloocan</h2>
-					</div>
-				</div>
-			</div>
-		</div>
+		<img class="background" src="image/background.png" alt="Background">
+		<p class="textHeader">PRODUCTS CATEGORY</p>
 		<div class="home-prodlist">
-			<div>
-				<h3 style="text-align: center;">Products Category</h3>
+			
+			<div class="categoryList">
+
+				<ul style="float: left;">
+					<li style="padding: 25px;">
+						<a href="OurProducts/NoodlesCanned.php">
+							<img src="./image/products/cans/can.png" class="category-img">
+						</a>
+					</li>
+				</ul>
+				<ul style="float: left;">
+					<li style="padding: 25px;">
+						<a href="OurProducts/Snacks.php">
+							<img src="./image/products/snacks/snacks.png" class="category-img">
+						</a>
+					</li>
+				</ul>
+				<ul style="float: left;">
+					<li style="padding: 25px;">
+						<a href="OurProducts/Sweets.php">
+							<img src="./image/products/sweets/sweets.png" class="category-img">
+						</a>
+					</li>
+				</ul>
+				<ul style="float: left;">
+					<li style="padding: 25px;">
+						<a href="OurProducts/Hygene.php">
+							<img src="./image/products/hygiene/hygiene.png" class="category-img">
+						</a>
+					</li>
+				</ul>
+				<ul style="float: left;">
+					<li style="padding: 25px;">
+						<a href="OurProducts/Shampoo.php">
+							<img src="./image/products/shampoo/shampoo.png" class="category-img"></a>
+					</li>
+				</ul>
+				<ul style="float: left;">
+					<li style="padding: 25px;">
+						<a href="OurProducts/Soap&Detergent.php">
+							<img src="./image/products/soap/soap.png" class="category-img"></a>
+					</li>
+				</ul>
+				<ul style="float: left;">
+					<li style="padding: 25px;">
+						<a href="OurProducts/Drinks.php">
+							<img src="./image/products/drinks/drinks.png" class="category-img"></a>
+					</li>
+				</ul>
+				<ul style="float: left;">
+					<li style="padding: 25px;">
+						<a href="OurProducts/Seasonings.php">
+							<img src="./image/products/hygiene/hygiene.png" class="category-img"></a>
+					</li>
+				</ul>
+				
 			</div>
-			<div style="padding: 20px 30px; width: 85%; margin: 0 auto;">
-				<ul style="float: left;">
-					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="OurProducts/NoodlesCanned.php">
-							<img src="./image/product/noodles/n.jpg" class="home-prodlist-imgi">
-							</a>
-						</div>
-					</li>
-				</ul>
-				<ul style="float: left;">
-					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="OurProducts/Snacks.php">
-							<img src="./image/product/snack/sn.jpg" class="home-prodlist-imgi">
-							</a>
-						</div>
-					</li>
-				</ul>
-				<ul style="float: left;">
-					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="OurProducts/Sweets.php">
-							<img src="./image/product/sweet/s.jpg" class="home-prodlist-imgi"></a>
-						</div>
-					</li>
-				</ul>
-				<ul style="float: left;">
-					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="OurProducts/Hygene.php">
-							<img src="./image/product/hygiene/hy.jpg" class="home-prodlist-imgi"></a>
-						</div>
-					</li>
-				</ul>
-				<ul style="float: left;">
-					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="OurProducts/Shampoo.php">
-							<img src="./image/product/shampoo/pall.jpg" class="home-prodlist-imgi"></a>
-						</div>
-					</li>
-				</ul>
-				<ul style="float: left;">
-					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="OurProducts/Soap&Detergent.php">
-							<img src="./image/product/soap/sp.jpg" class="home-prodlist-imgi"></a>
-						</div>
-					</li>
-				</ul>
-				<ul style="float: left;">
-					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="OurProducts/Drinks.php">
-							<img src="./image/product/drink/dr.jpg" class="home-prodlist-imgi"></a>
-						</div>
-					</li>
-				</ul>
-				<ul style="float: left;">
-					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="OurProducts/Seasonings.php">
-							<img src="./image/product/seasoning/cond.jpg" class="home-prodlist-imgi"></a>
-						</div>
-					</li>
-				</ul>
-			</div>			
+
 		</div>
 	</body>
 </html>

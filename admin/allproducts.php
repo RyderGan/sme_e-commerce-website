@@ -117,7 +117,7 @@ $search_value = "";
 					<th><?php echo $item; ?></th>
 					<th><?php echo $pCode; ?></th>
 					<th><?php echo '<div class="home-prodlist-img"><a href="editproduct.php?epid='.$id.'">
-									<img src="../image/product/'.$item.'/'.$picture.'" class="home-prodlist-imgi" style="height: 75px; width: 75px;">
+									<img src="../image/product/'.$item.'/'.$picture.'" class="category-img" style="height: 75px; width: 75px;">
 									</a>
 								</div>' ?></th>
 				</tr>
