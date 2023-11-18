@@ -37,12 +37,12 @@ $search_value = trim($_GET['keywords']);
 		<link rel="stylesheet" type="text/css" href="../css/style.css">
 	</head>
 	<body class="home-welcome-text" style="background-image: url(../image/homebackgrndimg2.png);">
-		<div class="homepageheader">
+		<div class="homepageheader" style="position: relative;">
 			<div class="signinButton loginButton">
 				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
 					<?php 
 						if ($user!="") {
-							echo '<a style="text-decoration: none;color: #fff;" href="logout.php">LOG OUT</a>';
+							echo '<a style="text-decoration: none;color: #fff;" href="logout.php">Log Out</a>';
 						}
 					 ?>
 					
@@ -53,7 +53,7 @@ $search_value = trim($_GET['keywords']);
 							echo '<a style="text-decoration: none;color: #fff;" href="login.php">Hi '.$uname_db.'</a>';
 						}
 						else {
-							echo '<a style="text-decoration: none;color: #fff;" href="login.php">LOG IN</a>';
+							echo '<a style="text-decoration: none;color: #fff;" href="login.php">Log In</a>';
 						}
 					 ?>
 				</div>
@@ -67,14 +67,14 @@ $search_value = trim($_GET['keywords']);
 			<div id="srcheader">
 				<form id="newsearch" method="get" action="search.php">
 				        <?php 
-				        	echo '<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="'.$search_value.'"><input type="submit" value="search" class="srcbutton" >';
+				        	echo '<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="'.$search_value.'"><input type="submit" value="Search" class="srcbutton" >';
 				         ?>
 				</form>
 			<div class="srcclear"></div>
 			</div>
 		</div>
 		</div>
-		<div class="categolis">
+		<div class="categoryHeaders">
 			<table>
 				<tr>
 					<th>

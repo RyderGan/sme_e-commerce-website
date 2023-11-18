@@ -22,7 +22,7 @@ else {
 </head>
 <body>
 	<?php include ( "../inc/mainheader.inc.php" ); ?>
-	<div class="categolis">
+	<div class="categoryHeaders">
 		<table>
 			<tr>
 				<th>
@@ -38,7 +38,7 @@ else {
 			</tr>
 		</table>
 	</div>
-	<div style="padding: 30px 120px; font-size: 25px; margin: 0 auto; display: table; width: 98%;">
+	<div class="categoryList">
 		<div>
 		<?php 
 			$getposts = mysql_query("SELECT * FROM products WHERE available >='1' AND item ='saree'  ORDER BY id DESC LIMIT 10") or die(mysql_error());

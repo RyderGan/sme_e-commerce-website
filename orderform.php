@@ -124,61 +124,61 @@ $del = $_POST['Delivery'];
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body style="background-image: url(image/homebackgrndimg1.jpg);">
-	<div class="homepageheader">
+	<div class="homepageheader" style="position: relative;">
 			<div class="signinButton loginButton">
 				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
 					<?php 
 						if ($user!="") {
-							echo '<a style="text-decoration: none; color: #fff;" href="logout.php">LOG OUT</a>';
+							echo '<a style="text-decoration: none; color: #fff;" href="logout.php">Log Out</a>';
 						}
 						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="signin.php">SIGN IN</a>';
+							echo '<a style="text-decoration: none; color: #fff;" href="signin.php">Sign Up</a>';
 						}
 					 ?>
 					
 				</div>
-				<div class="uiloginbutton signinButton loginButton" style="">
+				<div class="uiloginbutton signinButton loginButton" >
 					<?php 
 						if ($user!="") {
 							echo '<a style="text-decoration: none; color: #fff;" href="profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
 						}
 						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="login.php">LOG IN</a>';
+							echo '<a style="text-decoration: none; color: #fff;" href="login.php">Log In</a>';
 						}
 					 ?>
 				</div>
 			</div>
 			<div style="float: left; margin: 5px 0px 0px 23px;">
 				<a href="index.php">
-					<img style=" height: 75px; width: 130px;" src="image/cart.png">
+					<img class="icon" src="image/icon.png">
 				</a>
 			</div>
 			<div class="">
 				<div id="srcheader">
 					<form id="newsearch" method="get" action="search.php">
-					        <input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="search" class="srcbutton" >
+					        <input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="Search" class="srcbutton" >
 					</form>
 				<div class="srcclear"></div>
 				</div>
 			</div>
 		</div>
-	<div class="categolis">
+	<div class="categoryHeaders">
 		<table>
 			<tr>
 				<th>
 					<a href="OurProducts/NoodlesCanned.php" style="text-decoration: none;color:#040403 ;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Noodles&Canned</a>
 				</th>
-				<th><a href="OurProducts/Seasonings.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Seasonings</a></th>
-				<th><a href="OurProducts/Drinks.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Drinks</a></th>
-				<th><a href="OurProducts/Snacks.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Snacks</a></th>
-				<th><a href="OurProducts/Sweets.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Sweets</a></th>
-				<th><a href="OurProducts/Soap&Detergent.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Soap&Detergent</a></th>
-				<th><a href="OurProducts/Shampoo.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Shampoo</a></th>
-				<th><a href="OurProducts/Hygene.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Hygiene</a></th>
+				<th><a href="OurProducts/Seasonings.php" >Seasonings</a></th>
+				<th><a href="OurProducts/Drinks.php" >Drinks</a></th>
+				<th><a href="OurProducts/Snacks.php" >Snacks</a></th>
+				<th><a href="OurProducts/Sweets.php" >Sweets</a></th>
+				<th><a href="OurProducts/Soap&Detergent.php" >Soap&Detergent</a></th>
+				<th><a href="OurProducts/Shampoo.php" >Shampoo</a></th>
+				<th><a href="OurProducts/Hygene.php" >Hygiene</a></th>
 			</tr>
 		</table>
 	</div>
-	<div class="holecontainer" style="padding: 20px 15%">
+	<div  style="padding: 20px 15%">
 		<div class="container signupform_content ">
 			<div>
 
@@ -323,7 +323,9 @@ $del = $_POST['Delivery'];
 								<div class="home-prodlist-img"><a href="'.$category.'/view_product.php?pid='.$id.'">
 									<img src="image/product/'.$item.'/'.$picture.'" class="category-img">
 									</a>
-									<div style="text-align: center; padding: 0 0 6px 0;"> <span style="font-size: 15px;">'.$pName.'</span><br> Price: '.$price.' Php</div>
+									<div class="itemDescription"> 
+											<span style="font-size: 15px;">'.$pName.'</span><br> Price: '.$price.' Php
+										</div>	
 								</div>
 								
 							</li>

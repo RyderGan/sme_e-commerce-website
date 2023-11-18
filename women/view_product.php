@@ -42,7 +42,7 @@ $getposts = mysql_query("SELECT * FROM products WHERE id ='$pid'") or die(mysql_
 </head>
 <body>
 	<?php include ( "../inc/mainheader.inc.php" ); ?>
-	<div class="categolis">
+	<div class="categoryHeaders">
 		<table>
 			<tr>
 				<th>
@@ -68,7 +68,7 @@ $getposts = mysql_query("SELECT * FROM products WHERE id ='$pid'") or die(mysql_
 				</div>
 				</div>
 				<div style="float: right;width: 40%;color: #067165;background-color: #ddd;padding: 10px;">
-					<div style="">
+					<div >
 						<h3 style="font-size: 25px; font-weight: bold; ">'.$pName.'</h3><hr>
 						<h3 style="padding: 20px 0 0 0; font-size: 20px;">Prize: '.$price.' Tk</h3><hr>
 						<h3 style="padding: 20px 0 0 0; font-size: 22px; ">Description:</h3>
