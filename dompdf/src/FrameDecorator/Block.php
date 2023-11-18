@@ -24,7 +24,7 @@ class Block extends AbstractFrameDecorator
      *
      * @var int
      */
-    protected $_cl;
+    protected $_cl = 0;
 
     /**
      * The block's line boxes
@@ -43,7 +43,6 @@ class Block extends AbstractFrameDecorator
         parent::__construct($frame, $dompdf);
 
         $this->_line_boxes = array(new LineBox($this));
-        $this->_cl = 0;
     }
 
     /**

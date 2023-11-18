@@ -61,7 +61,7 @@ class FrameTree
      *
      * @var Frame
      */
-    protected $_root;
+    protected $_root = null;
 
     /**
      * Subtrees of absolutely positioned elements
@@ -75,7 +75,7 @@ class FrameTree
      *
      * @var array
      */
-    protected $_registry;
+    protected $_registry = array();
 
     /**
      * Class constructor
@@ -85,8 +85,6 @@ class FrameTree
     public function __construct(DomDocument $dom)
     {
         $this->_dom = $dom;
-        $this->_root = null;
-        $this->_registry = array();
     }
 
     /**

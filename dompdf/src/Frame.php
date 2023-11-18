@@ -53,7 +53,7 @@ class Frame
      *
      * @var Style
      */
-    protected $_style;
+    protected $_style = null;
 
     /**
      * This frame's original style.  Needed for cases where frames are
@@ -61,14 +61,14 @@ class Frame
      *
      * @var Style
      */
-    protected $_original_style;
+    protected $_original_style = null;
 
     /**
      * This frame's parent in the document tree.
      *
      * @var Frame
      */
-    protected $_parent;
+    protected $_parent = null;
 
     /**
      * This frame's children
@@ -83,14 +83,14 @@ class Frame
      *
      * @var Frame
      */
-    protected $_first_child;
+    protected $_first_child = null;
 
     /**
      * This frame's last child.
      *
      * @var Frame
      */
-    protected $_last_child;
+    protected $_last_child = null;
 
     /**
      * This frame's previous sibling in the document tree.
@@ -111,7 +111,12 @@ class Frame
      *
      * @var float[]
      */
-    protected $_containing_block;
+    protected $_containing_block = array(
+        "x" => null,
+        "y" => null,
+        "w" => null,
+        "h" => null,
+    );
 
     /**
      * Position on the page of the top-left corner of the margin box of
@@ -119,21 +124,24 @@ class Frame
      *
      * @var float[]
      */
-    protected $_position;
+    protected $_position = array(
+        "x" => null,
+        "y" => null,
+    );
 
     /**
      * Absolute opacity of this frame
      *
      * @var float
      */
-    protected $_opacity;
+    protected $_opacity = 1.0;
 
     /**
      * This frame's decorator
      *
      * @var \Dompdf\FrameDecorator\AbstractFrameDecorator
      */
-    protected $_decorator;
+    protected $_decorator = null;
 
     /**
      * This frame's containing line box
@@ -179,37 +187,15 @@ class Frame
     public function __construct(\DOMNode $node)
     {
         $this->_node = $node;
-
-        $this->_parent = null;
-        $this->_first_child = null;
-        $this->_last_child = null;
         $this->_prev_sibling = $this->_next_sibling = null;
-
-        $this->_style = null;
-        $this->_original_style = null;
-
-        $this->_containing_block = array(
-            "x" => null,
-            "y" => null,
-            "w" => null,
-            "h" => null,
-        );
 
         $this->_containing_block[0] =& $this->_containing_block["x"];
         $this->_containing_block[1] =& $this->_containing_block["y"];
         $this->_containing_block[2] =& $this->_containing_block["w"];
         $this->_containing_block[3] =& $this->_containing_block["h"];
 
-        $this->_position = array(
-            "x" => null,
-            "y" => null,
-        );
-
         $this->_position[0] =& $this->_position["x"];
         $this->_position[1] =& $this->_position["y"];
-
-        $this->_opacity = 1.0;
-        $this->_decorator = null;
 
         $this->set_id(self::$ID_COUNTER++);
     }

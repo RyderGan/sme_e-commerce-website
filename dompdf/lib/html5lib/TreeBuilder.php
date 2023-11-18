@@ -38,7 +38,7 @@ class HTML5_TreeBuilder {
     public $stack = array();
     public $content_model;
 
-    private $mode;
+    private $mode = self::INITIAL;
     private $original_mode;
     private $secondary_mode;
     private $dom;
@@ -149,7 +149,6 @@ class HTML5_TreeBuilder {
      * HTML5_TreeBuilder constructor.
      */
     public function __construct() {
-        $this->mode = self::INITIAL;
         $this->dom = new DOMDocument;
 
         $this->dom->encoding = 'UTF-8';

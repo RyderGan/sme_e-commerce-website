@@ -38,7 +38,7 @@ abstract class AbstractFrameReflower
      *
      * @var array
      */
-    protected $_min_max_cache;
+    protected $_min_max_cache = null;
 
     /**
      * AbstractFrameReflower constructor.
@@ -47,7 +47,6 @@ abstract class AbstractFrameReflower
     function __construct(Frame $frame)
     {
         $this->_frame = $frame;
-        $this->_min_max_cache = null;
     }
 
     function dispose()

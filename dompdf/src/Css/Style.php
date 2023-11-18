@@ -143,17 +143,17 @@ class Style
      *
      * @var int
      */
-    protected $_media_queries;
+    protected $_media_queries = array();
 
     /**
      * Main array of all CSS properties & values
      *
      * @var array
      */
-    protected $_props;
+    protected $_props = array();
 
     /* var instead of protected would allow access outside of class */
-    protected $_important_props;
+    protected $_important_props = array();
 
     /**
      * Cached property values
@@ -168,7 +168,7 @@ class Style
      *
      * @var float
      */
-    protected $_parent_font_size; // Font size of parent element
+    protected $_parent_font_size = null; // Font size of parent element
 
     protected $_font_family;
 
@@ -190,7 +190,7 @@ class Style
      *
      * @var bool
      */
-    private $__font_size_calculated; // Cache flag
+    private $__font_size_calculated = false; // Cache flag
 
     /**
      * The computed bottom spacing
@@ -221,14 +221,8 @@ class Style
     public function __construct(Stylesheet $stylesheet, $origin = Stylesheet::ORIG_AUTHOR)
     {
         $this->setFontMetrics($stylesheet->getFontMetrics());
-
-        $this->_props = array();
-        $this->_important_props = array();
         $this->_stylesheet = $stylesheet;
-        $this->_media_queries = array();
         $this->_origin = $origin;
-        $this->_parent_font_size = null;
-        $this->__font_size_calculated = false;
 
         if (!isset(self::$_defaults)) {
 

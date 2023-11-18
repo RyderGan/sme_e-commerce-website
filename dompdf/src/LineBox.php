@@ -86,7 +86,6 @@ class LineBox
     public function __construct(Block $frame, $y = 0)
     {
         $this->_block_frame = $frame;
-        $this->_frames = array();
         $this->y = $y;
 
         $this->get_float_offsets();
