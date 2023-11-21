@@ -111,7 +111,7 @@ if (isset($_POST['signup'])) {
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body class="home-welcome-text" style="background-color: #F5F5F5">
+<body class="home-welcome-text" style="background-color: #F5F5F5;">
 	<div class="homepageheader" style="position: inherit;">
 		<div class="signinButton loginButton">
 			<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
@@ -127,11 +127,11 @@ if (isset($_POST['signup'])) {
 				echo $success_message;
 			} else {
 				echo '
-					<div style="float: right; margin-right: 30%; padding-top: 110px;">
+					<div class="loginContainer">
 						<div class="signupform_content">
-							<h2>Sign Up Form</h2>
+							<h2>Sign Up</h2>
 							<form action="" method="POST" class="registration">
-								<div class="signup_form">
+								<div>
 									<div>
 										<td >
 											<input name="first_name" id="first_name" placeholder="First Name" required="required" class="first_name signupbox" type="text" size="30" value="' . $u_fname . '" >
@@ -183,6 +183,7 @@ if (isset($_POST['signup'])) {
 		</div>
 	</div>
 </body>
+
 <script>
 	function validateForm() {
 		// Get form elements

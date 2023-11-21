@@ -15,7 +15,7 @@ else {
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Welcome to nita's online grocery</title>
+		<title>Nita's online grocery</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -51,7 +51,7 @@ else {
 					<img class="icon" src="image/icon.png">
 				</a>
 			</div>
-			<div id="srcheader">
+			<div >
 				<form id="newsearch" method="get" action="search.php">
 					<input type="text" class="srctextinput" name="keywords" 
 					size="21" maxlength="120"  placeholder="Search Here...">

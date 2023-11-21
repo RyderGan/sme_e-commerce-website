@@ -27,7 +27,7 @@
 					<img class="icon" src="../image/icon.png">
 				</a>
 			</div>
-			<div id="srcheader">
+			<div >
 				<form id="newsearch" method="get" action="../search.php" style="margin-top: 7px;">
 					<input type="text" class="srctextinput" name="keywords" 
 					size="21" maxlength="120"  placeholder="Search Here...">

@@ -97,15 +97,7 @@ if (isset($_POST['order'])) {
 
 		if (mysqli_query($con, "DELETE FROM cart WHERE uid='$user'")) {
 			// success message
-			$success_message = '
-                <div class="signupform_content">
-                <h2><font face="bookman"></font></h2>
-
-                <div class="signupform_text" style="font-size: 18px; text-align: center;">
-                <font face="bookman">
-
-                </font></div></div>
-            ';
+			$success_message = '';
 		}
 	} catch (Exception $e) {
 		$error_message = $e->getMessage();
@@ -119,251 +111,271 @@ if (isset($_POST['order'])) {
 <html>
 
 <head>
-	<title>Noodles&Canned</title>
+	<title>My Cart</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body style="background-image: url(image/homebackgrndimg1.jpg);">
-	<div class="homepageheader">
+<body>
+	<div class="homepageheader" style="position: relative;">
 		<div class="signinButton loginButton">
 			<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
 				<?php
 				if ($user != "") {
-					echo '<a style="text-decoration: none; color: #fff;" href="logout.php">LOG OUT</a>';
+					echo '<a style="text-decoration: none; color: #fff;" href="logout.php">Log Out</a>';
 				} else {
-					echo '<a style="text-decoration: none; color: #fff;" href="signin.php">SIGN IN</a>';
+					echo '<a style="text-decoration: none; color: #fff;" href="signin.php">Sign Up</a>';
 				}
 				?>
 
 			</div>
-			<div class="uiloginbutton signinButton loginButton" style="">
+			<div class="uiloginbutton signinButton loginButton">
 				<?php
 				if ($user != "") {
 					echo '<a style="text-decoration: none; color: #fff;" href="profile.php?uid=' . $user . '">Hi ' . $uname_db . '</a>';
 				} else {
-					echo '<a style="text-decoration: none; color: #fff;" href="login.php">LOG IN</a>';
+					echo '<a style="text-decoration: none; color: #fff;" href="login.php">Log In</a>';
 				}
 				?>
 			</div>
 		</div>
 		<div style="float: left; margin: 5px 0px 0px 23px;">
 			<a href="index.php">
-				<img style=" height: 75px; width: 130px;" src="image/cart.png">
+				<img class="icon" src="image/icon.png">
 			</a>
 		</div>
 		<div id="srcheader">
-			<form id="newsearch" method="get" action="search.php">
-				<?php
-				echo '<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="' . $search_value . '"><input type="submit" value="search" class="srcbutton" >';
-				?>
+			<form id="newsearch" method="get" action="search.php" style="margin-top: 7px;">
+				<?php 
+					echo '<input type="text" class="srctextinput" name="keywords" 
+					size="21" maxlength="120"  placeholder="Search Here..." 
+					value="'.$search_value.'"><input type="submit" value="Search" 
+					class="srcbutton" >';
+					?>
 			</form>
-			<div class="srcclear"></div>
 		</div>
 	</div>
-	<div class="categolis">
+
+	<div class="categoryHeadersMyCart">
 		<table>
 			<tr>
-				<th><?php echo '<a href="mycart.php?uid=' . $user . '" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">My Cart</a>'; ?></th>
 				<th>
-					<?php echo '<a href="profile.php?uid=' . $user . '" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #fff;border-radius: 12px;">My Orders</a>'; ?>
+					<?php echo '<a href="mycart.php?uid='.$user.'" style="margin-left: 305px;" class="selectedItem">My Cart</a>'; ?>
 				</th>
 				<th>
-					<?php echo '<a href="my_delivery.php?uid=' . $user . '" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #fff;border-radius: 12px;">MyDeliveryHistory</a>'; ?>
+					<?php echo '<a href="profile.php?uid='.$user.'">My Orders</a>'; ?>
 				</th>
-				<th><?php echo '<a href="settings.php?uid=' . $user . '" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #fff;border-radius: 12px;">Settings</a>'; ?></th>
-
-
+				<th>
+					<?php echo '<a href="my_delivery.php?uid='.$user.'" >My Delivery History</a>'; ?>
+				</th>
+				<th>
+					<?php echo '<a href="settings.php?uid='.$user.'" >Settings</a>'; ?>
+				</th>
 			</tr>
 		</table>
 	</div>
-	<div style="margin-top: 20px; padding: 0 10%;">
-		<div style=" margin: 0 auto; width: 55%;float: left;">
 
+	<div>
+		<div style="width: 57%;float: left; margin-left: 58px;">
 			<ul>
-				<li style=" background-color: #fff;">
-					<div>
-						<div>
-							<table class="rightsidemenu">
-								<tr style="font-weight: bold;" colspan="10" bgcolor="#3A5487">
-									<th>Product Name</th>
-									<th>Price</th>
-									<th>Pieces</th>
-									<th>Description</th>
-									<th>View</th>
-									<th>Remove</th>
-								</tr>
-								<tr>
-									<?php
-									$query = "SELECT * FROM cart WHERE uid='$user' ORDER BY id DESC";
-									$run = mysqli_query($con, $query);
-									$total = 0;
-									while ($row = mysqli_fetch_assoc($run)) {
-										$pid = $row['pid'];
-										$quantity = $row['quantity'];
+				<li>
+					<table class="rightsidemenu">
+						<tr style="font-weight: bold;" bgcolor="#f5f5f5">
+							<th>Product Name</th>
+							<th>Price</th>
+							<th>Pieces</th>
+							<th>Description</th>
+							<th>View</th>
+							<th>Remove</th>
+						</tr>
+						<tr>
+							<?php
+							$query = "SELECT * FROM cart WHERE uid='$user' ORDER BY id DESC";
+							$run = mysqli_query($con, $query);
+							$total = 0;
+							while ($row = mysqli_fetch_assoc($run)) {
+								$pid = $row['pid'];
+								$quantity = $row['quantity'];
 
-										//get product info
-										$query1 = "SELECT * FROM products WHERE id='$pid'";
-										$run1 = mysqli_query($con, $query1);
-										$row1 = mysqli_fetch_assoc($run1);
-										$pId = $row1['id'];
-										$pName = substr($row1['pName'], 0, 50);
-										$price = $row1['price'];
-										$description = $row1['description'];
-										$picture = $row1['picture'];
-										$item = $row1['item'];
-										$category = $row1['category'];
+								//get product info
+								$query1 = "SELECT * FROM products WHERE id='$pid'";
+								$run1 = mysqli_query($con, $query1);
+								$row1 = mysqli_fetch_assoc($run1);
+								$pId = $row1['id'];
+								$pName = substr($row1['pName'], 0, 50);
+								$price = $row1['price'];
+								$description = $row1['description'];
+								$picture = $row1['picture'];
+								$item = $row1['item'];
+								$category = $row1['category'];
 
-										$total += ($quantity * $price);
-										$_SESSION['total'] = $total;
-									?>
-										<th><?php echo $pName; ?></th>
-										<th><?php echo $price; ?></th>
-										<th><?php echo '<a href="delete_cart.php?sid=' . $pId . '" style="text-decoration: none;padding: 0px 5px;font-size: 25px;color: white;border: 1px solid;margin: 10px;">-</a>' ?><?php echo $quantity; ?><?php echo '<a href="delete_cart.php?aid=' . $pId . '" style="text-decoration: none;padding: 0px 5px;font-size: 25px;color: white;border: 1px solid;margin: 10px;">+</a>' ?></th>
-										<th><?php echo $description; ?></th>
-										<th><?php echo '<div class="home-prodlist-img"><a href="OurProducts/view_product.php?pid=' . $pId . '">
-													<img src="image/product/' . $item . '/' . $picture . '" class="category-img" style="height: 75px; width: 75px;">
-													</a>
-												</div>' ?></th>
-										<th><?php echo '<div class="home-prodlist-img"><a href="delete_cart.php?cid=' . $pId . '" style="text-decoration: none;">X</a>
-												</div>' ?></th>
-								</tr>
-							<?php } ?>
-							<tr style="font-weight: bold;" colspan="10" bgcolor="#3A5487">
-								<th>Total</th>
-								<th></th>
-								<th><?php echo $total ?> Php</th>
-								<th></th>
-								<th></th>
-								<th></th>
-							</tr>
-							</table>
-						</div>
-					</div>
+								$total += ($quantity * $price);
+								$_SESSION['total'] = $total;
+							?>
+								<th><?php echo $pName; ?></th>
+								<th><?php echo $price; ?></th>
+								<th><?php echo '<a href="delete_cart.php?sid=' . $pId . '" style="text-decoration: none;padding: 0px 5px;font-size: 25px;color: white;border: 1px solid;margin: 10px;">-</a>' ?><?php echo $quantity; ?><?php echo '<a href="delete_cart.php?aid=' . $pId . '" style="text-decoration: none;padding: 0px 5px;font-size: 25px;color: white;border: 1px solid;margin: 10px;">+</a>' ?></th>
+								<th><?php echo $description; ?></th>
+								<th>
+									<?php echo '
+									<div class="home-prodlist-img">
+										<a href="OurProducts/view_product.php?pid=' . $pId . '">
+											<img src="image/product/' . $item . '/' . $picture . '" 
+												class="category-img" style="height: 100px; width: 100px;">
+										</a>
+									</div>' ?>
+								</th>
+								<th>
+									<?php echo '
+									<div class="home-prodlist-img">
+										<a href="delete_cart.php?cid=' . $pId . '" class="xButton">X
+										</a>
+									</div>' ?>
+								</th>
+						</tr>
+						<?php } ?>
+						<tr style="font-weight: bold;">
+							<th>Total</th>
+							<th></th>
+							<th><?php echo $total ?>$</th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</table>
 				</li>
-
 			</ul>
 		</div>
-		<div  style="float: right;width: 35%;">
-			<div class="container signupform_content ">
-				<div>
-					<div>
 
-						<?php
-						if (isset($success_message)) {
-							echo $success_message;
+		<div  style="float: right; width: 30%">
+			<?php
+			if (isset($success_message)) {
+				echo $success_message;
 
-							echo '<h3 style="color:#169E8F;font-size:45px;"> Payment&Delivery </h3>';
+				echo '<p class="paymentDeliverHeader"> Payment - Delivery </p>';
 
+				$user = $_SESSION['user_login'];
+				$result = mysqli_query($con, "SELECT * FROM user WHERE id='$user'");
+				$get_user_email = mysqli_fetch_assoc($result);
+				$uname_db = $get_user_email['firstName'];
+				$ulast_db = $get_user_email['lastName'];
+				$uemail_db = $get_user_email['email'];
+				$umob_db = $get_user_email['mobile'];
+				$uadd_db = $get_user_email['address'];
 
-							$user = $_SESSION['user_login'];
-							$result = mysqli_query($con, "SELECT * FROM user WHERE id='$user'");
-							$get_user_email = mysqli_fetch_assoc($result);
-							$uname_db = $get_user_email['firstName'];
-							$ulast_db = $get_user_email['lastName'];
-							$uemail_db = $get_user_email['email'];
-							$umob_db = $get_user_email['mobile'];
-							$uadd_db = $get_user_email['address'];
-							echo '<h3 style="color:black;font-size:25px;"> First Name: </h3>';
-							echo '<span style="color:#34ce6c;font-size:25px;">' . $uname_db . '</span>';
-							echo '<h3 style="color:black;font-size:25px;"> Last Name: </h3>';
-							echo '<span style="color:#34ce6c;font-size:25px;">' . $ulast_db . '</span>';
-							echo '<h3 style="color:black;font-size:25px;"> Email: </h3>';
-							echo '<span style="color:#34ce6c;font-size:25px;">' . $uemail_db . '</span>';
-							echo '<h3 style="color:black;font-size:25px;"> Contact Number: </h3>';
-							echo '<span style="color:#34ce6c;font-size:25px;">' . $umob_db . '</span>';
-							echo '<h3 style="color:black;font-size:25px;"> Home Address: </h3>';
-							echo '<span style="color:#34ce6c;font-size:25px;">' . $uadd_db . '</span>';
+				echo '<div class="paymentDetailsContainer">';
+				echo '<div class="paymentDetailsPair">';
+				echo '<h3 class="paymentDetailsField"> First Name </h3>';
+				echo '<span class="paymentDetailsValue">' . $uname_db . '</span>';
+				echo '</div>';
+				
+				echo '<div class="paymentDetailsPair">';
+				echo '<h3 class="paymentDetailsField"> Last Name </h3>';
+				echo '<span class="paymentDetailsValue">' . $ulast_db . '</span>';
+				echo '</div>';
+				
+				echo '<div class="paymentDetailsPair">';
+				echo '<h3 class="paymentDetailsField"> Email </h3>';
+				echo '<span class="paymentDetailsValue">' . $uemail_db . '</span>';
+				echo '</div>';
+				
+				echo '<div class="paymentDetailsPair">';
+				echo '<h3 class="paymentDetailsField"> Contact Number </h3>';
+				echo '<span class="paymentDetailsValue">' . $umob_db . '</span>';
+				echo '</div>';
+				
+				echo '<div class="paymentDetailsPair">';
+				echo '<h3 class="paymentDetailsField"> Address </h3>';
+				echo '<span class="paymentDetailsValue">' . $uadd_db . '</span>';
+				echo '</div>';
+				
+				$del = $_POST['Delivery'];
+				echo '<div class="paymentDetailsPair">';
+				echo '<h3 class="paymentDetailsField">Types of Delivery</h3>';
+				echo '<span class="paymentDetailsValue">' . $del . '</span>';
+				echo '</div>';
+				
+				echo '<div class="paymentDetailsPair">';
+				echo '<h3 class="paymentDetailsFieldTotal"> Total </h3>';
+				echo '<span class="paymentDetailsValueTotal">'  . $_SESSION['total'] . ' $</span>';
+				echo '</div>';
 
-							$del = $_POST['Delivery'];
-							echo '<h3 style="color:black;font-size:25px;">Types of Delivery:</h3>';
-							echo '<span style="color:#34ce6c;font-size:25px;">' . $del . '</span>';
-
-							echo '<h3 style="color:#169E8F;font-size:35px;"> Total: Php ' . $_SESSION['total'] . ' Php</h2>';
-						} else {
-							echo '
-							
-							<div class="signupform_text"></div>
-							
-
-								<form action="" method="POST" class="registration">
-							
-									<div class="signup_form" >
-									<h3 style="color:red;font-size:18px; padding: 5px;">Accepting CashOnDelivery Only</h3>
-										<div>
-											<td>
-												<input name="fullname" placeholder="your name" required="required" class="email signupbox" type="text" size="30" value="' . $uname_db . '">
-											</td>
-										</div>
-
-										<div>
-											<td>
-												<input name="lastname" placeholder="Your last name" required="required" class="email signupbox" type="text" size="30" value="' . $ulast_db . '">
-											</td>
-										</div>
-
-
-
-										<div>
-										<td>
-												<input name="mobile" placeholder="Your mobile number" required="required" class="email signupbox" type="text" size="30" value="' . $umob_db . '">
-											</td>
-										</div>
-										<div>
-											<td>
-												<input name="address" id="password-1" required="required"  placeholder="Write your full address" class="password signupbox " type="text" size="30" value="' . $uadd_db . '">
-											</td>
-										</div>
-
-										<div>
-										<td>
-
-										<font style="italic" family="arial" size="5px" color="#169e">
-										Types of Delivery <br>
-										
-
-										 <input name="Delivery" required="required" value="Express Delivery +100php upon cash on delivery" type="radio"  placeholder="Mode Of Payment"> Express Delivery </br>
-										 <input name="Delivery" type="radio" value="Standard Delivery" required="required" placeholder="Mode Of Payment"> Standard Delivery </br>
-										 </font>
-
-
-										</td>
-										</div>
-
-
-										<div>
-										</div>
-										
-										
-										<div>
-											<input name="order" class="uisignupbutton signupbutton" type="submit" value="Confirm Order">
-										</div>
-										<div class="signup_error_msg"> '; ?>
-							<?php
-							if (isset($error_message)) {
-								echo $error_message;
-							}
-
-							?>
-						<?php echo '</div>
-									</div>
-								</form>
-								
+				echo '</div>';
+			} else {
+				echo '
+					<form action="" method="POST" class="registration">
+				
+						<div class="signup_form" >
+						<h3 class="cashOnDeliveryText">Accepting CashOnDelivery Only</h3>
+							<div>
+								<td>
+									<input name="fullname" placeholder="First Name" 
+									required="required" class="email signupbox" type="text" size="30" value="' . $uname_db . '">
+								</td>
 							</div>
+							
+							<div>
+								<td>
+									<input name="lastname" placeholder="Last Name" 
+									required="required" class="email signupbox" type="text" size="30" value="' . $ulast_db . '">
+								</td>
+							</div>
+							
+							<div>
+								<td>
+									<input name="mobile" placeholder="Contact Number" 
+									required="required" class="email signupbox" type="text" size="30" value="' . $umob_db . '">
+								</td>
+							</div>
+							
+							<div>
+								<td>
+									<input name="address" id="password-1" required="required"  
+									placeholder="Address" class="password signupbox " type="text" size="30" value="' . $uadd_db . '">
+								</td>
+							</div>
+
+							<div>
+								<td>
+									<div class="mydict">
+										<div>
+											<label>
+												<input type="radio" name="Delivery" checked="checked">
+												<span>Standard Delivery</span>
+											</label>
+											<label>
+												<input type="radio" name="Delivery">
+												<span>Express Delivery</span>
+											</label>
+										</div>
+									</div>
+								</td>
+							</div>	
+							
+							<div>
+								<input name="order" class="uisignupbutton signupbutton" type="submit" value="Confirm Order">
+							</div>
+							<div class="signup_error_msg"> '; ?>
+				<?php
+				if (isset($error_message)) {
+					echo $error_message;
+				}
+
+				?>
+			<?php echo '</div>
 						</div>
-
-						';
-						}
-
-						?>
-						</h3>
-					</div>
-
+					</form>
+					
 				</div>
 			</div>
+
+			';
+			}
+
+			?>
+			</h3>
 		</div>
 	</div>
-
 
 </body>
 

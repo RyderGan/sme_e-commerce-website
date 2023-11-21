@@ -54,64 +54,50 @@ if (isset($_POST['addcart'])) {
 <html>
 
 <head>
-	<title>View-Prod</title>
+	<title>Product</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
 	<?php include("../inc/mainheader.inc.php"); ?>
-	<div class="categolis">
+	<div class="categoryHeaders">
 		<table>
 			<tr>
-				<th>
-					<a href="NoodlesCanned.php" >Noodles&Canned</a>
-				</th>
-				<th><a href="Seasonings.php" >Seasonings</a></th>
-				<th><a href="Drinks.php" >Drinkss</a></th>
+				<th><a href="NoodlesCanned.php" >Cans</a></th>
 				<th><a href="Snacks.php" >Snacks</a></th>
 				<th><a href="Sweets.php" >Sweets</a></th>
-				<th><a href="Soap&Detergent.php" >Soap&Detergent</a></th>
+				<th><a href="Drinks.php" >Drinks</a></th>
+				<th><a href="Seasonings.php" >Condiments</a></th>
+				<th><a href="Hygene.php">Hygene</a></th>
 				<th><a href="Shampoo.php" >Shampoo</a></th>
-				<th><a href="Hygene.php" >Hygiene</a></th>
+				<th><a href="Soap&Detergent.php" >Soap</a></th>
 			</tr>
 		</table>
 	</div>
-	<div style="margin: 0 97px; padding: 10px">
 
+	<div>
 		<?php
 		echo '
 				<div style="float: left;">
-				<div>
-					<img src="../image/product/' . $item . '/' . $picture . '" style="height: 500px; width: 500px; padding: 2px; border: 2px solid #c7587e;">
-				</div>
-				</div>
-				<div style="float: right;width: 40%;color: #067165;background-color: #ddd;padding: 10px;">
-					<div style="">
-						<h3 style="font-size: 25px; font-weight: bold; ">' . $pName . '</h3><hr>
-						<h3 style="padding: 20px 0 0 0; font-size: 20px;">Price: ' . $price . 'Php</h3><hr>
-						<h3 style="padding: 20px 0 0 0; font-size: 22px; ">Pieces:' . $piece . '</h3>
-						<h3 style="padding: 20px 0 0 0; font-size: 22px; ">Description:</h3>
-						<p>
-							' . $description . '
-						</p>
-
-						<div>
-							<h3 style="padding: 20px 0 5px 0; font-size: 20px;">Want to buy this product? </h3>
-							<div id="srcheader">
-								<form id="" method="post" action="">
-								        <input type="submit" name="addcart" value="Add to cart" class="srcbutton" >
-								</form><br/>
-								<form id="" method="post" action="../orderform.php?poid=' . $pid . '">
-								        <input type="submit" value="Order Now" class="srcbutton" >
-								</form>
-								<div class="srcclear"></div>
-							</div>
-						</div>
-
+					<div>
+						<img src="../image/product/' . $item . '/' . $picture . '" class="productImg">
 					</div>
 				</div>
-
+				<div class="productInfo">
+					<p class="productHdr">' . $pName . '</p>
+					<p class="productPrice">Price ' . $price . '$</p>
+					<p class="productPiece">' . $piece . ' Pieces</p>
+					<p class="productDescription">Description: ' . $description . '$</p>
+					<div class="productButtonsContainer">
+						<form id="" method="post" action="">
+							<input type="submit" name="addcart" value="Add to cart" class="productButtons" >
+						</form>
+						<form id="" method="post" action="../orderform.php?poid=' . $pid . '">
+							<input type="submit" value="Order Now" class="productButtons" >
+						</form>
+					</div>
+				</div>
 			';
 		?>
 

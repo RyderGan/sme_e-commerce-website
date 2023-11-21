@@ -77,7 +77,7 @@ $search_value = "";
 					<img class="icon" src="image/icon.png">
 				</a>
 			</div>
-			<div id="srcheader">
+			<div >
 				<form id="newsearch" method="get" action="search.php">
 				        <?php 
 				        	echo '<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="'.$search_value.'"><input type="submit" value="Search" class="srcbutton" >';
@@ -94,7 +94,7 @@ $search_value = "";
 						<?php echo '<a href="profile.php?uid='.$user.'" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #fff;border-radius: 12px;">My Orders</a>'; ?>
 					</th>
 					<th>
-						<?php echo '<a href="#" >MyDeliveryHistory</a>'; ?>
+						<?php echo '<a href="#" >My Delivery History</a>'; ?>
 					</th>
 					<th><?php echo '<a href="settings.php?uid='.$user.'" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color: #fff;border-radius: 12px;">Settings</a>'; ?></th>
 					

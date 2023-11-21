@@ -87,7 +87,7 @@ $search_value = "";
 			<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
 				<?php
 				if ($user != "") {
-					echo '<a style="text-decoration: none; color: #fff;" href="logout.php">LOG OUT</a>';
+					echo '<a style="text-decoration: none; color: #fff;" href="logout.php">Log Out</a>';
 				}
 				?>
 
@@ -97,7 +97,7 @@ $search_value = "";
 				if ($user != "") {
 					echo '<a style="text-decoration: none; color: #fff;" href="update_admin.php">Hi ' . $uname_db . '</br><span style="color: #de2a74">' . $utype_db . '</span></a>';
 				} else {
-					echo '<a style="text-decoration: none; color: #fff;" href="login.php">LOG IN</a>';
+					echo '<a style="text-decoration: none; color: #fff;" href="login.php">Log In</a>';
 				}
 				?>
 			</div>
@@ -107,7 +107,7 @@ $search_value = "";
 				<img style=" height: 75px; width: 130px;" src="../image/cart.png">
 			</a>
 		</div>
-		<div id="srcheader">
+		<div >
 			<form id="newsearch" method="get" action="search.php">
 				<?php
 				echo '<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="' . $search_value . '"><input type="submit" value="search" class="srcbutton" >';

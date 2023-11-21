@@ -240,11 +240,18 @@ body{
 }
 
 .signupform_content h2 {
-  padding: 0px 0px 10px 0px;
   font-size: 40px;
   color: #364F6B;
   font-weight: bold;
   text-align: center;
+}
+
+.loginContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin-left: 150px;
 }
 
 .label_content h5 {
@@ -308,8 +315,12 @@ body{
   color: #18d318;
   font-style: normal;
 }
-.signup_form {
-    padding: 22px 53px 0 53px;
+
+.cashOnDeliveryText{
+  color: #fc5185;
+  font-size: 18px;
+  padding: 15px;
+  font-weight: 700;
 }
 
 .activation-header{
@@ -348,6 +359,30 @@ body{
   height: 20px;
   background: transparent;
   font-weight: bold;
+}
+
+.inputFieldsOrder {
+  font-size: 17px;
+  font-style: italic;
+  margin-bottom: 15px;
+  margin-top: 0px;
+  padding: 20px;
+  line-height: 25px;
+  border-radius: 4px;
+  border: 1px solid #3FC1C9;
+  color: #364F6B;
+  margin-left: 0;
+  width: 320px;
+  height: 0px;
+  background: transparent;
+  font-weight: bold;
+}
+
+.orderBackground{
+  background-color: whitesmoke;
+  border-radius: 50px;
+  padding: 15px;
+  margin-right:55px;
 }
 
 .signupbutton {
@@ -495,6 +530,93 @@ body{
   opacity: 0.7;
 }
 
+.productImg{
+  width: 310px;
+  height: 310px;
+  border-radius: 100px;
+  object-fit: contain;
+  object-position: center;
+  margin-left: 260px;
+}
+
+.productInfo{
+  margin-right: 85px;
+  float: right;
+  width: 40%;
+  background-color: #f5f5f5;
+  padding: 30px;
+  border-radius: 50px;
+}
+
+.productButtons{
+  padding: 12px 17px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  border: none;
+  background-color: #fc5185;
+  border-radius: 25px 25px;
+  transition: opacity 0.6s;
+  margin: 10px 0px 0px 20px;
+  transition: color 0.6s, background-color 0.6s, opacity 0.6s;
+}
+
+.productButtons:hover{
+  background-color: #ffffff;
+  color: #fc5185;
+}
+
+.productButtons:active{
+  opacity: 0.7;
+}
+
+.productButtonsContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productHdr{
+  text-align: center;
+  font-weight: bold;
+  color: #364F6B;
+  font-size: 26px;
+}
+
+.productPrice{
+  text-align: center;
+  color: #fc5185;
+  margin: 20px 0 0 0;
+  width: 100%;
+  font-size: 25px;
+}
+
+.productPiece{
+  text-align: center;
+  color: #364f6b;
+  margin: 20px 0 0 0;
+  width: 100%;
+  font-size: 21px;
+}
+
+.productDescription{
+  text-align: center;
+  color: #364f6b;
+  margin: 20px 0 20px 0;
+  width: 100%;
+  font-size: 21px;  
+}
+
+.paymentDeliverHeaderContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .categoryHeaders  {
   padding: 30px;
   background-color: #F5F5F5;
@@ -531,24 +653,175 @@ body{
 /* admin style */
 
 .rightsidemenu {
-    float: right;
-    text-align: center;
-    width: 100%;
-    margin: 0px;
-    background-color: #169e8f;
-    font-size: 15px;
-    color: #fff;
-    font-weight: bold;
-    height: 537px;
-    overflow: auto;
+  text-align: center;
+  width: 100%;
+  margin: 15px;
+  font-size: 15px;
+  color: #364F6B;
+  font-weight: bold;
+  vertical-align: middle;
 }
 .rightsidemenu th {
-  margin-top: 5px;
-  border: 2px solid;
-  padding: 7px 2px;
-  width: 10px;
+  border: 1px solid #3fc1c9;
+  padding: 15px;
+  text-align: center;
+  vertical-align: middle;
 }
+.xButton{
+  padding: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #3fc1c9;
+  border-right: 0px;
+  background: #f5f5f5;
+  border-radius: 50px;
+  transition: opacity 0.6s, color 0.6s, background-color 0.6s;
+}
+.xButton:hover{
+  background: #3fc1c9;
+  color: #f5f5f5;
+}
+
+.xButton:active{
+  opacity: 0.7;
+}
+
+.mydict div {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px 0px 19px 13px;
+}
+
+.mydict input[type="radio"] {
+  width: 1px;
+}
+
+.mydict input[type="radio"]:checked + span {
+  background-color: #3fc1c9;
+  color: #ffffff;
+}
+
+label span {
+  display: block;
+  cursor: pointer;
+  padding: 1.075em .75em;
+  position: relative;
+  margin-left: .0625em;
+  box-shadow: 0 0 0 0.0625em #b5bfd9;
+  letter-spacing: .05em;
+  text-align: center;
+  transition: background-color .5s ease;
+  font-size: 14px;
+  color: #3fc1c9;
+}
+
+label:first-child span {
+  border-radius: .375em 0 0 .375em;
+}
+
+label:last-child span {
+  border-radius: 0 .375em .375em 0;
+}
+
+.categoryHeadersMyCart  {
+  padding: 30px;
+  background-color: #F5F5F5;
+  text-align: center;
+  font-size: 25px;
+  margin-bottom:15px;
+}
+.categoryHeadersMyCart a {
+  color: whitesmoke;
+  text-decoration: none;
+  background-color: #FC5185;
+  border-radius: 30px;
+  margin: 20px;
+  padding: 13px 30px 12px 30px;
+}
+
+.paymentDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.paymentDetailsPair {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.paymentDetailsField {
+  background-color: #fc5185;
+  padding: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 19px;
+  width: 205px;
+  border-radius: 50px;
+}
+
+.paymentDetailsValue {
+  color: #fc5185;
+  padding: 15px;
+  background-color: #ffffff;
+  font-size: 19px;
+  width: 205px; 
+  border-radius: 50px;
+}
+
+.paymentDetailsFieldTotal {
+  background-color: #364F6B;
+  padding: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 19px;
+  width: 205px;
+  border-radius: 50px;
+}
+
+.paymentDetailsValueTotal {
+  color: #364F6B;
+  padding: 15px;
+  background-color: #ffffff;
+  font-size: 19px;
+  width: 205px; 
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+.paymentDeliverHeader {
+  background-color: #364F6B;
+  padding: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 19px;
+  border-radius: 50px;
+  width: 400px;
+  box-shadow: 0px -6px 7px #fc5185;
+  margin: 11px 0px;
+  text-align: center;
+}
+
 /* settring */
+
+.settingContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settingsHeader{
+  background-color: whitesmoke;
+  padding: 15px;
+  font-weight: bold;
+  color: #364F6B;
+  font-size: 19px;
+  text-align: center;
+}
+
 .settingsleftcontent {
     width: 300px;
     color: #7C7979;

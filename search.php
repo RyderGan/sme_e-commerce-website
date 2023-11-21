@@ -66,7 +66,7 @@ $search_value = trim($_GET['keywords']);
 				<img class="icon" src="image/icon.png">
 			</a>
 		</div>
-		<div id="srcheader">
+		<div >
 				<form id="newsearch" method="get" action="search.php" style="margin-top: 7px;">
 				        <?php 
 				        	echo '<input type="text" class="srctextinput" name="keywords" 

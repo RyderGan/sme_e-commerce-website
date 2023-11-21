@@ -115,7 +115,7 @@ $search_value = "";
 					<img style=" height: 75px; width: 130px;" src="../image/cart.png">
 				</a>
 			</div>
-			<div id="srcheader">
+			<div >
 				<form id="newsearch" method="get" action="search.php">
 				        <?php 
 				        	echo '<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="'.$search_value.'"><input type="submit" value="Search" class="srcbutton" >';

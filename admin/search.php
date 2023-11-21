@@ -64,7 +64,7 @@ $search_value = trim($_GET['keywords']);
 				</a>
 			</div>
 			<div class="">
-			<div id="srcheader">
+			<div >
 				<form id="newsearch" method="get" action="search.php">
 				        <?php 
 				        	echo '<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="'.$search_value.'"><input type="submit" value="Search" class="srcbutton" >';
