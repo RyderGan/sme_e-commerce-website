@@ -69,7 +69,7 @@ class Standard extends PrettyPrinterAbstract
         return '#[' . $this->pCommaSeparated($node->attrs) . ']';
     }
     // Names
-    protected function pName(Name $node)
+    protected function name(Name $node)
     {
         return \implode('\\', $node->parts);
     }
@@ -641,7 +641,7 @@ class Standard extends PrettyPrinterAbstract
     }
     protected function pStmt_GroupUse(Stmt\GroupUse $node)
     {
-        return 'use ' . $this->pUseType($node->type) . $this->pName($node->prefix) . '\\{' . $this->pCommaSeparated($node->uses) . '};';
+        return 'use ' . $this->pUseType($node->type) . $this->name($node->prefix) . '\\{' . $this->pCommaSeparated($node->uses) . '};';
     }
     protected function pStmt_UseUse(Stmt\UseUse $node)
     {

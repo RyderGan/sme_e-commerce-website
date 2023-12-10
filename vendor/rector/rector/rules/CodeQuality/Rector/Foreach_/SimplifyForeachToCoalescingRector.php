@@ -74,7 +74,7 @@ CODE_SAMPLE
                 if (!$this->nodeComparator->areNodesEqual($foreach->valueVar, $innerAssign->expr)) {
                     return null;
                 }
-                $assign = $this->processForeachNodeWithAssignInside($foreach, $innerAssign);
+                $assign = $this->processForeachNodeWithAssignupside($foreach, $innerAssign);
                 if (!$assign instanceof Assign) {
                     return null;
                 }
@@ -160,7 +160,7 @@ CODE_SAMPLE
         $coalesce = new Coalesce(new ArrayDimFetch($foreach->expr, $checkedNode), $nextStmt instanceof Return_ && $nextStmt->expr instanceof Expr ? $nextStmt->expr : $checkedNode);
         return new Return_($coalesce);
     }
-    private function processForeachNodeWithAssignInside(Foreach_ $foreach, Assign $assign) : ?Assign
+    private function processForeachNodeWithAssignupside(Foreach_ $foreach, Assign $assign) : ?Assign
     {
         /** @var If_ $ifNode */
         $ifNode = $foreach->stmts[0];

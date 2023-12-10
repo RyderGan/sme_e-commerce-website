@@ -20,7 +20,7 @@ else {
 
 			$uname_db = $get_user_['firstName'];
 			$ulast_db=$get_user_['lastName'];
-			$u_db = $get_user_[''];
+			// $u_db = $get_user_[''];
 
 			$umob_db = $get_user_['mobile'];
 			$uadd_db = $get_user_['address'];
@@ -31,13 +31,10 @@ $getposts = mysqli_query($con, "SELECT * FROM products WHERE id ='$poid'") or di
 					if (mysqli_num_rows($getposts)) {
 						$row = mysqli_fetch_assoc($getposts);
 						$id = $row['id'];
-						$pName = $row['pName'];
+						$name = $row['name'];
 						$price = $row['price'];
-						$description = $row['description'];
 						$picture = $row['picture'];
 						$item = $row['item'];
-						$category = $row['category'];
-						$available =$row['available'];
 					}	
 
 //order
@@ -119,22 +116,24 @@ $del = $_POST['Delivery'];
 	<title>Order</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="icon" href="image/icon.png" type="image/x-icon">
 </head>
 <body>
 	<div class="homepageheader" style="position: relative;">
-		<div class="signinButton loginButton">
-			<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
+		<div class="signupButton loginButton">
+			<div class="uiloginbutton signupButton loginButton" style="margin-right: 40px;">
 				<?php 
 					if ($user!="") {
 						echo '<a style="text-decoration: none; color: #fff;" href="logout.php">Log Out</a>';
 					}
 					else {
-						echo '<a style="text-decoration: none; color: #fff;" href="signin.php">Sign Up</a>';
+						echo '<a style="text-decoration: none; color: #fff;" href="signup.php">Sign Up</a>';
 					}
 					?>
 				
 			</div>
-			<div class="uiloginbutton signinButton loginButton" >
+			<div class="uiloginbutton signupButton loginButton" >
 				<?php 
 					if ($user!="") {
 						echo '<a style="text-decoration: none; color: #fff;" href="profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
@@ -151,33 +150,33 @@ $del = $_POST['Delivery'];
 			</a>
 		</div>
 		<div >
-			<form id="newsearch" method="get" action="search.php" style="margin-top: 7px;">
+			<form id="newsearch" method="get" action="search.php" >
 				<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="Search" class="srcbutton" >
 			</form>
 		</div>
 	</div>
-	<div class="categoryHeaders" style="padding-bottom: 28px;">
+	<div class="categoryHeaders" style="padding-bottom: 28px; margin-bottom: 30px">
 		<table>
 			<tr>
-				<th><a href="OurProducts/NoodlesCanned.php" >Cans</a></th>
-				<th><a href="OurProducts/Snacks.php" >Snacks</a></th>
-				<th><a href="OurProducts/Sweets.php" >Sweets</a></th>
-				<th><a href="OurProducts/Drinks.php" >Drinks</a></th>
-				<th><a href="OurProducts/Seasonings.php" >Condiments</a></th>
-				<th><a href="OurProducts/Hygene.php">Hygene</a></th>
-				<th><a href="OurProducts/Shampoo.php" >Shampoo</a></th>
-				<th><a href="OurProducts/Soap&Detergent.php" >Soap</a></th>
+				<th><a href="products/Cans.php" >Cans</a></th>
+				<th><a href="products/Snacks.php" >Snacks</a></th>
+				<th><a href="products/Sweets.php" >Sweets</a></th>
+				<th><a href="products/Drinks.php" >Drinks</a></th>
+				<th><a href="products/Condiments.php" >Condiments</a></th>
+				<th><a href="products/Hygiene.php">Hygiene</a></th>
+				<th><a href="products/Shampoo.php" >Shampoo</a></th>
+				<th><a href="products/Soap.php" >Soap</a></th>
 			</tr>
 		</table>
 	</div>
 	<div >
 		<div class="container signupform_content ">
 			<div>
-				<div style="float: right; width: 37%">
+				<div style="float: right; width: 47%">
 				<?php 
 					if(isset($success_message)) {
 						echo $success_message;
-						echo '<div class="orderBackground">';
+						echo '<div>';
 						echo '<div class="paymentDeliverHeaderContainer">';
 						echo '<p class="paymentDeliverHeader"> Payment - Delivery </p>';
 						echo '</div>';
@@ -187,46 +186,46 @@ $del = $_POST['Delivery'];
 						$get_user_ = mysqli_fetch_assoc($result);
 						$uname_db = $get_user_['firstName'];
 						$ulast_db=$get_user_['lastName'];
-						$u_db = $get_user_[''];
+						// $u_db = $get_user_[''];
 						$umob_db = $get_user_['mobile'];
 						$uadd_db = $get_user_['address'];
 
 						echo '<div class="paymentDetailsContainer">';
-						echo '<div class="paymentDetailsPair">';
+						echo '<div class="paymentOrderDetailsPair">';
 						echo '<h3 class="paymentDetailsField"> First Name </h3>';
 						echo '<span class="paymentDetailsValue">' . $uname_db . '</span>';
 						echo '</div>';
 						
-						echo '<div class="paymentDetailsPair">';
+						echo '<div class="paymentOrderDetailsPair">';
 						echo '<h3 class="paymentDetailsField"> Last Name </h3>';
 						echo '<span class="paymentDetailsValue">' . $ulast_db . '</span>';
 						echo '</div>';
 						
-						echo '<div class="paymentDetailsPair">';
+						echo '<div class="paymentOrderDetailsPair">';
 						echo '<h3 class="paymentDetailsField"> Contact Number </h3>';
 						echo '<span class="paymentDetailsValue">' . $umob_db . '</span>';
 						echo '</div>';
 						
-						echo '<div class="paymentDetailsPair">';
+						echo '<div class="paymentOrderDetailsPair">';
 						echo '<h3 class="paymentDetailsField"> Address </h3>';
 						echo '<span class="paymentDetailsValue">' . $uadd_db . '</span>';
 						echo '</div>';
 						
 						$del = $_POST['Delivery'];
-						echo '<div class="paymentDetailsPair">';
+						echo '<div class="paymentOrderDetailsPair">';
 						echo '<h3 class="paymentDetailsField">Types of Delivery</h3>';
 						echo '<span class="paymentDetailsValue">' . $del . '</span>';
 						echo '</div>';
 						
 						$del = $_POST['Quantity'];
-						echo '<div class="paymentDetailsPair">';
+						echo '<div class="paymentOrderDetailsPair">';
 						echo '<h3 class="paymentDetailsField">Quantity</h3>';
 						echo '<span class="paymentDetailsValue">' . $quan . '</span>';
 						echo '</div>';
 						
-						echo '<div class="paymentDetailsPair">';
+						echo '<div class="paymentOrderDetailsPair">';
 						echo '<h3 class="paymentDetailsFieldTotal"> Total </h3>';
-						echo '<span class="paymentDetailsValueTotal">'  . $_SESSION['total'] . ' $</span>';
+						echo '<span class="paymentDetailsValueTotal">'  . ($quan * $price) . ' $</span>';
 						echo '</div>';
 		
 						echo '</div>';	
@@ -236,7 +235,7 @@ $del = $_POST['Delivery'];
 					else {
 						echo '
 							<form action="" method="POST" class="registration">
-								<div class="signup_form">
+								<div class="cartForm">
 									<h3 class="cashOnDeliveryText">Accepting CashOnDelivery Only</h3>
 									<div>
 										<td>
@@ -263,7 +262,7 @@ $del = $_POST['Delivery'];
 									<div>
 										<td>
 											<input name="address" id="password-1" required="required"  
-											placeholder="Address" class="password inputFieldsOrder " 
+											placeholder="Address" class=" inputFieldsOrder " 
 											type="text" size="30" value="'.$uadd_db.'">
 										</td>
 									</div>
@@ -285,12 +284,12 @@ $del = $_POST['Delivery'];
 
 									<div>
 										<td>
-										<input name="Quantity" required="required" type="number" min="1" class="password inputFieldsOrder" placeholder="Quantity">
+										<input name="Quantity" required="required" type="number" min="1" class=" inputFieldsOrder" placeholder="Quantity">
 										</td>
 									</div>
 
 									<div>
-										<input name="order" class="uisignupbutton signupbutton" type="submit" value="Confirm Order">
+										<input name="order" class="uisignupbutton signupbutton" type="submit" value="Confirm Order" style="width: 63%;">
 									</div>
 
 									<div class="signup_error_msg"> '; ?>
@@ -315,14 +314,9 @@ $del = $_POST['Delivery'];
 					<ul style="float: left;">
 						<li style="float: left; padding: 0px 25px 25px 25px;">
 							<div class="home-prodlist-img">
-								<a href="OurProducts/'.$category.'/view_product.php?pid='.$id.'">
-									<img src="image/product/'.$item.'/'.$picture.'" class="category-img">
-								</a>
+								<img src="image/products/'.$item.'/'.$picture.'" class="order-img">
 								<div class="itemDescription"> 
-									<span style="font-size: 25px;">'.$pName.'
-									<br>
-									'.$price.'$
-									</span>
+									<span style="font-size: 15px;">'.$name.'</span> - '.$price.'$
 								</div>	
 							</div>
 						</li>

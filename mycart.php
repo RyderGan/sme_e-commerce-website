@@ -71,7 +71,7 @@ if (isset($_POST['order'])) {
 		$t = mysqli_num_rows($result);
 
 		if ($t <= 0) {
-			throw new Exception('No product in cart. Add product first.');
+			throw new Exception('Cart Is Empty!');
 		}
 
 		while ($get_p = mysqli_fetch_assoc($result)) {
@@ -79,17 +79,8 @@ if (isset($_POST['order'])) {
 			$pid = $get_p['pid'];
 
 			// Check product availability
-			$productResult = mysqli_query($con, "SELECT available FROM products WHERE id='$pid'");
+			$productResult = mysqli_query($con, "SELECT * FROM products WHERE id='$pid'");
 			$productData = mysqli_fetch_assoc($productResult);
-			$availableQuantity = $productData['available'];
-
-			if ($num > $availableQuantity) {
-				throw new Exception('Not enough stock available for product ID ' . $pid . ', Available quantity ' . $availableQuantity);
-			}
-
-			// Update product availability
-			$newAvailableQuantity = $availableQuantity - $num;
-			mysqli_query($con, "UPDATE products SET available=$newAvailableQuantity WHERE id='$pid'");
 
 			// Insert order details
 			mysqli_query($con, "INSERT INTO orders (uid,pid,quantity,oplace,mobile,odate,ddate,delivery) VALUES ('$user','$pid',$num,'$_POST[address]','$_POST[mobile]','$d','$dd','$del')");
@@ -114,22 +105,24 @@ if (isset($_POST['order'])) {
 	<title>My Cart</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="icon" href="image/icon.png" type="image/x-icon">
 </head>
 
 <body>
 	<div class="homepageheader" style="position: relative;">
-		<div class="signinButton loginButton">
-			<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
+		<div class="signupButton loginButton">
+			<div class="uiloginbutton signupButton loginButton" style="margin-right: 40px;">
 				<?php
 				if ($user != "") {
 					echo '<a style="text-decoration: none; color: #fff;" href="logout.php">Log Out</a>';
 				} else {
-					echo '<a style="text-decoration: none; color: #fff;" href="signin.php">Sign Up</a>';
+					echo '<a style="text-decoration: none; color: #fff;" href="signup.php">Sign Up</a>';
 				}
 				?>
 
 			</div>
-			<div class="uiloginbutton signinButton loginButton">
+			<div class="uiloginbutton signupButton loginButton">
 				<?php
 				if ($user != "") {
 					echo '<a style="text-decoration: none; color: #fff;" href="profile.php?uid=' . $user . '">Hi ' . $uname_db . '</a>';
@@ -145,7 +138,7 @@ if (isset($_POST['order'])) {
 			</a>
 		</div>
 		<div id="srcheader">
-			<form id="newsearch" method="get" action="search.php" style="margin-top: 7px;">
+			<form id="newsearch" method="get" action="search.php" >
 				<?php 
 					echo '<input type="text" class="srctextinput" name="keywords" 
 					size="21" maxlength="120"  placeholder="Search Here..." 
@@ -184,7 +177,6 @@ if (isset($_POST['order'])) {
 							<th>Product Name</th>
 							<th>Price</th>
 							<th>Pieces</th>
-							<th>Description</th>
 							<th>View</th>
 							<th>Remove</th>
 						</tr>
@@ -202,25 +194,26 @@ if (isset($_POST['order'])) {
 								$run1 = mysqli_query($con, $query1);
 								$row1 = mysqli_fetch_assoc($run1);
 								$pId = $row1['id'];
-								$pName = substr($row1['pName'], 0, 50);
+								$name = substr($row1['name'], 0, 50);
 								$price = $row1['price'];
-								$description = $row1['description'];
 								$picture = $row1['picture'];
 								$item = $row1['item'];
-								$category = $row1['category'];
 
 								$total += ($quantity * $price);
 								$_SESSION['total'] = $total;
 							?>
-								<th><?php echo $pName; ?></th>
+								<th><?php echo $name; ?></th>
 								<th><?php echo $price; ?></th>
-								<th><?php echo '<a href="delete_cart.php?sid=' . $pId . '" style="text-decoration: none;padding: 0px 5px;font-size: 25px;color: white;border: 1px solid;margin: 10px;">-</a>' ?><?php echo $quantity; ?><?php echo '<a href="delete_cart.php?aid=' . $pId . '" style="text-decoration: none;padding: 0px 5px;font-size: 25px;color: white;border: 1px solid;margin: 10px;">+</a>' ?></th>
-								<th><?php echo $description; ?></th>
+								<th>
+									<?php echo '<a href="delete_cart.php?sid=' . $pId . '" class="changeQuantityButton">-</a>' ?>
+									<?php echo $quantity; ?>
+									<?php echo '<a href="delete_cart.php?aid=' . $pId . '" class="changeQuantityButton">+</a>' ?>
+								</th>
 								<th>
 									<?php echo '
 									<div class="home-prodlist-img">
-										<a href="OurProducts/view_product.php?pid=' . $pId . '">
-											<img src="image/product/' . $item . '/' . $picture . '" 
+										<a href="products/view_product.php?pid=' . $pId . '">
+											<img src="image/products/' . $item . '/' . $picture . '" 
 												class="category-img" style="height: 100px; width: 100px;">
 										</a>
 									</div>' ?>
@@ -240,19 +233,18 @@ if (isset($_POST['order'])) {
 							<th><?php echo $total ?>$</th>
 							<th></th>
 							<th></th>
-							<th></th>
 						</tr>
 					</table>
 				</li>
 			</ul>
 		</div>
 
-		<div  style="float: right; width: 30%">
+		<div  style="float: right; width: 32%">
 			<?php
 			if (isset($success_message)) {
 				echo $success_message;
 
-				echo '<p class="paymentDeliverHeader"> Payment - Delivery </p>';
+				echo '<p class="paymentDeliverHeader"> Payment & Delivery </p>';
 
 				$user = $_SESSION['user_login'];
 				$result = mysqli_query($con, "SELECT * FROM user WHERE id='$user'");
@@ -305,7 +297,7 @@ if (isset($_POST['order'])) {
 				echo '
 					<form action="" method="POST" class="registration">
 				
-						<div class="signup_form" >
+						<div class="cartForm" >
 						<h3 class="cashOnDeliveryText">Accepting CashOnDelivery Only</h3>
 							<div>
 								<td>
@@ -330,8 +322,8 @@ if (isset($_POST['order'])) {
 							
 							<div>
 								<td>
-									<input name="address" id="password-1" required="required"  
-									placeholder="Address" class="password signupbox " type="text" size="30" value="' . $uadd_db . '">
+									<input name="address" id="password-1" required="required"  style="margin-bottom: 0px;"
+									placeholder="Address" class=" signupbox " type="text" size="30" value="' . $uadd_db . '">
 								</td>
 							</div>
 
@@ -353,7 +345,7 @@ if (isset($_POST['order'])) {
 							</div>	
 							
 							<div>
-								<input name="order" class="uisignupbutton signupbutton" type="submit" value="Confirm Order">
+								<input name="order" class="uisignupbutton signupbutton" type="submit" value="Confirm Order" style="margin-top: 0px;">
 							</div>
 							<div class="signup_error_msg"> '; ?>
 				<?php

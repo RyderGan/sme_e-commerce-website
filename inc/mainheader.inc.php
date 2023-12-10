@@ -1,17 +1,17 @@
 <div class="homepageheader" style="position: relative;">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
+			<div class="signupButton loginButton">
+				<div class="uiloginbutton signupButton loginButton" style="margin-right: 40px;">
 					<?php 
 						if ($user!="") {
 							echo '<a style="text-decoration: none; color: #fff;" href="../logout.php">Log Out</a>';
 						}
 						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="../signin.php">Sign Up</a>';
+							echo '<a style="text-decoration: none; color: #fff;" href="../signup.php">Sign Up</a>';
 						}
 					 ?>
 					
 				</div>
-				<div class="uiloginbutton signinButton loginButton" >
+				<div class="uiloginbutton signupButton loginButton" >
 					<?php 
 						if ($user!="") {
 							echo '<a style="text-decoration: none; color: #fff;" href="../profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
@@ -28,7 +28,7 @@
 				</a>
 			</div>
 			<div >
-				<form id="newsearch" method="get" action="../search.php" style="margin-top: 7px;">
+				<form id="newsearch" method="get" action="../search.php" >
 					<input type="text" class="srctextinput" name="keywords" 
 					size="21" maxlength="120"  placeholder="Search Here...">
 					<input type="submit" value="Search" class="srcbutton" >

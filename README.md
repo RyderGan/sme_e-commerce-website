@@ -19,7 +19,7 @@ Hello friends, This is my first full e-commerce project. This is free. Anybody c
 (ii) View Product <br>
 (iii) Create User Account <br>
 
-### Signin User
+### signup User
 (i) Search Product <br>
 (ii) View Product <br>
 (iii) Create Order <br>

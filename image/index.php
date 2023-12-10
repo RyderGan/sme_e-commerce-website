@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Nothing Found</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0;url=../index.php">
+    <title>Nothing Found</title>
 </head>
 <body>
-<h5>Nothing Found!!</h5>
+    <h5>Redirecting to Main Page</h5>
 </body>
 </html>

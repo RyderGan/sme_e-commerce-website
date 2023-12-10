@@ -77,7 +77,7 @@ if (isset($_POST['changesettings'])) {
 				$success_message = '
 					<div class="signupform_text" style="font-size: 18px; text-align: center;">
 					<font face="bookman">
-						Settings change successfull.
+						Settings change successful.
 					</font></div>';
 			}
 		}
@@ -97,22 +97,24 @@ if (isset($_POST['changesettings'])) {
 	<title>Settings</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="icon" href="image/icon.png" type="image/x-icon">
 </head>
 
 <body >
 	<div class="homepageheader" style="position: relative;">
-		<div class="signinButton loginButton">
-			<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
+		<div class="signupButton loginButton">
+			<div class="uiloginbutton signupButton loginButton" style="margin-right: 40px;">
 				<?php
 				if ($user != "") {
 					echo '<a style="text-decoration: none; color: #fff;" href="logout.php">Log Out</a>';
 				} else {
-					echo '<a style="text-decoration: none; color: #fff;" href="signin.php">Sign Up</a>';
+					echo '<a style="text-decoration: none; color: #fff;" href="signup.php">Sign Up</a>';
 				}
 				?>
 
 			</div>
-			<div class="uiloginbutton signinButton loginButton" >
+			<div class="uiloginbutton signupButton loginButton" >
 				<?php
 				if ($user != "") {
 					echo '<a style="text-decoration: none; color: #fff;" href="profile.php?uid=' . $user . '">Hi ' . $uname_db . '</a>';
@@ -128,7 +130,7 @@ if (isset($_POST['changesettings'])) {
 				</a>
 		</div>
 		<div >
-			<form id="newsearch" method="get" action="search.php" style="margin-top: 7px;">
+			<form id="newsearch" method="get" action="search.php" >
 				<input type="text" class="srctextinput" name="q" size="21" maxlength="120" placeholder="Search Here...">
 				<input type="submit" value="search" class="srcbutton">
 			</form>
@@ -180,7 +182,7 @@ if (isset($_POST['changesettings'])) {
 								</tr>
 							</div>
 							<div>
-								<tr><input class="uisignupbutton signupbutton" type="submit" name="changesettings" 
+								<tr><input class="uisignupbutton signupbutton" type="submit" name="changesettings" style="width: 280px;"
 								value="Update Settings">
 								</tr>
 							</div>
