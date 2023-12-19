@@ -1,37 +1,48 @@
+<?php include ( "connect.inc.php" ); ?>
+<?php 
+if (!isset($_SESSION['user_login'])) {
+	$user = "";
+}
+else {
+	$user = $_SESSION['user_login'];
+	$result = mysqli_query($con, "SELECT * FROM user WHERE id='$user'");
+	$get_user_email = mysqli_fetch_assoc($result);
+	$uname_db = $get_user_email != null ? $get_user_email['firstName'] : null;
+}
+?>
 <div class="homepageheader" style="position: relative;">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-					<?php 
-						if ($user!="") {
-							echo '<a style="text-decoration: none; color: #fff;" href="../logout.php">Log Out</a>';
-						}
-						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="../signin.php">Sign Up</a>';
-						}
-					 ?>
-					
-				</div>
-				<div class="uiloginbutton signinButton loginButton" >
-					<?php 
-						if ($user!="") {
-							echo '<a style="text-decoration: none; color: #fff;" href="../profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
-						}
-						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="../login.php">Log In</a>';
-						}
-					 ?>
-				</div>
-			</div>
-			<div style="float: left; margin: 5px 0px 0px 23px;">
-				<a href="../index.php">
-					<img class="icon" src="../image/icon.png">
-				</a>
-			</div>
-			<div >
-				<form id="newsearch" method="get" action="../search.php" style="margin-top: 7px;">
-					<input type="text" class="srctextinput" name="keywords" 
-					size="21" maxlength="120"  placeholder="Search Here...">
-					<input type="submit" value="Search" class="srcbutton" >
-				</form>
-			</div>
-		</div>
+	<?php 
+		if ($user!="") {
+			echo '<div class="signinButton loginButton">
+			<a class="uiloginbutton signinButton loginButton" style="margin-right: 40px;" href="../logout.php">
+				<div style="text-decoration: none; color: #fff;">Log Out</div>
+			</a>
+			<a class="uiloginbutton signinButton loginButton" href="../profile.php?uid='.$user.'">
+				<div style="text-decoration: none; color: #fff;">Hi '.$uname_db.'</div>
+			</a>
+		</div>';
+		}
+		else {
+			echo '<div class="signinButton loginButton">
+			<a class="uiloginbutton signinButton loginButton" style="margin-right: 40px;" href="../signin.php">
+				<div style="color: #fff; text-decoration: none;">SIGN UP</div>
+			</a>
+			<a class="uiloginbutton signinButton loginButton" href="../login.php">
+				<div style="text-decoration: none; color: #fff;">Log In</div>
+			</a>
+		</div>';
+		}
+	?>
+	<div style="float: left; margin: 5px 0px 0px 23px;">
+		<a href="../index.php">
+			<img class="icon" src="../image/icon.png">
+		</a>
+	</div>
+	<div >
+		<form id="newsearch" method="get" action="../search.php" style="margin-top: 7px;">
+			<input type="text" class="srctextinput" name="keywords" 
+			size="21" maxlength="120"  placeholder="Search Here...">
+			<input type="submit" value="Search" class="srcbutton" >
+		</form>
+	</div>
+</div>

@@ -129,28 +129,30 @@ $search_value = "";
 		<title>Welcome to ebuybd online shop</title>
 		<link rel="stylesheet" type="text/css" href="../css/style.css">
 	</head>
-	<body class="home-welcome-text" style="background-image: url(../image/homebackgrndimg2.png);">
-		<div class="homepageheader" style="position: relative;">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-					<?php 
-						if ($user!="") {
-							echo '<a style="text-decoration: none; color: #fff;" href="logout.php">Log Out</a>';
-						}
-					 ?>
-					
-				</div>
-				<div class="uiloginbutton signinButton loginButton">
-					<?php 
-						if ($user!="") {
-							echo '<a style="text-decoration: none; color: #fff;" href="update_admin.php">Hi '.$uname_db.'</br><span style="color: #de2a74">'.$utype_db.'</span></a>';
-						}
-						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="login.php">Log In</a>';
-						}
-					 ?>
-				</div>
-			</div>
+	<body class="home-welcome-text" style="min-width: 980px; background-image: url(../image/homebackgrndimg2.png);">
+		<div class="homepageheader" style="position: relative; padding-bottom: 100px;">
+			<?php
+				if ($user!="") {
+					echo '<div class="signinButton loginButton">
+					<a class="uiloginbutton signinButton loginButton" style="margin-right: 40px;" href="logout.php">
+					<div style="text-decoration: none;color: #fff;">Log Out</div>
+					</a>
+					<a class="uiloginbutton signinButton loginButton" href="update_admin.php" style="background-color: #039c8a">
+					<div style="text-decoration: none;color: #fff;">Hi '.$uname_db.'</br><span style="color: #fff">'.$utype_db.'</span></div>
+					</a>
+				</div>';
+				}
+				else {
+					echo '<div class="signinButton loginButton">
+					<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
+					<a style="text-decoration: none;color: #fff;" href="signin.php">Sign Up</a>
+					</div>
+					<div class="uiloginbutton signinButton loginButton" >
+					<a style="text-decoration: none;color: #fff;" href="login.php">Log In</a>
+					</div>
+				</div>';
+				}
+			?>
 			<div style="float: left; margin: 5px 0px 0px 23px;">
 				<a href="index.php">
 					<img style=" height: 75px; width: 130px;" src="../image/cart.png">
@@ -168,12 +170,10 @@ $search_value = "";
 		<div class="categoryHeaders">
 			<table>
 				<tr>
-					<th>
-						<a href="index.php" style="text-decoration: none;color:#040403;padding: 4px 12px;background-color: #e6b7b8;border-radius: 12px;">Home</a>
-					</th>
+					<th><a href="index.php" >Home</a></th>
 					<th><a href="addproduct.php" >Add Product</a></th>
 					<th><a href="orders.php" >Orders</a></th>
-					<th><a href="DeliveryRecords.php" style="text-decoration: none;color: #040403;padding: 4px 12px;background-color:#e6b7b8;border-radius: 12px;">DeliveryRecords</a></th>
+				<th><a href="DeliveryRecords.php" >DeliveryRecords</a></th>
 					<?php 
 						if($utype_db == 'admin'){
 							echo '<th><a href="report.php" >Reports</a></th>

@@ -46,11 +46,11 @@ $search_value = "";
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 
-<body class="home-welcome-text" style="background-image: url(../image/homebackgrndimg1.jpg);">
-	<div class="homepageheader">
+<body class="home-welcome-text" style="min-width: 980px; background-image: url(../image/homebackgrndimg1.jpg);">
+	<div class="homepageheader" style="position: relative; padding-bottom: 100px;">
 		<div class="signinButton loginButton">
 			<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-				<a style="text-decoration: none;" href="login.php">Log In</a>
+				<a style="text-decoration: none;color: #fff;" href="login.php">Log In</a>
 			</div>
 		</div>
 		<div style="float: left; margin: 5px 0px 0px 23px;">
@@ -67,7 +67,7 @@ $search_value = "";
 			<div class="srcclear"></div>
 		</div>
 	</div>
-	<div class="holecontainer" style="float: right; margin-right: 36%; padding-top: 110px;">
+	<div class="holecontainer" style="text-align: center; padding-top: 110px;">
 		<div class="container">
 			<div>
 				<div>
@@ -75,7 +75,7 @@ $search_value = "";
 						<h2>Admin Login</h2>
 						<div class="signupform_text"></div>
 						<div>
-							<form action="" method="POST" class="registration">
+							<form action="" method="POST" class="registration" style="text-align: center;">
 								<div class="signup_form">
 									<div>
 										<td>
