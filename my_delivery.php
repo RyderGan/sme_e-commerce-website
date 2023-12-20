@@ -105,7 +105,7 @@ $search_value = "";
 				<table class="rightsidemenu">
 					<tr bgcolor="#f5f5f5">
 						<th>Product Name</th>
-						<th>Delevery Date</th>
+						<th>Delivery Date</th>
 					</tr>
 					<tr>
 						<?php include ( "inc/connect.inc.php");

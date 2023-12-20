@@ -109,9 +109,9 @@ $search_value = "";
 						<th>Price</th>
 						<th>Total Product</th>
 						<th>Order Date</th>
-						<th>Delevery Date</th>
-						<th>Delevery Place</th>
-						<th>Delevery Status</th>
+						<th>Delivery Date</th>
+						<th>Delivery Place</th>
+						<th>Delivery Status</th>
 						<th>View</th>
 					</tr>
 					<tr>
