@@ -22,7 +22,6 @@ time, mark, audio, video {
 h3 {
   font-size: 25px;
 }
-/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -45,8 +44,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
-/*my work start from here*/
 * {
     margin: 0px;
     padding: 0px;
@@ -69,7 +66,7 @@ body{
   min-width: 980px;
 }
 
-.loginButton .signinButton {
+.loginButton .signupButton {
   color: #F5F5F5;
   background: #3fc1c9;
   border: 1px solid #FFFFFF;
@@ -87,16 +84,23 @@ body{
   margin-right: 15px;
   transition: opacity 0.5s;
 }
-.loginButton:hover .signinButton:hover{
+.loginButton:hover .signupButton:hover{
   opacity: 0.7;
 }
 
-.loginButton:active .signinButton:active{
+.loginButton:active .signupButton:active{
   opacity: 0.5;
 }
 
 .uiloginbutton:hover {
   background-color: #24bfae;
+}
+
+.findAccount{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
 }
 
 .icon{
@@ -163,42 +167,9 @@ body{
   opacity: 0.5;
 }
 
-.pquantys {
-  margin: 0px;
-  padding: 9px 15px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size:20px;
-  border:1px solid #0076a3; border-right:0px;
-  border-top-left-radius: 5px 5px;
-  border-bottom-left-radius: 5px 5px;
-}
-.buybutton {
-  margin: 0;
-  padding: 9px 5px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size:20px;
-  outline: none;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  color: #ffffff;
-  border: solid 1px #0076a3; border-right:0px;
-  background: #169E8F;
-  border-top-right-radius: 5px 5px;
-  border-bottom-right-radius: 5px 5px;
-}
-.buybutton:hover {
-  text-decoration: none;
-  background: #24bfae;
-}
-
-
 /* Fixes submit button height problem in Firefox */
 .srcbutton::-moz-focus-inner {
     border: 0;
-}
-.srcclear{
-  clear:both;
 }
 .home-welcome {
   margin-top: 0px;
@@ -254,60 +225,6 @@ body{
   margin-left: 150px;
 }
 
-.label_content h5 {
-         margin: 0px 100 0 0;
-        padding: 0px 0px 20px 0px;
-        font-size: 30px;
-        color: #4a6b67;
-        font-weight: bold;
-        text-align: left;
-      }
-.label_content1 h5
-      {
-         margin: 0px 100 0 0;
-        padding: 0px 0px 20px 0px;
-        font-size: 30px;
-        color: #4a6b67;
-        font-weight: bold;
-        text-align: left;
-      }
-.label_content11 h5
-      {
-         margin: 0px 100 0 0;
-        padding: 0px 0px 20px 0px;
-        font-size: 30px;
-        color: #4a6b67;
-        font-weight: bold;
-        text-align: left;
-      }
-.label_content2 h5
-      {
-         margin: 0px 100 0 0;
-        padding: 0px 0px 20px 0px;
-        font-size: 30px;
-        color: #4a6b67;
-        font-weight: bold;
-        text-align: left;
-      }
-.label_content3 h5
-      {
-         margin: 0px 100 0 0;
-        padding: 0px 0px 20px 0px;
-        font-size: 30px;
-        color: #4a6b67;
-        font-weight: bold;
-        text-align: left;
-      }
-.label_content4 h5
-      {
-         margin: 0px 100 0 0;
-        padding: 0px 0px 20px 0px;
-        font-size: 30px;
-        color: #4a6b67;
-        font-weight: bold;
-        text-align: left;
-      }
-
 .signupform_text {
   font-size: 18px;
   padding: 10px;
@@ -319,7 +236,7 @@ body{
 .cashOnDeliveryText{
   color: #fc5185;
   font-size: 18px;
-  padding: 15px;
+  padding: 4px;
   font-weight: 700;
 }
 
@@ -346,7 +263,6 @@ body{
 
 .signupbox {
   font-size: 17px;
-  font-style: italic;
   margin-bottom: 15px;
   margin-top: 0px;
   padding: 20px;
@@ -355,15 +271,12 @@ body{
   border: 1px solid #3FC1C9;
   color: #364F6B;
   margin-left: 0;
-  width: 270px;
-  height: 20px;
   background: transparent;
   font-weight: bold;
 }
 
 .inputFieldsOrder {
   font-size: 17px;
-  font-style: italic;
   margin-bottom: 15px;
   margin-top: 0px;
   padding: 20px;
@@ -399,7 +312,7 @@ body{
   font-weight: 600;
   line-height: 16px;
   padding: 16px 0;
-  width: 300px;
+  width: 100%;
   text-align: center;
   border-radius: 50px;
   border-width: 1px;
@@ -423,70 +336,7 @@ body{
   text-align: center;
   font-size: 16px;
 }
-.succReg {
-    padding: 20px;
-    margin: 150px auto;
-    line-height: 1.5;
-    width: 930px;
-}
-.succReg p {
-  font-size: 40px;
-  font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif; 
-  color: #0B810B;
-  text-align: center;
-}
-.succReg h1 {
-  font-size: 20px;
-  font-weight: bold; 
-  color: #737070;
-  text-align: center;
-}
-/*recovary style*/
-.pass_body2 {
-    width: 560px;
-    margin: 30px auto;
-}
-.pass_body2 p {
-    padding: 5px 8px;
-    font-size: 20px;
-    color: #169E8F;
-    font-weight: bold;
-}
 
-/*error echo*/
-.error_echo {
-  color: red;
-  text-align: center;
-  padding: 15px;
-  width: 868px;
-  margin: 0 auto;
-  font-weight: bold;
-  border-radius: 4px;
-  font-size: 17px;
-  background-color: #F3F38B;
-  border-bottom: 2px solid #BBB907;
-  border-top: 1px solid #BBB907;
-  border-left: 1px solid #BBB907;
-  border-right: 1px solid #BBB907;
-}
-.succes_echo {
-  color: #088A08;
-  text-align: center;
-  padding: 17px;
-  margin: 0 auto;
-  width: 866px;
-  font-weight: bold;
-  font-size: 17px;
-  background-color: rgba(247, 247, 69, 0.36);
-  border-bottom: 1px solid #BBB907;
-}
-.submRecov {
-    color: #A9A6A6;
-    padding: 7px;
-    border-radius: 2px;
-    border: 2px solid #7C7979;
-}
 .forgetpass {
   margin: 15px;
   text-align: end;
@@ -530,6 +380,15 @@ body{
   opacity: 0.7;
 }
 
+.order-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 100px;
+  object-fit: cover;
+  object-position: center;
+  transition: box-shadow 0.5s, opacity 0.5s;
+}
+
 .productImg{
   width: 310px;
   height: 310px;
@@ -540,6 +399,7 @@ body{
 }
 
 .productInfo{
+  margin-top: 45px;
   margin-right: 85px;
   float: right;
   width: 40%;
@@ -611,6 +471,24 @@ body{
   font-size: 21px;  
 }
 
+.changeQuantityButton{
+  text-decoration: none;
+  font-size: 22px;
+  color: #3fc1c9;
+  margin: 10px;
+  transition: background-color 1s, border-radius 1s, opacity 1s;
+}
+
+.changeQuantityButton:hover{
+  background-color: #3fc1c9;
+  color: white;
+  border-radius: 25px;
+}
+
+.changeQuantityButton:active{
+  opacity: 0.6;
+}
+
 .paymentDeliverHeaderContainer{
   display: flex;
   align-items: center;
@@ -621,7 +499,7 @@ body{
   padding: 30px;
   background-color: #F5F5F5;
   text-align: center;
-  font-size: 25px;
+  font-size: 22px;
   margin-bottom:55px;
 }
 .categoryHeaders a {
@@ -636,8 +514,11 @@ body{
   text-align: center;
   font-size: 22px;
   margin: 24px;
-  color: #364f6b;
+  color: #ffffff;
   font-weight: bold;
+  background-color: #3fc1c9;
+  border-radius: 50px;
+  padding: 10px;
 }
 
 .selectedItem{
@@ -646,8 +527,9 @@ body{
 
 .itemDescription{
   text-align: center;
-  color: #fc5185;
-  font-weight: bold;
+  color: #364f6b;
+  font-weight: 600;
+  margin-top: 10px;
 }
 
 /* admin style */
@@ -673,19 +555,25 @@ body{
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  color: #3fc1c9;
+  color: #fc5185;
   border-right: 0px;
   background: #f5f5f5;
   border-radius: 50px;
   transition: opacity 0.6s, color 0.6s, background-color 0.6s;
 }
 .xButton:hover{
-  background: #3fc1c9;
+  background: #fc5185;
   color: #f5f5f5;
 }
 
 .xButton:active{
   opacity: 0.7;
+}
+
+.mydict{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mydict div {
@@ -741,6 +629,11 @@ label:last-child span {
   padding: 13px 30px 12px 30px;
 }
 
+.cartForm{
+  width: 90%;
+  text-align: center;
+}
+
 .paymentDetailsContainer {
   display: flex;
   flex-direction: column;
@@ -750,45 +643,48 @@ label:last-child span {
 .paymentDetailsPair {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+}
+
+.paymentOrderDetailsPair {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 100px;
 }
 
 .paymentDetailsField {
   background-color: #fc5185;
-  padding: 15px;
+  padding: 10px;
   font-weight: bold;
   color: #ffffff;
-  font-size: 19px;
-  width: 205px;
-  border-radius: 50px;
+  font-size: 15px;
+  width: 180px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .paymentDetailsValue {
-  color: #fc5185;
-  padding: 15px;
-  background-color: #ffffff;
-  font-size: 19px;
-  width: 205px; 
-  border-radius: 50px;
+  color: #364f6b;
+  padding: 19px 0px 0px 20px;
+  font-size: 15px;
+  width: 205px;
 }
 
 .paymentDetailsFieldTotal {
   background-color: #364F6B;
-  padding: 15px;
+  padding: 12px;
   font-weight: bold;
   color: #ffffff;
   font-size: 19px;
-  width: 205px;
+  width: 180px;
   border-radius: 50px;
+  text-align: center;
 }
 
 .paymentDetailsValueTotal {
   color: #364F6B;
-  padding: 15px;
-  background-color: #ffffff;
+  padding: 20px 0px 0px 20px;
   font-size: 19px;
-  width: 205px; 
-  border-radius: 50px;
+  width: 205px;
   font-weight: bold;
 }
 
@@ -800,7 +696,6 @@ label:last-child span {
   font-size: 19px;
   border-radius: 50px;
   width: 400px;
-  box-shadow: 0px -6px 7px #fc5185;
   margin: 11px 0px;
   text-align: center;
 }
@@ -820,56 +715,6 @@ label:last-child span {
   color: #364F6B;
   font-size: 19px;
   text-align: center;
-}
-
-.settingsleftcontent {
-    width: 300px;
-    color: #7C7979;
-    line-height: 1.2;
-    padding: 0;
-    text-align: justify;
-    background-color: #FFFFFF;
-    -webkit-box-shadow: 0 2px 1px 0 #B5B2B2;
-    box-shadow: 0 2px 1px 0 #B5B2B2;
-    border-radius: 4px;
-}
-.settingsleftcontent h2 {
-  text-align: left;
-  font-size: 16px;
-  color: #0B810B;
-}
-.settingsleftcontent ul {
-  list-style: none;
-}
-.settingsleftcontent ul li {
-  list-style: none;
-  border-bottom: 1px solid #ddd;
-  text-align: center;
-}
-.settingsleftcontent ul li a {
-    clear: both;
-    cursor: pointer;
-    display: block;
-    font-size: 15px;
-    font-weight: normal;
-    float: none;
-    line-height: 18px;
-    margin: 0;
-    padding: 10px 20px;
-    text-shadow: none;
-    white-space: nowrap;
-    color: #0C2860;
-    text-decoration: none;
-    text-align: center;
-}
-.settingsleftcontent ul li:hover {
-  background-color: #3A5487;
-  color: #fff;
-  border-radius: 4px;
-}
-
-.settingsleftcontent ul li a:hover {
-  color: #fff;
 }
 
 .error_msg {

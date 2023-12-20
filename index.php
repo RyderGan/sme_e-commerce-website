@@ -15,27 +15,27 @@ else {
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Nita's online grocery</title>
+		<title>Nita's Online Grocery</title>
+		<link rel="icon" href="image/icon.png" type="image/x-icon">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<script src="/js/homeslideshow.js"></script>
 	</head>
 	<body style="min-width: 980px;">
 		<div class="homepageheader" style="position: relative;">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
+			<div class="signupButton loginButton">
+				<div class="uiloginbutton signupButton loginButton" style="margin-right: 40px;">
 					<?php 
 						if ($user!="") {
 							echo '<a style="text-decoration: none; color: #fff;" href="logout.php">Log Out</a>';
 						}
 						else {
-							echo '<a style="color: #fff; text-decoration: none;" href="signin.php">SIGN UP</a>';
+							echo '<a style="color: #fff; text-decoration: none;" href="signup.php">Sign Up</a>';
 						}
 					 ?>
 					
 				</div>
-				<div class="uiloginbutton signinButton loginButton" >
+				<div class="uiloginbutton signupButton loginButton" >
 					<?php 
 						if ($user!="") {
 							echo '<a style="text-decoration: none; color: #fff;" href="profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
@@ -57,7 +57,6 @@ else {
 					size="21" maxlength="120"  placeholder="Search Here...">
 					<input type="submit" value="Search" class="srcbutton" >
 				</form>
-				<div class="srcclear"></div>
 			</div>
 		</div>
 		<img class="background" src="image/background.png" alt="Background">
@@ -68,53 +67,53 @@ else {
 
 				<ul style="float: left;">
 					<li style="padding: 25px;">
-						<a href="OurProducts/NoodlesCanned.php">
+						<a href="products/Cans.php">
 							<img src="./image/products/cans/can.png" class="category-img">
 						</a>
 					</li>
 				</ul>
 				<ul style="float: left;">
 					<li style="padding: 25px;">
-						<a href="OurProducts/Snacks.php">
+						<a href="products/Snacks.php">
 							<img src="./image/products/snacks/snacks.png" class="category-img">
 						</a>
 					</li>
 				</ul>
 				<ul style="float: left;">
 					<li style="padding: 25px;">
-						<a href="OurProducts/Sweets.php">
+						<a href="products/Sweets.php">
 							<img src="./image/products/sweets/sweets.png" class="category-img">
 						</a>
 					</li>
 				</ul>
 				<ul style="float: left;">
 					<li style="padding: 25px;">
-						<a href="OurProducts/Drinks.php">
+						<a href="products/Drinks.php">
 							<img src="./image/products/drinks/drinks.png" class="category-img"></a>
 					</li>
 				</ul>
 				<ul style="float: left;">
 					<li style="padding: 25px;">
-						<a href="OurProducts/Seasonings.php">
+						<a href="products/Condiments.php">
 							<img src="./image/products/condiments/condiments.png" class="category-img"></a>
 					</li>
 				</ul>
 				<ul style="float: left;">
 					<li style="padding: 25px;">
-						<a href="OurProducts/Hygene.php">
+						<a href="products/hygiene.php">
 							<img src="./image/products/hygiene/hygiene.png" class="category-img">
 						</a>
 					</li>
 				</ul>
 				<ul style="float: left;">
 					<li style="padding: 25px;">
-						<a href="OurProducts/Shampoo.php">
+						<a href="products/Shampoo.php">
 							<img src="./image/products/shampoo/shampoo.png" class="category-img"></a>
 					</li>
 				</ul>
 				<ul style="float: left;">
 					<li style="padding: 25px;">
-						<a href="OurProducts/Soap&Detergent.php">
+						<a href="products/Soap.php">
 							<img src="./image/products/soap/soap.png" class="category-img"></a>
 					</li>
 				</ul>

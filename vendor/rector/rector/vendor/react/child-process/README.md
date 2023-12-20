@@ -123,7 +123,7 @@ argument using `escapeshellarg()` like this:
 
 ```php
 $bin = 'C:\\Program files (x86)\\PHP\\php.exe';
-$file = 'C:\\Users\\me\\Desktop\\Application\\main.php';
+$file = 'C:\\Users\\me\\Desktop\\Application\\index.php';
 
 $process = new Process(escapeshellarg($bin) . ' ' . escapeshellarg($file));
 $process->start();

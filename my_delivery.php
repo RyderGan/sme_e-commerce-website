@@ -36,22 +36,24 @@ $search_value = "";
 	<title>My Delivery History</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="icon" href="image/icon.png" type="image/x-icon">
 </head>
 <body>
 	<div class="homepageheader" style="position: relative;">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
+			<div class="signupButton loginButton">
+				<div class="uiloginbutton signupButton loginButton" style="margin-right: 40px;">
 					<?php 
 						if ($user!="") {
 							echo '<a style="text-decoration: none; color: #fff;" href="logout.php">Log Out</a>';
 						}
 						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="signin.php">Sign Up</a>';
+							echo '<a style="text-decoration: none; color: #fff;" href="signup.php">Sign Up</a>';
 						}
 					 ?>
 					
 				</div>
-				<div class="uiloginbutton signinButton loginButton" >
+				<div class="uiloginbutton signupButton loginButton" >
 					<?php 
 						if ($user!="") {
 							echo '<a style="text-decoration: none; color: #fff;" href="profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
@@ -68,7 +70,7 @@ $search_value = "";
 				</a>
 			</div>
 			<div >
-				<form id="newsearch" method="get" action="search.php" style="margin-top: 7px;">
+				<form id="newsearch" method="get" action="search.php" >
 				        <?php 
 				        	echo '<input type="text" class="srctextinput" name="keywords" 
 						size="21" maxlength="120"  placeholder="Search Here..." 
@@ -123,13 +125,12 @@ $search_value = "";
 							$run1 = mysqli_query($con, $query1);
 							$row1=mysqli_fetch_assoc($run1);
 							$pId = $row1['id'];
-							$pName = substr($row1['pName'], 0,50);
+							$name = substr($row1['name'], 0,50);
 							$price = $row1['price'];
 							$picture = $row1['picture'];
 							$item = $row1['item'];
-							$category = $row1['category'];
 							?>
-						<th><?php echo $pName; ?></th>
+						<th><?php echo $name; ?></th>
 						<th><?php echo $ddate; ?></th>
 					</tr>
 					<?php } ?>

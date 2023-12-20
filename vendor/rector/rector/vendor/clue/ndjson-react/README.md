@@ -67,7 +67,7 @@ is delimited with a newline character.
 
 This example uses a list of user objects where each user has some arbitrary
 properties. This can easily be adjusted for many different use cases, such as
-storing for example products instead of users, assigning additional properties
+storing for example products instead of users, assignupg additional properties
 or having a significantly larger number of records. You can edit NDJSON files in
 any text editor or use them in a streaming context where individual records
 should be processed. Unlike normal JSON files, adding a new log entry to this

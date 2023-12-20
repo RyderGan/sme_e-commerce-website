@@ -2,63 +2,34 @@
 <html>
 <head>
 	<title>Password Recover</title>
-	<link rel="icon" href="image/title.png" type="image/x-icon">
+	<link rel="icon" href="image/icon.png" type="image/x-icon">
 	<meta charset="uft-8">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-<body class="home-welcome-text" style="background-image: url(image/homebackgrndimg3.png);">
-	<div>
-		<div class="homepageheader" style="position: relative;">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-					<a style="text-decoration: none;" href="signin.php">Sign Up</a>
-				</div>
-				<div class="uiloginbutton signinButton loginButton" >
-					<a style="text-decoration: none;" href="login.php">Log In</a>
-				</div>
+<body style="background-color: #F5F5F5">
+	<div class="homepageheader">
+		<div class="signupButton loginButton">
+			<div class="uiloginbutton signupButton loginButton" style="margin-right: 40px;">
+				<a style="text-decoration: none; color: #fff;" href="signup.php">Sign Up</a>
 			</div>
-			<div style="float: left; margin: 5px 0px 0px 23px;">
-				<a href="index.php">
-					<img class="icon" src="image/icon.png">
-				</a>
-			</div>
-			<div class="">
-				<div >
-					<form id="newsearch" method="get" action="http://www.google.com">
-					        <input type="text" class="srctextinput" name="q" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="Search" class="srcbutton" >
-					</form>
-				<div class="srcclear"></div>
-				</div>
+			<div class="uiloginbutton signupButton loginButton" >
+				<a style="text-decoration: none; color: #fff;" href="login.php">Log In</a>
 			</div>
 		</div>
+		<div style="float: left; margin: 5px 0px 0px 23px;">
+			<a href="index.php">
+				<img class="icon" src="image/icon.png">
+			</a>
+		</div>
 	</div>
-	<div  style="float: right; margin-right: 36%; padding-top: 110px;">
-		<div >
-			<div>
-				<div>
-					<div class="signupform_content">
-						<h2>Find Account!</h2>
-						<div class="signupform_text"></div>
-						<div>
-							<form action="" method="POST" class="registration">
-								<div class="signup_form">
-									<div>
-										<td>
-											<input type="text" name="username" class="email signupbox" placeholder="Write  Email..." size="30" required autofocus>
-										</td>
-									</div>
-									<div>
-										<input class="uisignupbutton signupbutton" type="submit" name="searchId" id="senddata" value="Search">
-									</div>
-									<div class="signup_error_msg">
-									</div>
-								</div>
-							</form>
-							
-						</div>
-					</div>
-				</div>
-			</div>
+	<div  class="findAccount">
+		<div class="loginform_content">
+			<h2>Find Account</h2>
+			<form action="" method="POST">
+				<input style="width: 100%;" type="text" name="username" class="signupbox" placeholder="Write  Email..." size="30" required autofocus>
+				<input class="uisignupbutton signupbutton" type="submit" name="searchId" id="senddata" value="Search">
+			</form>
 		</div>
 	</div>
 </body>

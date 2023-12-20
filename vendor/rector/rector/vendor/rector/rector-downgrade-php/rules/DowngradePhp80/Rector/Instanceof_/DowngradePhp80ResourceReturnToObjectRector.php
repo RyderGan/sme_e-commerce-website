@@ -43,7 +43,7 @@ final class DowngradePhp80ResourceReturnToObjectRector extends AbstractRector
         'EnchantDictionary',
         // OpenSSL
         'OpenSSLCertificate',
-        'OpenSSLCertificateSigningRequest',
+        'OpenSSLCertificatesignupgRequest',
         // Shmop
         'Shmop',
         // MessageQueue

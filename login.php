@@ -90,100 +90,79 @@ if (isset($_POST['activate'])) {
 
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
-	<head>
-		<title>Login</title>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-	</head>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" href="image/icon.png" type="image/x-icon">
+</head>
 
 <body class="home-welcome-text" style="background-color: #F5F5F5">
-	<div class="homepageheader">
+    <div class="homepageheader">
+        <div class="signupButton loginButton">
+            <div class="uiloginbutton signupButton loginButton" style="margin-right: 40px;">
+                <a style="text-decoration: none; color: #fff;" href="signup.php">Sign Up</a>
+            </div>
+        </div>
 
-		<div class="signinButton loginButton">
-			<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-				<a style="text-decoration: none; color: #fff;" href="signin.php">Sign Up</a>
-			</div>
-		</div>
+        <div style="float: left; margin: 5px 0px 0px 23px;">
+            <a href="index.php">
+                <img class="icon" src="image/icon.png">
+            </a>
+        </div>
 
-		<div style="float: left; margin: 5px 0px 0px 23px;">
-			<a href="index.php">
-				<img class="icon" src="image/icon.png">
-			</a>
-		</div>
+        <div class="loginContainer">
+            <div class="loginform_content">
+                <h2><?php echo isset($activacc) ? 'Activation' : 'Login'; ?></h2>
+                <form action="" method="POST">
+                    <div class="signup_error_msg">
+                        <?php
+                        if (isset($error_message)) {
+                            echo '<div style="text-align: center; font-size: 18px;">' . $error_message . '<br></div>';
+                        }
+                        ?>
+                    </div>
 
-		<div class="loginContainer">
-			<div class="loginform_content">
-				<?php
-					if (isset($activacc)) {
-						echo '<h2>Activation</h2>';
-					}else {
-						echo '<h2>Login</h2>';
-					}
-				?>
-				<div>
-					<form action="" method="POST">
-						<div>
-							<?php
-								if (isset($activacc)) {
+                    <?php
+                    if (isset($activacc)) {
+                        echo '
+                            <div class="signup_error_msg">
+                                <div style="text-align: center; font-size: 18px;">Check your email!<br></div>
+                            </div>
+                            <div>
+                                <input name="acemail" placeholder="Enter Your Email" required="required" class="signupbox" type="email" size="30" value="' . $emails . '">
+                            </div>
+                            <div>
+                                <input name="actcode" placeholder="Activation Code" required="required" class="signupbox" type="text" size="30" value="' . $acccode . '">
+                            </div>
+                            <div>
+                                <input name="activate" class="uisignupbutton signupbutton" type="submit" value="Activate Account">
+                            </div>
+                        ';
+                    } else {
+                        echo '
+                            <div>
+                                <input name="email" placeholder="Enter Your Email" required="required" class="signupbox" type="email" size="30" value="' . $emails . '">
+                            </div>
+                            <div>
+                                <input name="password" id="password-1" required="required" placeholder="Enter Password" class="signupbox" type="password" size="30" value="' . $passs . '">
+                            </div>
+                            <div>
+                                <input name="login" class="uisignupbutton signupbutton" type="submit" value="Log In">
+                            </div>
+                        ';
+                    }
+                    ?>
 
-							echo '
-										<div class="signup_error_msg">
-											<div class="maincontent_text" style="text-align: center; font-size: 18px;">
-										<font face="bookman">Check your email!<br>
-										</font></div>
-										</div>
-										<div>
-											<td>
-											<input name="acemail" placeholder="Enter Your Email" required="required" class="email signupbox" type="email" size="30" value="' . $emails . '">
-											</td>
-										</div>
-										<div>
-											<td>
-											<input name="actcode" placeholder="Activation Code" required="required" class="email signupbox" type="text" size="30" value="' . $acccode . '">
-											</td>
-										</div>
-										<div>
-										<input name="activate" class="uisignupbutton signupbutton" type="submit" value="Active Account">
-										</div>
-										';
-						} else {
-							echo '
-								<div>
-									<td>
-										<input name="email" placeholder="Enter Your Email" required="required" class="email signupbox" type="email" size="30" value="' . $emails . '">
-									</td>
-								</div>
-								<div>
-									<td>
-										<input name="password" id="password-1" required="required"  placeholder="Enter Password" class="password signupbox " type="password" size="30" value="' . $passs . '">
-									</td>
-								</div>
-								<div>
-									<input name="login" class="uisignupbutton signupbutton" type="submit" value="Log In">
-								</div>
-								';
-						}
-						?>
-						<p class="forgetpass" href="forgetpass.php">
-							<span>Forget The Password?</span>
-						</p>
-						<div class="signup_error_msg">
-							<?php
-							if (isset($error_message)) {
-								echo $error_message;
-							}
-
-							?>
-						</div>
-					</div>
-				</form>
-
-			</div>
-		</div>
-
-	</div>
+                    <p class="forgetpass">
+                        <a href="forgetpass.php">Forget The Password?</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

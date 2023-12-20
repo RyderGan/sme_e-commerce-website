@@ -46,22 +46,23 @@ $search_value = "";
 	<title>Delivery Details</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="image/icon.png" type="image/x-icon">
 </head>
 <body style="background-image: url(image/homebackgrndimg1.jpg);">
 	<div class="homepageheader" style="position: relative;">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
+			<div class="signupButton loginButton">
+				<div class="uiloginbutton signupButton loginButton" style="margin-right: 40px;">
 					<?php 
 						if ($user!="") {
 							echo '<a style="text-decoration: none; color: #fff;" href="logout.php">Log Out</a>';
 						}
 						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="signin.php">Sign Up</a>';
+							echo '<a style="text-decoration: none; color: #fff;" href="signup.php">Sign Up</a>';
 						}
 					 ?>
 					
 				</div>
-				<div class="uiloginbutton signinButton loginButton" >
+				<div class="uiloginbutton signupButton loginButton" >
 					<?php 
 						if ($user!="") {
 							echo '<a style="text-decoration: none; color: #fff;" href="profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
@@ -83,7 +84,6 @@ $search_value = "";
 				        	echo '<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="'.$search_value.'"><input type="submit" value="Search" class="srcbutton" >';
 				         ?>
 				</form>
-			<div class="srcclear"></div>
 			</div>
 		</div>
 		<div class="categoryHeaders">
@@ -129,19 +129,19 @@ $search_value = "";
 										$run1 = mysqli_query($con, $query1);
 										$row1=mysqli_fetch_assoc($run1);
 										$pId = $row1['id'];
-										$pName = substr($row1['pName'], 0,50);
+										$name = substr($row1['name'], 0,50);
 										$price = $row1['price'];
 										$description = $row1['description'];
 										$picture = $row1['picture'];
 										$item = $row1['item'];
 										$category = $row1['category'];
 									 ?>
-									<th><?php echo $pName; ?></th>
+									<th><?php echo $name; ?></th>
 									<th><?php echo $price; ?></th>
 									<th><?php echo $quantity; ?></th>
 									<th><?php echo $description; ?></th>
 									<th><?php echo '<div class="home-prodlist-img"><a href="'.$category.'/view_product.php?pid='.$pId.'">
-													<img src="image/product/'.$item.'/'.$picture.'" class="category-img" style="height: 75px; width: 75px;">
+													<img src="image/products/'.$item.'/'.$picture.'" class="category-img" style="height: 75px; width: 75px;">
 													</a>
 												</div>' ?></th>
 									<th><?php echo '<div class="home-prodlist-img"><a href="delete_cart.php?cid='.$pId.'" style="text-decoration: none;">X</a>
