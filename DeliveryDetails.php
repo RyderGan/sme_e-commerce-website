@@ -50,29 +50,28 @@ $search_value = "";
 </head>
 <body style="background-image: url(image/homebackgrndimg1.jpg);">
 	<div class="homepageheader" style="position: relative;">
-			<div class="signupButton loginButton">
-				<div class="uiloginbutton signupButton loginButton" style="margin-right: 40px;">
-					<?php 
-						if ($user!="") {
-							echo '<a style="text-decoration: none; color: #fff;" href="logout.php">Log Out</a>';
-						}
-						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="signup.php">Sign Up</a>';
-						}
-					 ?>
-					
-				</div>
-				<div class="uiloginbutton signupButton loginButton" >
-					<?php 
-						if ($user!="") {
-							echo '<a style="text-decoration: none; color: #fff;" href="profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
-						}
-						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="login.php">Log In</a>';
-						}
-					 ?>
-				</div>
-			</div>
+			<?php
+				if ($user!="") {
+					echo '<div class="signupButton loginButton">
+					<a class="uiloginbutton signupButton loginButton" style="margin-right: 40px;" href="logout.php">
+						<div style="text-decoration: none; color: #fff;">Log Out</div>
+					</a>
+					<a class="uiloginbutton signupButton loginButton" href="profile.php?uid='.$user.'">
+						<div style="text-decoration: none; color: #fff;">Hi '.$uname_db.'</div>
+					</a>
+				</div>';
+				}
+				else {
+					echo '<div class="signupButton loginButton">
+					<a class="uiloginbutton signupButton loginButton" style="margin-right: 40px;" href="signup.php">
+						<div style="color: #fff; text-decoration: none;">Sign Up</div>
+					</a>
+					<a class="uiloginbutton signupButton loginButton" href="login.php">
+						<div style="text-decoration: none; color: #fff;">Log In</div>
+					</a>
+				</div>';
+				}
+			?>
 			<div style="float: left; margin: 5px 0px 0px 23px;">
 				<a href="index.php">
 					<img class="icon" src="image/icon.png">
