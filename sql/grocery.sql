@@ -5,8 +5,6 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-------------------------------------------------------
-
 -- Table structure for table `cart`
 
 CREATE TABLE `cart` (
@@ -28,7 +26,7 @@ INSERT INTO `cart` (`id`, `uid`, `pid`, `quantity`) VALUES
 (22, 0, 99, 0),
 (23, 46, 81, 0);
 
-------------------------------------------------------
+
 
 -- Table structure for table `orders`
 
@@ -45,7 +43,6 @@ CREATE TABLE `orders` (
   `delivery` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-------------------------------------------------------
 
 -- Table structure for table `products`
 CREATE TABLE `products` (
@@ -83,7 +80,7 @@ INSERT INTO `products` (`id`, `name`, `price`, `item`, `picture`) VALUES
 (15, 'Liquid Soap', 8, 'soap', 'liquidSoap.png'),
 (16, 'Soap', 7, 'soap', 'soap1.png');
 
-------------------------------------------------------
+
 
 -- Table structure for table `user`
 
