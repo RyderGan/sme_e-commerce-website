@@ -94,42 +94,42 @@ if (isset($_POST['activate'])) {
 <html>
 
 <head>
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="icon" href="image/icon.png" type="image/x-icon">
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="icon" href="image/icon.png" type="image/x-icon">
 </head>
 
 <body class="home-welcome-text" style="background-color: #F5F5F5">
-    <div class="homepageheader">
-        <div class="signupButton loginButton">
-            <div class="uiloginbutton signupButton loginButton" style="margin-right: 40px;">
-                <a style="text-decoration: none; color: #fff;" href="signup.php">Sign Up</a>
-            </div>
-        </div>
+	<div class="homepageheader">
+		<div class="signupButton loginButton">
+			<div class="uiloginbutton signupButton loginButton" style="margin-right: 40px;">
+				<a style="text-decoration: none; color: #fff;" href="signup.php">Sign Up</a>
+			</div>
+		</div>
 
-        <div style="float: left; margin: 5px 0px 0px 23px;">
-            <a href="index.php">
-                <img class="icon" src="image/icon.png">
-            </a>
-        </div>
+		<div style="float: left; margin: 5px 0px 0px 23px;">
+			<a href="index.php">
+				<img class="icon" src="image/icon.png">
+			</a>
+		</div>
 
-        <div class="loginContainer">
-            <div class="loginform_content">
-                <h2><?php echo isset($activacc) ? 'Activation' : 'Login'; ?></h2>
-                <form action="" method="POST">
-                    <div class="signup_error_msg">
-                        <?php
-                        if (isset($error_message)) {
-                            echo '<div style="text-align: center; font-size: 18px;">' . $error_message . '<br></div>';
-                        }
-                        ?>
-                    </div>
+		<div class="loginContainer">
+			<div class="loginform_content">
+				<h2><?php echo isset($activacc) ? 'Activation' : 'Login'; ?></h2>
+				<form action="" method="POST">
+					<div class="signup_error_msg">
+						<?php
+						if (isset($error_message)) {
+							echo '<div style="text-align: center; font-size: 18px;">' . $error_message . '<br></div>';
+						}
+						?>
+					</div>
 
-                    <?php
-                    if (isset($activacc)) {
-                        echo '
+					<?php
+					if (isset($activacc)) {
+						echo '
                             <div class="signup_error_msg">
-                                <div style="text-align: center; font-size: 18px;">Check your email!<br></div>
+                                <div style="text-align: center; font-size: 18px;">Use the activation code generated<br></div>
                             </div>
                             <div>
                                 <input name="acemail" placeholder="Enter Your Email" required="required" class="signupbox" type="email" size="30" value="' . $emails . '">
@@ -141,8 +141,8 @@ if (isset($_POST['activate'])) {
                                 <input name="activate" class="uisignupbutton signupbutton" type="submit" value="Activate Account">
                             </div>
                         ';
-                    } else {
-                        echo '
+					} else {
+						echo '
                             <div>
                                 <input name="email" placeholder="Enter Your Email" required="required" class="signupbox" type="email" size="30" value="' . $emails . '">
                             </div>
@@ -153,16 +153,16 @@ if (isset($_POST['activate'])) {
                                 <input name="login" class="uisignupbutton signupbutton" type="submit" value="Log In">
                             </div>
                         ';
-                    }
-                    ?>
+					}
+					?>
 
-                    <p class="forgetpass">
-                        <a href="forgetpass.php">Forget The Password?</a>
-                    </p>
-                </form>
-            </div>
-        </div>
-    </div>
+					<p class="forgetpass">
+						<a href="forgetpass.php">Forget The Password?</a>
+					</p>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>

@@ -1,17 +1,84 @@
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -19,47 +86,76 @@ time, mark, audio, video {
   vertical-align: baseline;
   box-sizing: border-box;
 }
+
 h3 {
   font-size: 25px;
 }
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
+
 body {
   line-height: normal;
 }
-ol, ul {
+
+ol,
+ul {
   list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
   quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
   content: '';
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 * {
-    margin: 0px;
-    padding: 0px;
-}
-body, button, input, label, select, td, textarea {
-    font-family: Arial, Helvetica, tahoma,verdana,arial,sans-serif;
-    font-size: 12px;
-}
-body{
-    width: 100%;
-    position: relative;
-    background-color: #ffffff;
-    min-width: 1080px;
+  margin: 0px;
+  padding: 0px;
 }
 
-.homepageheader { 
+body,
+button,
+input,
+label,
+select,
+td,
+textarea {
+  font-family: Arial, Helvetica, tahoma, verdana, arial, sans-serif;
+  font-size: 12px;
+}
+
+body {
+  width: 100%;
+  position: relative;
+  background-color: #ffffff;
+  min-width: 1080px;
+}
+
+.homepageheader {
   position: fixed;
   height: 82px;
   width: 100%;
@@ -84,11 +180,12 @@ body{
   margin-right: 15px;
   transition: opacity 0.5s;
 }
-.loginButton:hover .signupButton:hover{
+
+.loginButton:hover .signupButton:hover {
   opacity: 0.7;
 }
 
-.loginButton:active .signupButton:active{
+.loginButton:active .signupButton:active {
   opacity: 0.5;
 }
 
@@ -96,23 +193,23 @@ body{
   background-color: #24bfae;
 }
 
-.findAccount{
+.findAccount {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 70vh;
 }
 
-.icon{
+.icon {
   height: 50px;
   margin-top: 10px;
 }
 
-.background{
+.background {
   width: 100%;
 }
 
-.textHeader{
+.textHeader {
   text-align: center;
   width: 100%;
   color: #364f6b;
@@ -123,16 +220,17 @@ body{
   margin-top: 15px;
 }
 
-.categoryList{
+.categoryList {
   width: 96%;
   margin: 15px 60px;
 }
 
-#newsearch{
-  float:left;
-  padding:15px;
+#newsearch {
+  float: left;
+  padding: 15px;
 }
-.srctextinput{
+
+.srctextinput {
   padding: 9px 15px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
@@ -143,6 +241,7 @@ body{
   width: 700px;
   margin-left: 30px;
 }
+
 .srcbutton {
   margin: 0;
   padding: 9px 15px;
@@ -160,46 +259,50 @@ body{
   border-bottom-right-radius: 25px 25px;
   transition: opacity 0.6s;
 }
+
 .srcbutton:hover {
   opacity: 0.7;
 }
+
 .srcbutton:active {
   opacity: 0.5;
 }
 
 /* Fixes submit button height problem in Firefox */
 .srcbutton::-moz-focus-inner {
-    border: 0;
+  border: 0;
 }
+
 .home-welcome {
   margin-top: 0px;
 }
 
 .home-welcome {
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
- .home-welcome-text h1 {
-    text-align: center;
-    font-size: 45px;
-    font-weight: 700;
-    color: #0f5a52;
+.home-welcome-text h1 {
+  text-align: center;
+  font-size: 45px;
+  font-weight: 700;
+  color: #0f5a52;
 }
- 
- .home-welcome-text h2 {
-    text-align: center;
-    font-weight: 600;
-    color: #227e74;
-    font-size: 27px;
-    padding: 10px;
+
+.home-welcome-text h2 {
+  text-align: center;
+  font-weight: 600;
+  color: #227e74;
+  font-size: 27px;
+  padding: 10px;
 }
- .home-footer {
+
+.home-footer {
   text-align: center;
   color: #ffffff;
   background-color: #3f3838;
   font-size: 18px;
   padding: 20px 10px;
- }
+}
 
 /*Sign Up */
 .loginform_content h2 {
@@ -217,7 +320,7 @@ body{
   text-align: center;
 }
 
-.loginContainer{
+.loginContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -233,14 +336,14 @@ body{
   font-style: normal;
 }
 
-.cashOnDeliveryText{
+.cashOnDeliveryText {
   color: #fc5185;
   font-size: 18px;
   padding: 4px;
   font-weight: 700;
 }
 
-.activation-header{
+.activation-header {
   font-size: 20px;
   padding: 10px;
   font-weight: bold;
@@ -248,7 +351,15 @@ body{
   font-style: normal;
 }
 
-.activation-field{
+.unsuccessful-registration {
+  font-size: 20px;
+  padding: 10px;
+  font-weight: bold;
+  color: #d61010;
+  font-style: normal;
+}
+
+.activation-field {
   background-color: white;
   padding: 15px;
   font-weight: bold;
@@ -256,7 +367,7 @@ body{
   font-size: 19px;
 }
 
-.activation-value{
+.activation-value {
   padding: 20px;
   font-weight: 500;
 }
@@ -291,19 +402,20 @@ body{
   font-weight: bold;
 }
 
-.orderBackground{
+.orderBackground {
   background-color: whitesmoke;
   border-radius: 50px;
   padding: 15px;
-  margin-right:55px;
+  margin-right: 55px;
 }
 
 .signupbutton {
-    background-color: transparent;
-    border: 2px solid #FFFFFF;
-    border-radius: 6px;
-    margin: 10px 0px;
+  background-color: transparent;
+  border: 2px solid #FFFFFF;
+  border-radius: 6px;
+  margin: 10px 0px;
 }
+
 .uisignupbutton {
   color: #364F6B;
   cursor: pointer;
@@ -321,10 +433,12 @@ body{
   margin: 7px;
   transition: background-color 1s, color 1s, box-shadow 1s;
 }
+
 .uisignupbutton:hover {
   background-color: #364F6B;
   color: #F5F5F5;
 }
+
 .uisignupbutton:active {
   box-shadow: 0 0 5px #3FC1C9;
 }
@@ -344,9 +458,11 @@ body{
   color: #364F6B;
   transition: opacity 0.5s;
 }
+
 .forgetpass:hover {
   text-decoration: underline;
 }
+
 .forgetpass:active {
   opacity: 0.6;
 }
@@ -356,14 +472,17 @@ body{
   margin: 20px 10px;
   font-size: 25px;
 }
+
 .home-prodlist-img img div {
-    font-size: 20px;
+  font-size: 20px;
 }
+
 .home-prodlist-img:hover {
-    background-color: #fff;
-    border-radius: 8px;
-    color: #fff;
+  background-color: #fff;
+  border-radius: 8px;
+  color: #fff;
 }
+
 .category-img {
   width: 300px;
   height: 300px;
@@ -372,6 +491,7 @@ body{
   object-position: center;
   transition: box-shadow 0.5s, opacity 0.5s;
 }
+
 .category-img:hover {
   box-shadow: 0 0 12px #fc5185
 }
@@ -389,7 +509,7 @@ body{
   transition: box-shadow 0.5s, opacity 0.5s;
 }
 
-.productImg{
+.productImg {
   width: 310px;
   height: 310px;
   border-radius: 100px;
@@ -398,7 +518,7 @@ body{
   margin-left: 260px;
 }
 
-.productInfo{
+.productInfo {
   margin-top: 45px;
   margin-right: 85px;
   float: right;
@@ -408,7 +528,7 @@ body{
   border-radius: 50px;
 }
 
-.productButtons{
+.productButtons {
   padding: 12px 17px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
@@ -425,29 +545,29 @@ body{
   transition: color 0.6s, background-color 0.6s, opacity 0.6s;
 }
 
-.productButtons:hover{
+.productButtons:hover {
   background-color: #ffffff;
   color: #fc5185;
 }
 
-.productButtons:active{
+.productButtons:active {
   opacity: 0.7;
 }
 
-.productButtonsContainer{
+.productButtonsContainer {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.productHdr{
+.productHdr {
   text-align: center;
   font-weight: bold;
   color: #364F6B;
   font-size: 26px;
 }
 
-.productPrice{
+.productPrice {
   text-align: center;
   color: #fc5185;
   margin: 20px 0 0 0;
@@ -455,7 +575,7 @@ body{
   font-size: 25px;
 }
 
-.productPiece{
+.productPiece {
   text-align: center;
   color: #364f6b;
   margin: 20px 0 0 0;
@@ -463,15 +583,15 @@ body{
   font-size: 21px;
 }
 
-.productDescription{
+.productDescription {
   text-align: center;
   color: #364f6b;
   margin: 20px 0 20px 0;
   width: 100%;
-  font-size: 21px;  
+  font-size: 21px;
 }
 
-.changeQuantityButton{
+.changeQuantityButton {
   text-decoration: none;
   font-size: 22px;
   color: #3fc1c9;
@@ -479,29 +599,30 @@ body{
   transition: background-color 1s, border-radius 1s, opacity 1s;
 }
 
-.changeQuantityButton:hover{
+.changeQuantityButton:hover {
   background-color: #3fc1c9;
   color: white;
   border-radius: 25px;
 }
 
-.changeQuantityButton:active{
+.changeQuantityButton:active {
   opacity: 0.6;
 }
 
-.paymentDeliverHeaderContainer{
+.paymentDeliverHeaderContainer {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.categoryHeaders  {
+.categoryHeaders {
   padding: 30px;
   background-color: #F5F5F5;
   text-align: center;
   font-size: 22px;
-  margin-bottom:55px;
+  margin-bottom: 55px;
 }
+
 .categoryHeaders a {
   color: whitesmoke;
   text-decoration: none;
@@ -510,7 +631,8 @@ body{
   margin: 20px;
   padding: 13px 30px 12px 30px;
 }
-.searchNumber{
+
+.searchNumber {
   text-align: center;
   font-size: 22px;
   margin: 24px;
@@ -521,11 +643,11 @@ body{
   padding: 10px;
 }
 
-.selectedItem{
+.selectedItem {
   box-shadow: 0 0 12px #3fc1c9;
 }
 
-.itemDescription{
+.itemDescription {
   text-align: center;
   color: #364f6b;
   font-weight: 600;
@@ -543,13 +665,15 @@ body{
   font-weight: bold;
   vertical-align: middle;
 }
+
 .rightsidemenu th {
   border: 1px solid #3fc1c9;
   padding: 15px;
   text-align: center;
   vertical-align: middle;
 }
-.xButton{
+
+.xButton {
   padding: 15px;
   font-size: 20px;
   cursor: pointer;
@@ -561,16 +685,17 @@ body{
   border-radius: 50px;
   transition: opacity 0.6s, color 0.6s, background-color 0.6s;
 }
-.xButton:hover{
+
+.xButton:hover {
   background: #fc5185;
   color: #f5f5f5;
 }
 
-.xButton:active{
+.xButton:active {
   opacity: 0.7;
 }
 
-.mydict{
+.mydict {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -586,7 +711,7 @@ body{
   width: 1px;
 }
 
-.mydict input[type="radio"]:checked + span {
+.mydict input[type="radio"]:checked+span {
   background-color: #3fc1c9;
   color: #ffffff;
 }
@@ -613,13 +738,14 @@ label:last-child span {
   border-radius: 0 .375em .375em 0;
 }
 
-.categoryHeadersMyCart  {
+.categoryHeadersMyCart {
   padding: 30px;
   background-color: #F5F5F5;
   text-align: center;
   font-size: 25px;
-  margin-bottom:15px;
+  margin-bottom: 15px;
 }
+
 .categoryHeadersMyCart a {
   color: whitesmoke;
   text-decoration: none;
@@ -629,7 +755,7 @@ label:last-child span {
   padding: 13px 30px 12px 30px;
 }
 
-.cartForm{
+.cartForm {
   width: 90%;
   text-align: center;
 }
@@ -702,13 +828,13 @@ label:last-child span {
 
 /* settring */
 
-.settingContainer{
+.settingContainer {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.settingsHeader{
+.settingsHeader {
   background-color: whitesmoke;
   padding: 15px;
   font-weight: bold;

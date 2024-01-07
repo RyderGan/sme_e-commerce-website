@@ -60,11 +60,18 @@ if (isset($_POST['order'])) {
 
 		// Check if email already exists
 
+
 		// order date
 		$d = date("Y-m-d"); // Year - Month - Day
 
+
 		// delivery date
 		$dd = date("Y-m-d", strtotime($d . "+2 weeks"));
+
+		if ($del == 2) {
+			// delivery date
+			$dd = date("Y-m-d", strtotime($d . "+1 week"));
+		}
 
 		// Check product availability and update quantities
 		$result = mysqli_query($con, "SELECT * FROM cart WHERE uid='$user'");
@@ -111,19 +118,18 @@ if (isset($_POST['order'])) {
 
 <body>
 	<div class="homepageheader" style="position: relative;">
-			<?php
-				if ($user!="") {
-					echo '<div class="signupButton loginButton">
+		<?php
+		if ($user != "") {
+			echo '<div class="signupButton loginButton">
 					<a class="uiloginbutton signupButton loginButton" style="margin-right: 40px;" href="logout.php">
 						<div style="text-decoration: none; color: #fff;">Log Out</div>
 					</a>
-					<a class="uiloginbutton signupButton loginButton" href="profile.php?uid='.$user.'">
-						<div style="text-decoration: none; color: #fff;">Hi '.$uname_db.'</div>
+					<a class="uiloginbutton signupButton loginButton" href="profile.php?uid=' . $user . '">
+						<div style="text-decoration: none; color: #fff;">Hi ' . $uname_db . '</div>
 					</a>
 				</div>';
-				}
-				else {
-					echo '<div class="signupButton loginButton">
+		} else {
+			echo '<div class="signupButton loginButton">
 					<a class="uiloginbutton signupButton loginButton" style="margin-right: 40px;" href="signup.php">
 						<div style="color: #fff; text-decoration: none;">Sign Up</div>
 					</a>
@@ -131,21 +137,21 @@ if (isset($_POST['order'])) {
 						<div style="text-decoration: none; color: #fff;">Log In</div>
 					</a>
 				</div>';
-				}
-			?>
+		}
+		?>
 		<div style="float: left; margin: 5px 0px 0px 23px;">
 			<a href="index.php">
 				<img class="icon" src="image/icon.png">
 			</a>
 		</div>
 		<div id="srcheader">
-			<form id="newsearch" method="get" action="search.php" >
-				<?php 
-					echo '<input type="text" class="srctextinput" name="keywords" 
+			<form id="newsearch" method="get" action="search.php">
+				<?php
+				echo '<input type="text" class="srctextinput" name="keywords" 
 					size="21" maxlength="120"  placeholder="Search Here..." 
-					value="'.$search_value.'"><input type="submit" value="Search" 
+					value="' . $search_value . '"><input type="submit" value="Search" 
 					class="srcbutton" >';
-					?>
+				?>
 			</form>
 		</div>
 	</div>
@@ -154,16 +160,16 @@ if (isset($_POST['order'])) {
 		<table>
 			<tr>
 				<th>
-					<?php echo '<a href="mycart.php?uid='.$user.'" style="margin-left: 305px;" class="selectedItem">My Cart</a>'; ?>
+					<?php echo '<a href="mycart.php?uid=' . $user . '" style="margin-left: 305px;" class="selectedItem">My Cart</a>'; ?>
 				</th>
 				<th>
-					<?php echo '<a href="profile.php?uid='.$user.'">My Orders</a>'; ?>
+					<?php echo '<a href="profile.php?uid=' . $user . '">My Orders</a>'; ?>
 				</th>
 				<th>
-					<?php echo '<a href="my_delivery.php?uid='.$user.'" >My Delivery History</a>'; ?>
+					<?php echo '<a href="my_delivery.php?uid=' . $user . '" >My Delivery History</a>'; ?>
 				</th>
 				<th>
-					<?php echo '<a href="settings.php?uid='.$user.'" >Settings</a>'; ?>
+					<?php echo '<a href="settings.php?uid=' . $user . '" >Settings</a>'; ?>
 				</th>
 			</tr>
 		</table>
@@ -204,7 +210,7 @@ if (isset($_POST['order'])) {
 								$_SESSION['total'] = $total;
 							?>
 								<th><?php echo $name; ?></th>
-								<th><?php echo $price; ?></th>
+								<th><?php echo $price; ?>$</th>
 								<th>
 									<?php echo '<a href="delete_cart.php?sid=' . $pId . '" class="changeQuantityButton">-</a>' ?>
 									<?php echo $quantity; ?>
@@ -227,20 +233,20 @@ if (isset($_POST['order'])) {
 									</div>' ?>
 								</th>
 						</tr>
-						<?php } ?>
-						<tr style="font-weight: bold;">
-							<th>Total</th>
-							<th></th>
-							<th><?php echo $total ?>$</th>
-							<th></th>
-							<th></th>
-						</tr>
+					<?php } ?>
+					<tr style="font-weight: bold;">
+						<th>Total</th>
+						<th></th>
+						<th><?php echo $total ?>$</th>
+						<th></th>
+						<th></th>
+					</tr>
 					</table>
 				</li>
 			</ul>
 		</div>
 
-		<div  style="float: right; width: 32%">
+		<div style="float: right; width: 32%">
 			<?php
 			if (isset($success_message)) {
 				echo $success_message;
@@ -261,33 +267,33 @@ if (isset($_POST['order'])) {
 				echo '<h3 class="paymentDetailsField"> First Name </h3>';
 				echo '<span class="paymentDetailsValue">' . $uname_db . '</span>';
 				echo '</div>';
-				
+
 				echo '<div class="paymentDetailsPair">';
 				echo '<h3 class="paymentDetailsField"> Last Name </h3>';
 				echo '<span class="paymentDetailsValue">' . $ulast_db . '</span>';
 				echo '</div>';
-				
+
 				echo '<div class="paymentDetailsPair">';
 				echo '<h3 class="paymentDetailsField"> Email </h3>';
 				echo '<span class="paymentDetailsValue">' . $uemail_db . '</span>';
 				echo '</div>';
-				
+
 				echo '<div class="paymentDetailsPair">';
 				echo '<h3 class="paymentDetailsField"> Contact Number </h3>';
 				echo '<span class="paymentDetailsValue">' . $umob_db . '</span>';
 				echo '</div>';
-				
+
 				echo '<div class="paymentDetailsPair">';
 				echo '<h3 class="paymentDetailsField"> Address </h3>';
 				echo '<span class="paymentDetailsValue">' . $uadd_db . '</span>';
 				echo '</div>';
-				
+
 				$del = $_POST['Delivery'];
 				echo '<div class="paymentDetailsPair">';
 				echo '<h3 class="paymentDetailsField">Types of Delivery</h3>';
 				echo '<span class="paymentDetailsValue">' . $del . '</span>';
 				echo '</div>';
-				
+
 				echo '<div class="paymentDetailsPair">';
 				echo '<h3 class="paymentDetailsFieldTotal"> Total </h3>';
 				echo '<span class="paymentDetailsValueTotal">'  . $_SESSION['total'] . ' $</span>';
@@ -333,11 +339,11 @@ if (isset($_POST['order'])) {
 									<div class="mydict">
 										<div>
 											<label>
-												<input type="radio" name="Delivery" checked="checked">
+												<input type="radio" value="1" name="Delivery" checked="checked">
 												<span>Standard Delivery</span>
 											</label>
 											<label>
-												<input type="radio" name="Delivery">
+												<input type="radio" value="2" name="Delivery">
 												<span>Express Delivery</span>
 											</label>
 										</div>

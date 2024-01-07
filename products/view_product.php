@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include("../inc/connect.inc.php");
 ob_start();
@@ -63,14 +63,14 @@ if (isset($_POST['addcart'])) {
 	<div class="categoryHeaders">
 		<table>
 			<tr>
-				<th><a href="Cans.php" >Cans</a></th>
-				<th><a href="Snacks.php" >Snacks</a></th>
-				<th><a href="Sweets.php" >Sweets</a></th>
-				<th><a href="Drinks.php" >Drinks</a></th>
-				<th><a href="Condiments.php" >Condiments</a></th>
+				<th><a href="Cans.php">Cans</a></th>
+				<th><a href="Snacks.php">Snacks</a></th>
+				<th><a href="Sweets.php">Sweets</a></th>
+				<th><a href="Drinks.php">Drinks</a></th>
+				<th><a href="Condiments.php">Condiments</a></th>
 				<th><a href="Hygiene.php">Hygiene</a></th>
-				<th><a href="Shampoo.php" >Shampoo</a></th>
-				<th><a href="Soap.php" >Soap</a></th>
+				<th><a href="Shampoo.php">Shampoo</a></th>
+				<th><a href="Soap.php">Soap</a></th>
 			</tr>
 		</table>
 	</div>
@@ -78,24 +78,31 @@ if (isset($_POST['addcart'])) {
 	<div>
 		<?php
 		echo '
-				<div style="float: left;">
-					<div>
-						<img src="../image/products/' . $item . '/' . $picture . '" class="productImg">
-					</div>
+			<div style="float: left;">
+				<div>
+					<img src="../image/products/' . $item . '/' . $picture . '" class="productImg">
 				</div>
-				<div class="productInfo">
-					<p class="productHdr">' . $name . '</p>
-					<p class="productPrice">Price ' . $price . '$</p>
-					<div class="productButtonsContainer">
-						<form id="" method="post" action="">
-							<input type="submit" name="addcart" value="Add to cart" class="productButtons" >
-						</form>
-						<form id="" method="post" action="../orderform.php?poid=' . $pid . '">
-							<input type="submit" value="Order Now" class="productButtons" >
-						</form>
-					</div>
+			</div>
+			<div class="productInfo">
+				<p class="productHdr">' . $name . '</p>
+				<p class="productPrice">Price ' . $price . '$</p>
+				<div class="productButtonsContainer">';
+
+		// Check if the user is logged in
+		if (!empty($user)) {
+			echo '
+					<form id="" method="post" action="">
+						<input type="submit" name="addcart" value="Add to cart" class="productButtons" >
+					</form>';
+		}
+
+		echo '
+					<form id="" method="post" action="../orderform.php?poid=' . $pid . '">
+						<input type="submit" value="Order Now" class="productButtons" >
+					</form>
 				</div>
-			';
+			</div>
+		';
 		?>
 
 	</div>
