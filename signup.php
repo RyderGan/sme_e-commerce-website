@@ -70,30 +70,36 @@ if (isset($_POST['signup'])) {
 		$_POST['email'] = mb_convert_case($u_email, MB_CASE_LOWER, "UTF-8");
 		$_POST['password'] = md5($_POST['password']);
 		$confirmCode  = substr(rand() * 900000 + 100000, 0, 6);
-		// send email
-		$msg = "
-						...
-						
-						Your activation code: " . $confirmCode . "
-						Signup email: " . $_POST['email'] . "
-						
-						";
-		//if (@mail($_POST['email'],"eBuyBD Activation Code",$msg, "From:eBuyBD <no-reply@ebuybd.xyz>")) {
 
-		$result = mysqli_query($con, "INSERT INTO user (firstName,lastName,email,mobile,address,password,confirmCode) VALUES ('$_POST[first_name]','$_POST[last_name]','$_POST[email]','$_POST[mobile]','$_POST[signupaddress]','$_POST[password]','$confirmCode')");
 
-		//success message
-		$success_message = '
+		// Check if email is already taken
+		$emailExistsQuery = mysqli_query($con, "SELECT * FROM user WHERE email = '$_POST[email]'");
+		if (mysqli_num_rows($emailExistsQuery) > 0) {
+			// Email is already taken, handle this situation (e.g., display an error message)
+			$msg =   '
 						<div class="signupform_content">
-							<h2 style="margin-left: 155px">Registration Successful</h2>
+							<h2 style="margin-left: 155px">Registration Failed</h2>
 							<div style="font-size: 18px; text-align: center;">
-								<p class="activation-header">Activation code sent to your email</p>
-								<p class="activation-field">Email</p>
-								<p class="activation-value">' . $u_email . '</p>
-								<p class="activation-field">Your activation code</p>
-								<p class="activation-value">' . $confirmCode . '</p>
+								<p class="unsuccessful-registration">Registration was unsuccessful due to existing email</p>
 							</div>
 						</div>';
+		} else {
+			// Email is not taken, proceed with the insertion
+			$result = mysqli_query($con, "INSERT INTO user (firstName,lastName,email,mobile,address,password,confirmCode) VALUES ('$_POST[first_name]','$_POST[last_name]','$_POST[email]','$_POST[mobile]','$_POST[signupaddress]','$_POST[password]','$confirmCode')");
+
+			//success message
+			$msg = '
+							<div class="signupform_content">
+								<h2 style="margin-left: 155px">Registration Successful</h2>
+								<div style="font-size: 18px; text-align: center;">
+									<p class="activation-header">Please use the activation code below after you login for the first time</p>
+									<p class="activation-field">Email</p>
+									<p class="activation-value">' . $u_email . '</p>
+									<p class="activation-field">Your activation code</p>
+									<p class="activation-value">' . $confirmCode . '</p>
+								</div>
+							</div>';
+		}
 	} catch (Exception $e) {
 		$error_message = $e->getMessage();
 	}
@@ -124,8 +130,8 @@ if (isset($_POST['signup'])) {
 				</a>
 			</div>
 			<?php
-			if (isset($success_message)) {
-				echo $success_message;
+			if (isset($msg)) {
+				echo $msg;
 			} else {
 				echo '
 					<div class="loginContainer">
@@ -168,9 +174,9 @@ if (isset($_POST['signup'])) {
 									</div>
 									<div class="signup_error_msg">';
 
-									if (isset($error_message)) {
-										echo $error_message;
-									}
+				if (isset($error_message)) {
+					echo $error_message;
+				}
 
 				echo '				</div>
 								</div>
