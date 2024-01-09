@@ -60,7 +60,7 @@ INSERT INTO `products` (`id`, `name`, `price`, `item`, `picture`) VALUES
 (2, 'Tuna', 5, 'cans', 'tuna.png'),
 
 (3, 'Chips', 3, 'snacks', 'chips.png'),
-(4, 'Dount', 5, 'snacks', 'dount.png'),
+(4, 'Donut', 5, 'snacks', 'donut.png'),
 
 (5, 'Small Candy', 1, 'sweets', 'smallCandy.png'),
 (6, 'Wafer', 2, 'sweets', 'wafer.png'),
@@ -69,7 +69,7 @@ INSERT INTO `products` (`id`, `name`, `price`, `item`, `picture`) VALUES
 (8, 'Pepsi', 3, 'drinks', 'pepsi.png'),
 
 (9, 'Salt', 2, 'condiments', 'salt.png'),
-(10, 'Papper', 4, 'condiments', 'pepper.png'),
+(10, 'Pepper', 4, 'condiments', 'pepper.png'),
 
 (11, 'Toothbrush', 9, 'hygiene', 'toothbrush.png'),
 (12, 'Razor', 4, 'hygiene', 'razor.png'),
