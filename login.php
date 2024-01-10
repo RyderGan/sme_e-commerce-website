@@ -149,7 +149,8 @@ if (isset($_POST['activate'])) {
 								<div id="email_error" class="error_msg"></div>
                             </div>
                             <div>
-                                <input name="password" id="password-1" required="required" placeholder="Enter Password" class="signupbox" type="password" size="30" value="' . $passs . '">
+                                <input id="password" name="password" id="password-1" required="required" placeholder="Enter Password" class="signupbox" type="password" size="30" value="' . $passs . '">
+								<div id="password_error" class="error_msg"></div>
                             </div>
                             <div>
                                 <input id="login-btn" name="login" class="uisignupbutton signupbutton" type="submit" value="Log In" onclick="return validateForm()">
@@ -172,10 +173,17 @@ if (isset($_POST['activate'])) {
 		// Get form elements
 		var email = document.getElementById('email').value;
 		var emailErrorDiv = document.getElementById('email_error');
+		var password = document.getElementById('password').value;
+		var passwordErrorDiv = document.getElementById('password_error');
 
 		// Check if any of the fields are unfilled
 		if (email === '') {
 			emailErrorDiv.innerHTML = 'Please fill this field.';
+		}
+		if (password === '') {
+			passwordErrorDiv.innerHTML = 'Please fill this field.';
+		}
+		if (password === '' || email === '') {
 			return false;
 		}
 
