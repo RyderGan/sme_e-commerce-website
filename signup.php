@@ -167,8 +167,9 @@ if (isset($_POST['signup'])) {
 									</div>
 									<div>
 										<td>
-											<input name="signupaddress" placeholder="Write Your Full Address" required="required" class="email signupbox" type="text" size="30" value="' . $u_address . '" >
+											<input id="signupaddress" name="signupaddress" placeholder="Write Your Full Address" required="required" class="email signupbox" type="text" size="30" value="' . $u_address . '" >
 										</td>
+										<div id="address_error" class="error_msg"></div>
 									</div>
 									<div>
 										<td>
@@ -209,6 +210,8 @@ if (isset($_POST['signup'])) {
 		var emailErrorDiv = document.getElementById('email_error');
 		var mobile = document.getElementById('mobile').value;
 		var mobileErrorDiv = document.getElementById('mobile_error');
+		var address = document.getElementById('signupaddress').value;
+		var addressErrorDiv = document.getElementById('address_error');
 		var password = document.getElementById('password-1').value;
 		var passwordErrorDiv = document.getElementById('password_error');
 
@@ -225,10 +228,13 @@ if (isset($_POST['signup'])) {
 		if (mobile === '') {
 			mobileErrorDiv.innerHTML = 'Please fill this field.';
 		}
+		if (address === '') {
+			addressErrorDiv.innerHTML = 'Please fill this field'
+		}
 		if (password === '') {
 			passwordErrorDiv.innerHTML = 'Please fill this field.';
 		}
-		if (firstName === '' || lastName === '' || email === '' || mobile === '' || password === '') {
+		if (firstName === '' || lastName === '' || email === '' || mobile === '' || address === '' || password === '') {
 			return false;
 		}
 
