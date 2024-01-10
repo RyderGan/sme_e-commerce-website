@@ -53,11 +53,12 @@ if (isset($_POST['signup'])) {
 			throw new Exception('Last name must be 2-20 characters!');
 		}
 
-
 		// Check if email already exists
-		// if ($email_check > 0) {
-		// 	throw new Exception('Email already taken. Please check that you have created an account before.');
-		// }
+		$e_check = mysqli_query($con, "SELECT email FROM `user` WHERE email='$u_email'");
+		$email_check = mysqli_num_rows($e_check);
+		if ($email_check > 0) {
+			throw new Exception('Email already taken. Please check that you have created an account before.');
+		}
 		//Check password strength
 		if (strlen($_POST['password']) < 9) {
 			throw new Exception('Please choose a stronger password');
@@ -141,36 +142,42 @@ if (isset($_POST['signup'])) {
 								<div>
 									<div>
 										<td >
-											<input name="first_name" id="first_name" placeholder="First Name" required="required" class="first_name signupbox" type="text" size="30" value="' . $u_fname . '" >
+											<input name="first_name" id="first_name" placeholder="First Name" required="required" class="first_name signupbox" type="text" size="30" value="' . $u_fname . '" oninput="validateFirstName()" >
 										</td>
+										<div id="first_name_error" class="error_msg"></div>
 									</div>
 									<div>
 										<td >
-											<input name="last_name" id="last_name" placeholder="Last Name" required="required" class="last_name signupbox" type="text" size="30" value="' . $u_lname . '" >
+											<input name="last_name" id="last_name" placeholder="Last Name" required="required" class="last_name signupbox" type="text" size="30" value="' . $u_lname . '" oninput="validateLastName()" >
+										</td>
+										<div id="last_name_error" class="error_msg"></div>
+									</div>
+									<div>
+										<td>
+											<input id="email" name="email" placeholder="Enter Your Email" required="required" class="email signupbox" type="email" size="30" value="' . $u_email . '" oninput="validateEmail()">
+										</td>	
+										<div id="email_error" class="error_msg"></div>
+
+									</div>
+									<div>
+										<td>
+											<input id="mobile" name="mobile" placeholder="Enter Your Mobile" required="required" class="email signupbox" type="text" size="30" value="' . $u_mobile . '" oninput="validateMobile()">
+										</td>
+										<div id="mobile_error" class="error_msg"></div>
+									</div>
+									<div>
+										<td>
+											<input name="signupaddress" placeholder="Write Your Full Address" required="required" class="email signupbox" type="text" size="30" value="' . $u_address . '" >
 										</td>
 									</div>
 									<div>
 										<td>
-											<input name="email" placeholder="Enter Your Email" required="required" class="email signupbox" type="email" size="30" value="' . $u_email . '">
-										</td>										
-									</div>
-									<div>
-										<td>
-											<input name="mobile" placeholder="Enter Your Mobile" required="required" class="email signupbox" type="text" size="30" value="' . $u_mobile . '">
+											<input name="password" id="password-1" required="required"  placeholder="Enter New Password" class=" signupbox " type="password" size="30" value="' . $u_pass . '" oninput="validatePassword()">
 										</td>
+										<div id="password_error" class="error_msg"></div>
 									</div>
 									<div>
-										<td>
-											<input name="signupaddress" placeholder="Write Your Full Address" required="required" class="email signupbox" type="text" size="30" value="' . $u_address . '">
-										</td>
-									</div>
-									<div>
-										<td>
-											<input name="password" id="password-1" required="required"  placeholder="Enter New Password" class=" signupbox " type="password" size="30" value="' . $u_pass . '">
-										</td>
-									</div>
-									<div>
-										<input name="signup" class="uisignupbutton signupbutton" type="submit" value="Sign Up">
+										<input name="signup" class="uisignupbutton signupbutton" type="submit" value="Sign Up" id="signup-btn" onclick="return validateForm()">
 									</div>
 									<div class="signup_error_msg">';
 
