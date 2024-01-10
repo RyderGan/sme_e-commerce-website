@@ -132,25 +132,28 @@ if (isset($_POST['activate'])) {
                                 <div style="text-align: center; font-size: 18px;">Use the activation code generated<br></div>
                             </div>
                             <div>
-                                <input name="acemail" placeholder="Enter Your Email" required="required" class="signupbox" type="email" size="30" value="' . $emails . '">
+                                <input id="email" name="acemail" placeholder="Enter Your Email" required="required" class="signupbox" type="email" size="30" value="' . $emails . '">
+								<div id="email_error" class="error_msg"></div>
                             </div>
                             <div>
                                 <input name="actcode" placeholder="Activation Code" required="required" class="signupbox" type="text" size="30" value="' . $acccode . '">
                             </div>
                             <div>
-                                <input name="activate" class="uisignupbutton signupbutton" type="submit" value="Activate Account">
+                                <input id="login-btn" name="activate" class="uisignupbutton signupbutton" type="submit" value="Activate Account">
                             </div>
                         ';
 					} else {
 						echo '
                             <div>
-                                <input name="email" placeholder="Enter Your Email" required="required" class="signupbox" type="email" size="30" value="' . $emails . '">
+                                <input id="email" name="email" placeholder="Enter Your Email" required="required" class="signupbox" type="email" size="30" value="' . $emails . '" oninput="validateEmail()">
+								<div id="email_error" class="error_msg"></div>
                             </div>
                             <div>
-                                <input name="password" id="password-1" required="required" placeholder="Enter Password" class="signupbox" type="password" size="30" value="' . $passs . '">
+                                <input id="password" name="password" id="password-1" required="required" placeholder="Enter Password" class="signupbox" type="password" size="30" value="' . $passs . '">
+								<div id="password_error" class="error_msg"></div>
                             </div>
                             <div>
-                                <input name="login" class="uisignupbutton signupbutton" type="submit" value="Log In">
+                                <input id="login-btn" name="login" class="uisignupbutton signupbutton" type="submit" value="Log In" onclick="return validateForm()">
                             </div>
                         ';
 					}
@@ -164,5 +167,43 @@ if (isset($_POST['activate'])) {
 		</div>
 	</div>
 </body>
+
+<script>
+	function validateForm() {
+		// Get form elements
+		var email = document.getElementById('email').value;
+		var emailErrorDiv = document.getElementById('email_error');
+		var password = document.getElementById('password').value;
+		var passwordErrorDiv = document.getElementById('password_error');
+
+		// Check if any of the fields are unfilled
+		if (email === '') {
+			emailErrorDiv.innerHTML = 'Please fill this field.';
+		}
+		if (password === '') {
+			passwordErrorDiv.innerHTML = 'Please fill this field.';
+		}
+		if (password === '' || email === '') {
+			return false;
+		}
+
+		return true;
+	}
+
+	function validateEmail() {
+		var email = document.getElementById('email').value;
+		var errorDiv = document.getElementById('email_error');
+		var loginBtn = document.getElementById('login-btn');
+		var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+		if (!emailRegex.test(email)) {
+			errorDiv.innerHTML = 'Invalid email format';
+			loginBtn.disabled = true;
+		} else {
+			errorDiv.innerHTML = '';
+			loginBtn.disabled = false;
+		}
+	}
+</script>
 
 </html>

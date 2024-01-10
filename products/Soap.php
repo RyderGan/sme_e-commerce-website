@@ -67,6 +67,8 @@ else {
 						</ul>
 					';
 				}
+			} else {
+				echo '<div class="searchNumber">Nothing found!</div>';
 			}
 		?>
 			
