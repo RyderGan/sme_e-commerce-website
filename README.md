@@ -65,7 +65,8 @@ Note: This is an error in the sql file as it doesn’t have this ‘USE groceryd
 •	Start the database server ("MySQL Database")
 •	Start the PHP environment ("Apache Web Server")
  ![image](https://github.com/RyderGan/sme_e-commerce-website/assets/75482385/44192b8c-5bad-4b9f-be22-0bed142799da)
-2)	Go to http://localhost/E-Commerce-Website-Using-PHP/Updated/ in your browser.
+2)	Go to (http://localhost/sme_e-commerce-website/) in your browser.
 3)	The index.php file will be displayed in your browser.
- ![image](https://github.com/RyderGan/sme_e-commerce-website/assets/75482385/f6525497-592c-427e-b798-265162415517)
+![image](https://github.com/RyderGan/sme_e-commerce-website/assets/75482385/733b3f83-2b7a-401e-8de9-e283fee3fc80)
+
 
